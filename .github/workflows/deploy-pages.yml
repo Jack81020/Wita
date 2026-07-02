@@ -34,7 +34,7 @@ jobs:
 
       - name: Build
         working-directory: wita-angular
-        run: npx ng build --base-href /NOME_REPO/
+        run: npx ng build --base-href /Wita/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
