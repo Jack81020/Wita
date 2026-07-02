@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "wita-angular": {
+    "wita": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -25,7 +25,9 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css"]
+            "styles": [
+              "src/styles.css"
+            ]
           },
           "configurations": {
             "production": {
@@ -55,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "wita-angular:build:production"
+              "buildTarget": "wita:build:production"
             },
             "development": {
-              "buildTarget": "wita-angular:build:development"
+              "buildTarget": "wita:build:development"
             }
           },
           "defaultConfiguration": "development"
