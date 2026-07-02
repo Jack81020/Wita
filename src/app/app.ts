@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, inject } from '@angular/core';
+﻿import { AfterViewInit, Component, ElementRef, OnDestroy, inject } from '@angular/core';
 
 @Component({
   standalone: true,
@@ -11,6 +11,7 @@ export class App implements AfterViewInit, OnDestroy {
   private readonly cleanupFns: Array<() => void> = [];
 
   ngAfterViewInit(): void {
+    this.setupHeroVideo();
     this.setupStickyHeader();
     this.setupTempElevationTabs();
     this.setupMemberStoryVideos();
@@ -21,6 +22,52 @@ export class App implements AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.cleanupFns.forEach((cleanup) => cleanup());
     document.body.classList.remove('header-scrolled', 'wita-product-drawer-open');
+  }
+
+  private setupHeroVideo(): void {
+    const root: HTMLElement = this.host.nativeElement;
+    const video = root.querySelector<HTMLVideoElement>('.Pod5Hero_container__NsAaG video');
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+    video.autoplay = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('autoplay', '');
+    video.setAttribute('playsinline', '');
+
+    const attemptPlay = () => {
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        void playPromise.catch(() => {});
+      }
+    };
+
+    const onLoadedData = () => attemptPlay();
+    const onCanPlay = () => attemptPlay();
+    const onVisibilityChange = () => {
+      if (!document.hidden) {
+        attemptPlay();
+      }
+    };
+
+    video.addEventListener('loadeddata', onLoadedData);
+    video.addEventListener('canplay', onCanPlay);
+    document.addEventListener('visibilitychange', onVisibilityChange);
+
+    if (video.readyState >= 2) {
+      attemptPlay();
+    } else {
+      video.load();
+    }
+
+    this.cleanupFns.push(() => {
+      video.removeEventListener('loadeddata', onLoadedData);
+      video.removeEventListener('canplay', onCanPlay);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+    });
   }
 
   private setupTempElevationTabs(): void {
@@ -90,7 +137,7 @@ export class App implements AfterViewInit, OnDestroy {
         preview.style.display = 'none';
         videoWrapper.style.display = 'block';
         video.style.display = 'block';
-        void video.play().catch(() => { });
+        void video.play().catch(() => {});
       };
 
       const onEnded = () => {
@@ -180,19 +227,22 @@ export class App implements AfterViewInit, OnDestroy {
       hub: {
         eyebrow: 'Hardware',
         title: 'Sensore intelligente',
-        description: 'Rileva l’attività nella stanza in tempo reale, in modo anonimo, continuo e non invasivo. Installato a parete o a soffitto, osserva l’ambiente senza richiedere dispositivi indossabili, ricariche o interventi da parte dell’ospite, trasformando ciò che accade nella stanza in informazioni utili per l’assistenza.',
+        description:
+          'Rileva lâ€™attivitÃ  nella stanza in tempo reale, in modo anonimo, continuo e non invasivo. Installato a parete o a soffitto, osserva lâ€™ambiente senza richiedere dispositivi indossabili, ricariche o interventi da parte dellâ€™ospite, trasformando ciÃ² che accade nella stanza in informazioni utili per lâ€™assistenza.',
         image: 'assets/hub-card.png',
       },
       'pillow-cover': {
         eyebrow: 'Accessorio',
         title: 'Portale desktop',
-        description: 'Offre una vista completa della struttura per monitorare stanze, eventi e priorità operative con immediatezza.',
+        description:
+          'Offre una vista completa della struttura per monitorare stanze, eventi e prioritÃ  operative con immediatezza.',
         image: 'assets/pillow-cover-card.png',
       },
       blanket: {
         eyebrow: 'Accessorio',
         title: 'Web app mobile',
-        description: 'Rende notifiche e informazioni sempre accessibili, così il personale può restare aggiornato anche in movimento. Gli operatori possono ricevere alert, controllare lo stato delle stanze e intervenire con maggiore tempestività, direttamente dal proprio smartphone, senza dover tornare ogni volta a una postazione fissa.',
+        description:
+          'Rende notifiche e informazioni sempre accessibili, cosÃ¬ il personale puÃ² restare aggiornato anche in movimento. Gli operatori possono ricevere alert, controllare lo stato delle stanze e intervenire con maggiore tempestivitÃ , direttamente dal proprio smartphone, senza dover tornare ogni volta a una postazione fissa.',
         image: 'assets/blanket-card.png',
       },
     };
@@ -269,4 +319,3 @@ export class App implements AfterViewInit, OnDestroy {
     this.cleanupFns.push(() => document.removeEventListener('keydown', onKeydown));
   }
 }
-
