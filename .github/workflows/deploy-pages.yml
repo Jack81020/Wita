@@ -24,22 +24,20 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
-          cache-dependency-path: wita/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        working-directory: wita
         run: npm ci
 
       - name: Build
-        working-directory: wita
         run: npx ng build --base-href /Wita/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: wita/dist/wita/browser
+          path: dist/wita/browser
 
   deploy:
     environment:
