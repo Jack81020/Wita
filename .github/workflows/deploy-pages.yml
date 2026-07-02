@@ -26,20 +26,20 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: wita-angular/package-lock.json
+          cache-dependency-path: wita/package-lock.json
 
       - name: Install dependencies
-        working-directory: wita-angular
+        working-directory: wita
         run: npm ci
 
       - name: Build
-        working-directory: wita-angular
+        working-directory: wita
         run: npx ng build --base-href /Wita/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: wita-angular/dist/wita-angular/browser
+          path: wita/dist/wita/browser
 
   deploy:
     environment:
