@@ -233,21 +233,21 @@ export class App implements AfterViewInit, OnDestroy {
         eyebrow: 'Hardware',
         title: 'Sensore intelligente',
         description:
-          "Rileva l'attività nella stanza in tempo reale, in modo anonimo, continuo e non invasivo. Installato a parete o a soffitto, osserva l'ambiente senza richiedere dispositivi indossabili, ricariche o interventi da parte dell'ospite, trasformando ciò che accade nella stanza in informazioni utili per l'assistenza.",
+          "Rileva l'attività nella stanza in tempo reale, in modo anonimo, continuo e non invasivo.<br>Installato a parete o a soffitto, osserva l'ambiente senza richiedere dispositivi indossabili, ricariche o interventi da parte dell'ospite, trasformando ciò che accade nella stanza in informazioni utili per l'assistenza.",
         image: 'assets/mentorage.png',
       },
       'pillow-cover': {
         eyebrow: 'Computer',
         title: 'Portale desktop',
         description:
-          'Offre una vista completa della struttura per monitorare stanze, eventi e priorità operative con immediatezza.',
+          "Offre una vista completa della struttura per monitorare stanze, eventi e priorità operative con immediatezza. <br> Permette di consultare statistiche sull’andamento degli ospiti e della struttura, aiutando coordinatori e responsabili a valorizzare meglio i dati, individuare trend ricorrenti e supportare decisioni organizzative più consapevoli.",
         image: 'assets/pc.png',
       },
       blanket: {
         eyebrow: 'Smartphone',
         title: 'App mobile',
         description:
-          'Rende notifiche e informazioni sempre accessibili, così il personale può restare aggiornato anche in movimento. Gli operatori possono ricevere alert, controllare lo stato delle stanze e intervenire con maggiore tempestività, direttamente dal proprio smartphone, senza dover tornare ogni volta a una postazione fissa.',
+          'Rende notifiche e informazioni sempre accessibili, così il personale può restare aggiornato anche in movimento.<br>Gli operatori possono ricevere alert, controllare lo stato delle stanze e intervenire con maggiore tempestività, direttamente dal proprio smartphone, senza dover tornare ogni volta a una postazione fissa.',
         image: 'assets/smartphone.png',
       },
     };
@@ -293,7 +293,7 @@ export class App implements AfterViewInit, OnDestroy {
 
       if (eyebrow) eyebrow.textContent = product.eyebrow;
       if (title) title.textContent = product.title;
-      if (description) description.textContent = product.description;
+      if (description) description.innerHTML = product.description;
       if (image) {
         image.src = product.image;
         image.alt = product.title;
