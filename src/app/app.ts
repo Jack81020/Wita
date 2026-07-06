@@ -1,4 +1,4 @@
-﻿import { AfterViewInit, Component, ElementRef, OnDestroy, inject } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, inject } from '@angular/core';
 
 @Component({
   standalone: true,
@@ -41,7 +41,7 @@ export class App implements AfterViewInit, OnDestroy {
     const attemptPlay = () => {
       const playPromise = video.play();
       if (playPromise && typeof playPromise.catch === 'function') {
-        void playPromise.catch(() => {});
+        void playPromise.catch(() => { });
       }
     };
 
@@ -137,7 +137,7 @@ export class App implements AfterViewInit, OnDestroy {
         preview.style.display = 'none';
         videoWrapper.style.display = 'block';
         video.style.display = 'block';
-        void video.play().catch(() => {});
+        void video.play().catch(() => { });
       };
 
       const onEnded = () => {
@@ -222,41 +222,68 @@ export class App implements AfterViewInit, OnDestroy {
     const title = drawer.querySelector<HTMLElement>('[data-product-title]');
     const description = drawer.querySelector<HTMLElement>('[data-product-description]');
     const closeTriggers = Array.from(drawer.querySelectorAll<HTMLElement>('[data-product-drawer-close]'));
+    const prevButton = drawer.querySelector<HTMLButtonElement>('[data-product-prev]');
+    const nextButton = drawer.querySelector<HTMLButtonElement>('[data-product-next]');
+    const productOrder = buttons
+      .map((button) => button.dataset['product'])
+      .filter((productId): productId is string => Boolean(productId));
 
     const products: Record<string, { eyebrow: string; title: string; description: string; image: string }> = {
       hub: {
         eyebrow: 'Hardware',
         title: 'Sensore intelligente',
         description:
-          'Rileva lâ€™attivitÃ  nella stanza in tempo reale, in modo anonimo, continuo e non invasivo. Installato a parete o a soffitto, osserva lâ€™ambiente senza richiedere dispositivi indossabili, ricariche o interventi da parte dellâ€™ospite, trasformando ciÃ² che accade nella stanza in informazioni utili per lâ€™assistenza.',
-        image: 'assets/hub-card.png',
+          "Rileva l'attività nella stanza in tempo reale, in modo anonimo, continuo e non invasivo. Installato a parete o a soffitto, osserva l'ambiente senza richiedere dispositivi indossabili, ricariche o interventi da parte dell'ospite, trasformando ciò che accade nella stanza in informazioni utili per l'assistenza.",
+        image: 'assets/mentorage.png',
       },
       'pillow-cover': {
-        eyebrow: 'Accessorio',
+        eyebrow: 'Computer',
         title: 'Portale desktop',
         description:
-          'Offre una vista completa della struttura per monitorare stanze, eventi e prioritÃ  operative con immediatezza.',
-        image: 'assets/pillow-cover-card.png',
+          'Offre una vista completa della struttura per monitorare stanze, eventi e priorità operative con immediatezza.',
+        image: 'assets/pc.png',
       },
       blanket: {
-        eyebrow: 'Accessorio',
-        title: 'Web app mobile',
+        eyebrow: 'Smartphone',
+        title: 'App mobile',
         description:
-          'Rende notifiche e informazioni sempre accessibili, cosÃ¬ il personale puÃ² restare aggiornato anche in movimento. Gli operatori possono ricevere alert, controllare lo stato delle stanze e intervenire con maggiore tempestivitÃ , direttamente dal proprio smartphone, senza dover tornare ogni volta a una postazione fissa.',
-        image: 'assets/blanket-card.png',
+          'Rende notifiche e informazioni sempre accessibili, così il personale può restare aggiornato anche in movimento. Gli operatori possono ricevere alert, controllare lo stato delle stanze e intervenire con maggiore tempestività, direttamente dal proprio smartphone, senza dover tornare ogni volta a una postazione fissa.',
+        image: 'assets/smartphone.png',
       },
     };
 
     let activeProduct: string | null = null;
+    let activeIndex = -1;
+
+    const syncNavigationState = () => {
+      const hasActiveProduct = activeIndex >= 0;
+      const hasPrev = hasActiveProduct && activeIndex > 0;
+      const hasNext = hasActiveProduct && activeIndex < productOrder.length - 1;
+
+      if (prevButton) {
+        prevButton.disabled = !hasPrev;
+        prevButton.setAttribute('aria-disabled', String(!hasPrev));
+      }
+
+      if (nextButton) {
+        nextButton.disabled = !hasNext;
+        nextButton.setAttribute('aria-disabled', String(!hasNext));
+      }
+    };
 
     const renderProduct = (productId: string) => {
       const product = products[productId];
-      if (!product) return;
+      const productIndex = productOrder.indexOf(productId);
+      if (!product || productIndex === -1) return;
 
       activeProduct = productId;
+      activeIndex = productIndex;
       drawer.classList.add('is-open');
       drawer.setAttribute('aria-hidden', 'false');
       document.body.classList.add('wita-product-drawer-open');
+      drawer.classList.remove('is-product-refreshing');
+      void drawer.offsetWidth;
+      drawer.classList.add('is-product-refreshing');
 
       buttons.forEach((button) => {
         const isActive = button.dataset['product'] === productId;
@@ -271,11 +298,15 @@ export class App implements AfterViewInit, OnDestroy {
         image.src = product.image;
         image.alt = product.title;
       }
+
+      syncNavigationState();
     };
 
     const closeDrawer = () => {
       activeProduct = null;
+      activeIndex = -1;
       drawer.classList.remove('is-open');
+      drawer.classList.remove('is-product-refreshing');
       drawer.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('wita-product-drawer-open');
 
@@ -283,6 +314,17 @@ export class App implements AfterViewInit, OnDestroy {
         button.classList.remove('is-active');
         button.setAttribute('aria-expanded', 'false');
       });
+
+      syncNavigationState();
+    };
+
+    const navigateProduct = (direction: -1 | 1) => {
+      if (activeIndex < 0) return;
+
+      const nextIndex = activeIndex + direction;
+      if (nextIndex < 0 || nextIndex >= productOrder.length) return;
+
+      renderProduct(productOrder[nextIndex]);
     };
 
     buttons.forEach((button) => {
@@ -304,6 +346,18 @@ export class App implements AfterViewInit, OnDestroy {
       this.cleanupFns.push(() => button.removeEventListener('click', onClick));
     });
 
+    if (prevButton) {
+      const onPrev = () => navigateProduct(-1);
+      prevButton.addEventListener('click', onPrev);
+      this.cleanupFns.push(() => prevButton.removeEventListener('click', onPrev));
+    }
+
+    if (nextButton) {
+      const onNext = () => navigateProduct(1);
+      nextButton.addEventListener('click', onNext);
+      this.cleanupFns.push(() => nextButton.removeEventListener('click', onNext));
+    }
+
     closeTriggers.forEach((trigger) => {
       trigger.addEventListener('click', closeDrawer);
       this.cleanupFns.push(() => trigger.removeEventListener('click', closeDrawer));
@@ -312,10 +366,23 @@ export class App implements AfterViewInit, OnDestroy {
     const onKeydown = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && drawer.classList.contains('is-open')) {
         closeDrawer();
+        return;
+      }
+
+      if (!drawer.classList.contains('is-open')) return;
+
+      if (event.key === 'ArrowLeft') {
+        navigateProduct(-1);
+      }
+
+      if (event.key === 'ArrowRight') {
+        navigateProduct(1);
       }
     };
 
     document.addEventListener('keydown', onKeydown);
     this.cleanupFns.push(() => document.removeEventListener('keydown', onKeydown));
+
+    syncNavigationState();
   }
 }
