@@ -1,0 +1,158 @@
+/* contatti.css */
+.contatti-main {
+  min-height: calc(100vh - 140px);
+  /* Adjust based on header/footer size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+.contatti-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.contatti-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 180px;
+}
+
+.contatti-text {
+  flex: 1 1 400px;
+  max-width: 500px;
+}
+
+.contatti-title {
+  color: #1a1a1a;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  font-weight: 500;
+  margin-bottom: 24px;
+  letter-spacing: -0.03em;
+}
+
+.contatti-desc {
+  color: #8fa0bd;
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+.contatti-form-wrapper {
+  flex: 1 1 450px;
+  max-width: 550px;
+  position: relative;
+}
+
+/* Creating the soft white glow effect behind the form seen in the image */
+.contatti-form-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 0) 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.contatti-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contatti-input {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  font-family: inherit;
+  font-size: 1rem;
+  color: #172440;
+  font-weight: 500;
+  outline: none;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.contatti-input::placeholder {
+  color: #172440;
+  opacity: 1;
+}
+
+.contatti-input:focus {
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+.contatti-textarea {
+  resize: vertical;
+  min-height: 120px;
+  border-radius: 20px;
+}
+
+.contatti-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: #485671;
+  margin: 8px 0;
+  cursor: pointer;
+}
+
+.contatti-checkbox {
+  margin-top: 4px;
+  cursor: pointer;
+}
+
+.contatti-privacy-link {
+  color: #8fa0c5;
+  text-decoration: none;
+}
+
+.contatti-privacy-link:hover {
+  text-decoration: underline;
+}
+
+.contatti-submit {
+  background-color: #111a2f;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  padding: 18px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.contatti-submit:hover {
+  background-color: #0b1120;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .contatti-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contatti-text,
+  .contatti-form-wrapper {
+    max-width: 100%;
+  }
+
+  .contatti-title {
+    font-size: 2.5rem;
+  }
+}

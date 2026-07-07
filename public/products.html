@@ -22,7 +22,7 @@
           <img class="site-header__brand-image" src="assets/mentorage.svg" alt="Mentorage Logo" loading="lazy" />
         </a>
         <div class="site-header__nav site-header__nav--right">
-          <a class="nav-link site-header__account-link" href="#footer">Contatti</a>
+          <a class="nav-link site-header__account-link" href="contatti.html">Contatti</a>
         </div>
       </div>
       <div class="site-header__mobile">
@@ -36,55 +36,61 @@
   <main class="products-main" id="main">
     <div class="products-shell">
       <section class="products-hero">
-        <div class="products-hero__media">
-          <img src="assets/pc.png" alt="Placeholder dashboard overview del portale Mentorage" loading="lazy" />
-        </div>
-      </section>
-
-      <section class="products-summary">
-        <div class="products-summary__grid">
+        <div class="products-hero__content">
           <div>
             <p class="products-eyebrow">Portale Mentorage</p>
-            <h1 class="products-title">Una lettura chiara di ci&ograve; che conta.</h1>
-            <p class="products-subtitle">Una vista progettata per aiutare il personale a capire in pochi secondi cosa sta accadendo nella struttura, leggere priorit&agrave;, individuare cambiamenti e decidere meglio dove intervenire.</p>
+            <h1 class="products-title">Una vista pi&ugrave; chiara per chi assiste.</h1>
+            <p class="products-subtitle">Un'interfaccia pensata per leggere rapidamente ci&ograve; che accade, capire le priorit&agrave; e coordinare meglio il turno.</p>
           </div>
-          <div class="products-summary__aside">
-            <p>Mentorage concentra overview, dati, eventi e stato del paziente in un'unica interfaccia. Il risultato &egrave; una lettura pi&ugrave; continua del reparto, meno dispersione operativa e pi&ugrave; supporto per i team che devono coordinarsi durante il turno.</p>
-          </div>
+          <ul class="products-hero__points" aria-label="Punti chiave del portale Mentorage">
+            <li>Overview immediata</li>
+            <li>Eventi pi&ugrave; leggibili</li>
+            <li>Stato paziente sempre a portata</li>
+          </ul>
+        </div>
+        <div class="products-hero__media">
+          <video class="products-hero__video" playsinline autoplay muted loop preload="auto">
+            <source src="assets/videoMentorage_2.mp4" type="video/mp4" />
+          </video>
         </div>
       </section>
 
-      <section class="products-benefits" aria-label="Panoramica funzionalit&agrave;">
-        <ul class="products-benefits__list">
-          <li class="products-benefit">
-            <h3>Overview</h3>
-            <p>Una sintesi immediata delle informazioni pi&ugrave; rilevanti per capire cosa sta succedendo in ogni momento.</p>
-          </li>
-          <li class="products-benefit">
-            <h3>Dati</h3>
-            <p>Statistiche e andamenti nel tempo, dal singolo paziente fino alla lettura complessiva della struttura.</p>
-          </li>
-          <li class="products-benefit">
-            <h3>Eventi</h3>
-            <p>Alert configurabili in base al profilo di rischio e alle capacit&agrave; della persona assistita.</p>
-          </li>
-          <li class="products-benefit">
-            <h3>Stato paziente</h3>
-            <p>Indicazioni generali su sonno, veglia e attivit&agrave;, con meno check-in invasivi e pi&ugrave; continuit&agrave;.</p>
-          </li>
-        </ul>
+      <section class="products-feature products-feature--immersive" id="product-overview">
+        <div class="products-feature__media products-feature__media--hero">
+          <img src="assets/interactiveimage.png" alt="Vista interattiva del portale Mentorage" loading="lazy" />
+        </div>
+        <div class="products-feature__panel">
+          <p class="products-eyebrow">Overview</p>
+          <h2 class="products-section-title">Capire subito cosa sta succedendo.</h2>
+          <p class="products-section-copy">Mentorage concentra stanze, segnali e priorit&agrave; operative in una lettura semplice, pensata per aiutare il personale a orientarsi in pochi secondi.</p>
+        </div>
       </section>
 
-      <section class="products-overview" id="product-overview">
-        <div class="products-overview__header">
-          <div>
-            <p class="products-eyebrow">Overview</p>
-            <h2 class="products-overview__title">Capire subito cosa sta succedendo.</h2>
+            <section class="products-story">
+        <div class="products-story__intro">
+          <p class="products-eyebrow">Dati ed eventi</p>
+          <div class="products-story__intro-grid">
+            <h2 class="products-section-title">Schermate ampie, dettagli subito leggibili.</h2>
+            <p class="products-section-copy">Statistiche, alert e stato paziente vengono mostrati con tagli diversi ma dentro una composizione pi&ugrave; sobria, cos&igrave; la pagina resta dinamica senza sembrare artificiosa.</p>
           </div>
-          <p class="products-overview__copy">Ottieni una comprensione rapida di ci&ograve; che sta accadendo in qualunque momento. Mentorage porta in primo piano i nuclei pi&ugrave; importanti dell'overview, cos&igrave; il personale pu&ograve; leggere rapidamente il contesto operativo e dare la giusta priorit&agrave; alle attivit&agrave; di cura.</p>
         </div>
-        <div class="products-overview__media">
-          <img src="assets/mentorage.png" alt="Placeholder overview del portale Mentorage" loading="lazy" />
+        <div class="products-story__grid">
+          <div class="products-story__card products-story__card--main">
+            <img src="assets/uff_stats.png" alt="Dashboard statistiche del portale Mentorage" loading="lazy" />
+          </div>
+          <div class="products-story__aside">
+            <div class="products-story__card products-story__card--top">
+              <img src="assets/monitor.png" alt="Vista eventi del portale Mentorage" loading="lazy" />
+            </div>
+            <div class="products-story__card products-story__card--bottom">
+              <img src="assets/smartphone.png" alt="Vista mobile del portale Mentorage" loading="lazy" />
+            </div>
+          </div>
+        </div>
+        <div class="products-story__highlights" aria-label="Punti chiave della UI">
+          <span>Dashboard struttura</span>
+          <span>Monitoraggio eventi</span>
+          <span>Vista mobile</span>
         </div>
       </section>
 
@@ -102,15 +108,12 @@
               <div class="products-capabilities__content">
                 <p class="products-eyebrow">Dati e statistiche</p>
                 <h2 class="products-capabilities__title">Leggere come la realt&agrave; cambia nel tempo.</h2>
-                <p class="products-capabilities__text">Monitorare la realt&agrave; del reparto permette anche di capire come quella realt&agrave; evolve nel tempo. Dal livello individuale fino all'intera struttura, il portale rende leggibili pattern, frequenze e variazioni che aiutano a comprendere meglio ci&ograve; che accade ogni giorno.</p>
-                <ul class="products-capabilities__list">
-                  <li>Confronto nel tempo di stanze, eventi e segnali assistenziali.</li>
-                  <li>Lettura progressiva dal singolo paziente fino alla struttura completa.</li>
-                  <li>Supporto concreto a coordinamento, pianificazione e revisione operativa.</li>
-                </ul>
+                <p class="products-capabilities__text">Pattern, frequenze e andamento operativo diventano pi&ugrave; immediati da leggere, dal singolo paziente fino alla struttura.</p>
               </div>
-              <div class="products-capabilities__media">
-                <img src="assets/uff_stats.png" alt="Vista dati e statistiche del portale Mentorage" loading="lazy" />
+              <div class="products-capabilities__media-wrap">
+                <div class="products-capabilities__media products-capabilities__media--wide">
+                  <img src="assets/uff_stats.png" alt="Vista dati e statistiche del portale Mentorage" loading="lazy" />
+                </div>
               </div>
             </article>
 
@@ -118,15 +121,12 @@
               <div class="products-capabilities__content">
                 <p class="products-eyebrow">Eventi</p>
                 <h2 class="products-capabilities__title">Eventi costruiti sul rischio reale.</h2>
-                <p class="products-capabilities__text">Il sistema pu&ograve; essere adattato ai livelli di rischio e alle capacit&agrave; di ogni persona. Mentorage invia alert per attivit&agrave; predefinite, come una caduta o la presenza sul bordo del letto di un ospite a rischio, aiutando il team a far emergere ci&ograve; che richiede davvero attenzione.</p>
-                <ul class="products-capabilities__list">
-                  <li>Alert configurabili in base a profili, stanze e situazioni a rischio.</li>
-                  <li>Pi&ugrave; tempestivit&agrave; nel riconoscere eventi che contano davvero.</li>
-                  <li>Segnalazioni pi&ugrave; coerenti con il contesto assistenziale quotidiano.</li>
-                </ul>
+                <p class="products-capabilities__text">Alert e segnalazioni emergono in modo pi&ugrave; coerente con il contesto assistenziale, aiutando a dare attenzione rapida a ci&ograve; che conta.</p>
               </div>
-              <div class="products-capabilities__media">
-                <img src="assets/monitor.png" alt="Vista eventi del portale Mentorage" loading="lazy" />
+              <div class="products-capabilities__media-wrap">
+                <div class="products-capabilities__media products-capabilities__media--wide">
+                  <img src="assets/monitor.png" alt="Vista eventi del portale Mentorage" loading="lazy" />
+                </div>
               </div>
             </article>
 
@@ -134,15 +134,12 @@
               <div class="products-capabilities__content">
                 <p class="products-eyebrow">Stato paziente</p>
                 <h2 class="products-capabilities__title">Pi&ugrave; continuit&agrave;, meno interruzioni inutili.</h2>
-                <p class="products-capabilities__text">Riduci la necessit&agrave; di check-in invasivi o ripetitivi. Mentorage offre un'indicazione generale del sonno e della veglia nel tempo, aiutando il personale a leggere meglio lo stato del paziente e a limitare i risvegli non necessari solo per verificare la situazione.</p>
-                <ul class="products-capabilities__list">
-                  <li>Indicazioni sintetiche sullo stato generale della persona assistita.</li>
-                  <li>Meno interruzioni superflue durante le ore di riposo.</li>
-                  <li>Maggiore continuit&agrave; osservativa senza aumentare il carico operativo.</li>
-                </ul>
+                <p class="products-capabilities__text">Uno sguardo sintetico su sonno, veglia e presenza aiuta a limitare controlli superflui e a mantenere pi&ugrave; fluidit&agrave; nel turno.</p>
               </div>
-              <div class="products-capabilities__media">
-                <img src="assets/smartphone.png" alt="Vista stato paziente del portale Mentorage" loading="lazy" />
+              <div class="products-capabilities__media-wrap">
+                <div class="products-capabilities__media products-capabilities__media--wide">
+                  <img src="assets/inf_cell.png" alt="Vista stato paziente del portale Mentorage" loading="lazy" />
+                </div>
               </div>
             </article>
           </div>
@@ -181,5 +178,4 @@
   <script src="products.js"></script>
 </body>
 </html>
-
 

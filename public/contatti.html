@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contatti | Portale Mentorage</title>
+  <link rel="stylesheet" href="products.css" />
+  <link rel="stylesheet" href="contatti.css" />
+</head>
+<body>
+  <a class="skip-main" href="#main">Contenuto principale</a>
+  <a class="skip-main" href="#footer">Pi&egrave; di pagina</a>
+
+  <header class="site-header" tabindex="-1" id="header">
+    <div class="site-header__shell">
+      <div class="site-header__desktop">
+        <nav class="site-header__nav site-header__nav--left" aria-label="Navigazione principale desktop">
+          <a class="nav-link" href="products.html">Prodotti</a>
+          <a class="nav-link" href="products.html#product-overview">Tecnologia</a>
+          <a class="nav-link" href="#footer">Azienda</a>
+        </nav>
+        <a class="site-header__brand" href="index.html" aria-label="Mentorage home">
+          <img class="site-header__brand-image" src="assets/mentorage.svg" alt="Mentorage Logo" loading="lazy" />
+        </a>
+        <div class="site-header__nav site-header__nav--right">
+          <a class="nav-link site-header__account-link is-active" href="contatti.html">Contatti</a>
+        </div>
+      </div>
+      <div class="site-header__mobile">
+        <a class="site-header__brand site-header__brand--mobile" href="index.html" aria-label="Mentorage home">
+          <img class="site-header__brand-image" src="assets/mentorage.svg" alt="Mentorage Logo" loading="lazy" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="contatti-main" id="main">
+    <div class="contatti-container">
+      <div class="contatti-content">
+        <div class="contatti-text">
+          <h1 class="contatti-title">Scopri come prevenire i rischi<br/>e intervenire tempestivamente</h1>
+          <p class="contatti-desc">Compila il modulo per organizzare una breve chiamata conoscitiva<br/>e scoprire i vantaggi di Mentorage per la tua struttura.</p>
+        </div>
+        
+        <div class="contatti-form-wrapper">
+          <form class="contatti-form" action="#" method="POST">
+            <input type="text" class="contatti-input" placeholder="Nome" aria-label="Nome" required />
+            <input type="text" class="contatti-input" placeholder="Azienda" aria-label="Azienda" required />
+            <input type="email" class="contatti-input" placeholder="Email" aria-label="Email" required />
+            <textarea class="contatti-input contatti-textarea" placeholder="Messaggio" aria-label="Messaggio" rows="4" required></textarea>
+            
+            <label class="contatti-checkbox-label">
+              <input type="checkbox" required class="contatti-checkbox" />
+              <span>DICHIARO di aver preso visione dell'<a href="privacy.html" class="contatti-privacy-link" target="_blank">informativa</a> relativa al trattamento dei dati personali.</span>
+            </label>
+            
+            <button type="submit" class="contatti-submit">Invia messaggio</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="products-footer" id="footer">
+    <div class="products-footer__inner">
+      <div class="products-footer__brandblock">
+        <img class="products-footer__logo" src="assets/wita-logo.png" alt="Wita Care" loading="lazy" />
+        <p class="products-footer__tag">Soluzioni digitali per una cura pi&ugrave; continua, leggibile e coordinata.</p>
+      </div>
+      <div class="products-footer__content">
+        <div class="products-footer__column products-footer__column--main">
+          <h2>WITA S.r.l.</h2>
+          <p>38123 Trento | Via della Cooperazione, 105</p>
+          <p><a href="mailto:info@wita.care">info@wita.care</a></p>
+          <p><a href="tel:+3904611610253">+39 0461 1610253</a></p>
+          <p>P.IVA 02539330221</p>
+        </div>
+        <div class="products-footer__column products-footer__column--actions">
+          <a class="products-footer__button" href="https://maps.google.com/?q=Via+della+Cooperazione+105,+38123+Trento" target="_blank" rel="noreferrer">Indicazioni stradali</a>
+        </div>
+      </div>
+    </div>
+    <div class="products-footer__legal">
+      <p>Copyright &copy; Wita S.r.l. 2026</p>
+      <nav aria-label="Link legali">
+        <a href="privacy.html">Informativa sulla privacy</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="products.js"></script>
+</body>
+</html>
