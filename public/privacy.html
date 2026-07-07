@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="it">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Informativa sulla privacy | Wita S.r.l.</title>
+	<style>
+		@font-face {
+			font-family: "Neue Montreal";
+			src: url("assets/font/NeueMontreal-Regular.otf") format("opentype");
+			font-weight: 400;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: "Neue Montreal";
+			src: url("assets/font/NeueMontreal-Medium.otf") format("opentype");
+			font-weight: 500;
+			font-style: normal;
+		}
+
+		:root {
+			color-scheme: light;
+			--bg: #f5f7fb;
+			--surface: rgba(255, 255, 255, 0.82);
+			--border: rgba(17, 24, 39, 0.08);
+			--text: #111827;
+			--muted: #5f6978;
+			--accent: #111111;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			font-family: "Neue Montreal", Arial, sans-serif;
+			background:
+				radial-gradient(circle at top left, rgba(158, 181, 214, 0.18), transparent 28%),
+				radial-gradient(circle at top right, rgba(164, 204, 216, 0.14), transparent 24%),
+				var(--bg);
+			color: var(--text);
+		}
+
+		a {
+			color: inherit;
+		}
+
+		.wita-privacy-shell {
+			min-height: 100vh;
+			padding: 28px 24px 56px;
+		}
+
+		.wita-privacy-topbar {
+			max-width: 1200px;
+			margin: 0 auto 24px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 20px;
+		}
+
+		.wita-privacy-back {
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
+			font-size: 14px;
+			line-height: 1;
+			text-decoration: none;
+			color: var(--muted);
+		}
+
+		.wita-privacy-back::before {
+			content: "";
+			width: 10px;
+			height: 10px;
+			border-left: 1.6px solid currentColor;
+			border-bottom: 1.6px solid currentColor;
+			transform: rotate(45deg);
+			margin-left: 2px;
+		}
+
+		.wita-privacy-brand {
+			width: clamp(150px, 18vw, 220px);
+			height: auto;
+			display: block;
+		}
+
+		.wita-privacy-page {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: clamp(32px, 4vw, 48px);
+			border: 1px solid var(--border);
+			border-radius: 24px;
+			background: var(--surface);
+			backdrop-filter: blur(12px);
+			-webkit-backdrop-filter: blur(12px);
+			box-shadow: 0 24px 64px rgba(15, 23, 42, 0.08);
+		}
+
+		.wita-privacy-header {
+			display: grid;
+			grid-template-columns: minmax(0, 1.3fr) minmax(240px, 320px);
+			gap: 28px;
+			padding-bottom: 28px;
+			margin-bottom: 28px;
+			border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+		}
+
+		.wita-privacy-header h1 {
+			margin: 0 0 14px;
+			font-size: clamp(40px, 5vw, 76px);
+			line-height: 0.95;
+			font-weight: 500;
+			letter-spacing: 0;
+		}
+
+		.wita-privacy-header p,
+		.wita-privacy-meta p {
+			margin: 0;
+			font-size: 16px;
+			line-height: 1.7;
+			color: var(--muted);
+		}
+
+		.wita-privacy-meta {
+			display: flex;
+			flex-direction: column;
+			gap: 14px;
+			padding: 18px 20px;
+			border-radius: 18px;
+			background: rgba(255, 255, 255, 0.72);
+			border: 1px solid rgba(17, 24, 39, 0.06);
+		}
+
+		.wita-privacy-sections {
+			display: grid;
+			gap: 24px;
+		}
+
+		.wita-privacy-section {
+			display: grid;
+			grid-template-columns: minmax(170px, 220px) minmax(0, 1fr);
+			gap: 16px 28px;
+			padding: 24px 0;
+			border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+		}
+
+		.wita-privacy-section:last-child {
+			border-bottom: 0;
+			padding-bottom: 0;
+		}
+
+		.wita-privacy-section h2 {
+			margin: 0;
+			font-size: 18px;
+			line-height: 1.2;
+			font-weight: 500;
+		}
+
+		.wita-privacy-section p,
+		.wita-privacy-section li {
+			margin: 0;
+			font-size: 16px;
+			line-height: 1.72;
+			color: var(--muted);
+		}
+
+		.wita-privacy-section ul {
+			margin: 0;
+			padding-left: 20px;
+			display: grid;
+			gap: 10px;
+		}
+
+		.wita-privacy-stack {
+			display: grid;
+			gap: 14px;
+		}
+
+		.wita-privacy-note {
+			margin-top: 28px;
+			padding-top: 20px;
+			border-top: 1px solid rgba(17, 24, 39, 0.08);
+			font-size: 13px;
+			line-height: 1.6;
+			color: var(--muted);
+		}
+
+		@media (max-width: 900px) {
+			.wita-privacy-header,
+			.wita-privacy-section {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		@media (max-width: 767px) {
+			.wita-privacy-shell {
+				padding: 20px 16px 40px;
+			}
+
+			.wita-privacy-topbar {
+				flex-direction: column;
+				align-items: flex-start;
+				margin-bottom: 18px;
+			}
+
+			.wita-privacy-page {
+				padding: 24px 20px;
+				border-radius: 20px;
+			}
+
+			.wita-privacy-header h1 {
+				font-size: 40px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="wita-privacy-shell">
+		<div class="wita-privacy-topbar">
+			<a class="wita-privacy-back" href="./">Torna al sito</a>
+			<img class="wita-privacy-brand" src="assets/wita-logo.png" alt="Wita Care" />
+		</div>
+
+		<main class="wita-privacy-page">
+			<header class="wita-privacy-header">
+				<div>
+					<h1>Informativa sulla privacy</h1>
+					<p>Wita S.r.l., ai sensi dell'art. 13 del Regolamento (UE) 2016/679 ("GDPR"), fornisce le seguenti informazioni sul trattamento dei dati personali raccolti tramite questo sito web.</p>
+				</div>
+				<div class="wita-privacy-meta">
+					<p><strong>Titolare del trattamento</strong><br />Wita S.r.l.<br />38123 Trento | Via della Cooperazione, 105<br />P.IVA 02539330221</p>
+					<p><strong>Contatti</strong><br /><a href="mailto:info@wita.care">info@wita.care</a><br /><a href="tel:+3904611610253">+39 0461 1610253</a></p>
+				</div>
+			</header>
+
+			<div class="wita-privacy-sections">
+				<section class="wita-privacy-section">
+					<h2>Dati trattati</h2>
+					<div class="wita-privacy-stack">
+						<p>Durante la navigazione, i sistemi informatici e le procedure software preposte al funzionamento del sito possono acquisire alcuni dati la cui trasmissione &egrave; implicita nell'uso dei protocolli di comunicazione Internet. In questa categoria rientrano, ad esempio, indirizzi IP, nomi a dominio, indirizzi URI delle risorse richieste, orario della richiesta, metodo utilizzato per sottoporre la richiesta al server, dimensione del file ottenuto in risposta, codice numerico indicante lo stato della risposta e altri parametri relativi al sistema operativo e all'ambiente informatico dell'utente.</p>
+						<p>Wita pu&ograve; inoltre trattare i dati forniti volontariamente dall'utente tramite eventuali richieste di contatto, e-mail, telefonate o altri canali messi a disposizione sul sito.</p>
+					</div>
+				</section>
+
+				<section class="wita-privacy-section">
+					<h2>Finalit&agrave; e base giuridica</h2>
+					<ul>
+						<li>consentire il corretto funzionamento tecnico del sito, la manutenzione e la sicurezza dell'infrastruttura digitale;</li>
+						<li>ricavare informazioni statistiche in forma aggregata e anonima sull'uso del sito;</li>
+						<li>gestire richieste di informazioni o di contatto inoltrate dall'utente;</li>
+						<li>accertare, esercitare o difendere un diritto in sede giudiziaria e adempiere a obblighi di legge.</li>
+					</ul>
+				</section>
+
+				<section class="wita-privacy-section">
+					<h2>Conferimento dei dati</h2>
+					<div class="wita-privacy-stack">
+						<p>I dati di navigazione sono necessari per il funzionamento dei protocolli informatici e telematici utilizzati dal sito. Il conferimento di ulteriori dati personali da parte dell'utente &egrave; libero e facoltativo; tuttavia, il mancato conferimento pu&ograve; rendere impossibile dare seguito alle richieste inoltrate.</p>
+						<p>Il sito pu&ograve; utilizzare strumenti tecnici strettamente necessari al proprio funzionamento. Eventuali strumenti non tecnici, ove presenti, dovranno essere gestiti tramite gli opportuni meccanismi informativi e di consenso.</p>
+					</div>
+				</section>
+
+				<section class="wita-privacy-section">
+					<h2>Modalit&agrave;, conservazione e destinatari</h2>
+					<div class="wita-privacy-stack">
+						<p>I dati sono trattati con strumenti manuali e informatici, secondo principi di liceit&agrave;, correttezza, trasparenza e minimizzazione, adottando misure tecniche e organizzative adeguate a proteggerli.</p>
+						<p>I dati vengono conservati per il tempo strettamente necessario al perseguimento delle finalit&agrave; indicate e, ove applicabile, per gli ulteriori termini previsti dalla normativa vigente.</p>
+						<p>I dati possono essere trattati da personale autorizzato di Wita S.r.l. e da fornitori che prestano servizi strumentali al funzionamento del sito o alla gestione delle richieste, nominati ove necessario responsabili del trattamento. Di norma i dati non sono trasferiti al di fuori dello Spazio Economico Europeo; qualora ci&ograve; si rendesse necessario, il trasferimento avverr&agrave; nel rispetto delle garanzie previste dalla normativa applicabile.</p>
+					</div>
+				</section>
+
+				<section class="wita-privacy-section">
+					<h2>Diritti dell'interessato</h2>
+					<div class="wita-privacy-stack">
+						<p>L'interessato pu&ograve; esercitare i diritti previsti dagli artt. 15-22 del GDPR, tra cui il diritto di accesso, rettifica, cancellazione, limitazione del trattamento, opposizione e, nei casi previsti, portabilit&agrave; dei dati.</p>
+						<p>Per esercitare i propri diritti o richiedere ulteriori informazioni, &egrave; possibile contattare Wita S.r.l. scrivendo a <a href="mailto:info@wita.care">info@wita.care</a>. Resta inoltre salva la facolt&agrave; di proporre reclamo all'autorit&agrave; di controllo competente ai sensi dell'art. 77 del GDPR e di agire nelle sedi previste dall'art. 79 del GDPR.</p>
+					</div>
+				</section>
+			</div>
+		</main>
+	</div>
+</body>
+</html>
