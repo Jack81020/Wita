@@ -784,7 +784,7 @@ body.header-scrolled .site-header__desktop {
 	object-fit: cover;
 	object-position: center center;
 	display: block;
-	transform: scale(1.035);
+	transform: scale(1.3);
 }
 
 .wita-product-drawer__content {
@@ -954,12 +954,12 @@ body.wita-product-drawer-open {
 @keyframes witaDrawerImageIn {
 	0% {
 		opacity: 0;
-		transform: scale(1.08);
+		transform: scale(1.2);
 	}
 
 	100% {
 		opacity: 1;
-		transform: scale(1.035);
+		transform: scale(1.3);
 	}
 }
 
@@ -974,6 +974,7 @@ body.wita-product-drawer-open {
 		transform: translateY(0);
 	}
 }
+
 .wita-footer {
 	position: relative;
 	padding: clamp(76px, 9vw, 120px) 24px clamp(52px, 6vw, 76px);
@@ -1134,6 +1135,7 @@ body.wita-product-drawer-open {
 		max-width: 320px;
 	}
 }
+
 .wita-footer__bottom {
 	position: relative;
 	z-index: 1;
