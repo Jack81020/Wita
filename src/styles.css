@@ -976,9 +976,9 @@ body.wita-product-drawer-open {
 }
 .wita-footer {
 	position: relative;
-	padding: clamp(72px, 9vw, 116px) 24px;
-	background: #ffffff;
-	color: #000000;
+	padding: clamp(76px, 9vw, 120px) 24px clamp(52px, 6vw, 76px);
+	background: linear-gradient(180deg, #ffffff 0%, #f3f6fb 100%);
+	color: #111827;
 	overflow: hidden;
 }
 
@@ -986,39 +986,72 @@ body.wita-product-drawer-open {
 	content: "";
 	position: absolute;
 	inset: 0;
-	background: radial-gradient(circle at top center, rgba(140, 184, 197, 0.14), transparent 92%);
+	background: radial-gradient(circle at 18% 8%, rgba(117, 146, 193, 0.14), transparent 34%),
+		radial-gradient(circle at 82% 18%, rgba(160, 198, 214, 0.12), transparent 30%);
 	pointer-events: none;
+}
+
+.wita-footer::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: min(1280px, calc(100% - 48px));
+	height: 1px;
+	background: linear-gradient(90deg, transparent, rgba(17, 24, 39, 0.14), transparent);
 }
 
 .wita-footer__inner {
 	position: relative;
 	z-index: 1;
-	max-width: 620px;
+	max-width: 1280px;
 	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	text-align: center;
-	gap: 22px;
+	display: grid;
+	grid-template-columns: minmax(0, 1.15fr) minmax(320px, 430px);
+	gap: clamp(36px, 6vw, 96px);
+	align-items: end;
 }
 
-.wita-footer__eyebrow {
+.wita-footer__brand {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 18px;
+}
+
+.wita-footer__logo {
+	width: clamp(240px, 28vw, 430px);
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+.wita-footer__legal {
 	margin: 0;
-	font-size: clamp(34px, 4.2vw, 54px);
-	line-height: 1;
-	font-weight: 400;
-	letter-spacing: 0;
+	font-size: 13px;
+	line-height: 1.2;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: #6b7280;
+}
+
+.wita-footer__content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 24px;
 }
 
 .wita-footer__address {
 	font-style: normal;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	gap: 12px;
-	font-size: clamp(16px, 1.6vw, 22px);
-	line-height: 1.45;
-	color: #000000;
+	align-items: flex-start;
+	gap: 11px;
+	font-size: clamp(15px, 1.1vw, 17px);
+	line-height: 1.55;
+	color: #1f2937;
 }
 
 .wita-footer__address a {
@@ -1028,45 +1061,67 @@ body.wita-product-drawer-open {
 }
 
 .wita-footer__address a:hover {
-	opacity: 0.82;
+	opacity: 0.72;
 }
 
 .wita-footer__cta {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	min-width: min(100%, 324px);
-	padding: 16px 28px;
+	padding: 15px 24px;
 	border-radius: 999px;
-	background: rgba(235, 240, 249, 0.58);
-	border: 1px solid rgba(255, 255, 255, 0.18);
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
+	background: #111111;
 	color: #ffffff;
 	text-decoration: none;
-	font-size: clamp(16px, 1.35vw, 19px);
+	font-size: 15px;
 	line-height: 1;
-	transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
+	box-shadow: 0 18px 34px rgba(15, 23, 42, 0.14);
+	transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
 .wita-footer__cta:hover {
 	transform: translateY(-1px);
-	background: rgba(240, 244, 251, 0.7);
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32), 0 16px 30px rgba(74, 84, 102, 0.16);
+	background: #000000;
+	box-shadow: 0 22px 40px rgba(15, 23, 42, 0.18);
 }
 
 .wita-footer__cta:active {
 	transform: translateY(0);
 }
 
-@media (max-width: 767px) {
-	.wita-footer {
-		padding: 60px 20px;
+@media (max-width: 900px) {
+	.wita-footer__inner {
+		grid-template-columns: 1fr;
+		gap: 32px;
 	}
 
-	.wita-footer__inner {
-		gap: 18px;
+	.wita-footer__brand,
+	.wita-footer__content,
+	.wita-footer__address {
+		align-items: center;
+	}
+
+	.wita-footer__content {
+		text-align: center;
+	}
+}
+
+@media (max-width: 767px) {
+	.wita-footer {
+		padding: 64px 20px 44px;
+	}
+
+	.wita-footer::after {
+		width: calc(100% - 40px);
+	}
+
+	.wita-footer__logo {
+		width: min(78vw, 320px);
+	}
+
+	.wita-footer__legal {
+		font-size: 12px;
+		letter-spacing: 0.14em;
 	}
 
 	.wita-footer__address {
@@ -1076,6 +1131,6 @@ body.wita-product-drawer-open {
 
 	.wita-footer__cta {
 		width: 100%;
-		padding: 15px 22px;
+		max-width: 320px;
 	}
 }
