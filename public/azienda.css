@@ -1,0 +1,345 @@
+.company-main {
+  padding-bottom: 28px;
+}
+
+.company-shell {
+  padding-bottom: 0;
+}
+
+.company-hero,
+.company-overview,
+.company-pillars,
+.company-cta {
+  padding-top: 28px;
+}
+
+.company-hero {
+  display: grid;
+  gap: 20px;
+}
+
+.company-hero__lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.62fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.company-hero__intro,
+.company-hero__summary,
+.company-hero__stage,
+.company-overview__panel,
+.company-overview__card,
+.company-pillar,
+.company-cta__panel {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.company-hero__intro {
+  padding: 44px 40px 52px;
+  background:
+    radial-gradient(circle at top left, rgba(170, 190, 221, 0.16), transparent 32%),
+    radial-gradient(circle at right center, rgba(210, 224, 246, 0.38), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #f5f8fc 100%);
+}
+
+.company-hero__title {
+  max-width: 11ch;
+}
+
+.company-hero__subtitle {
+  max-width: 35ch;
+  margin-top: 28px;
+}
+
+.company-hero__summary {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  background:
+    linear-gradient(180deg, rgba(241, 243, 254, 0.92) 0%, #ffffff 100%);
+}
+
+.company-hero__summary-text {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.68;
+  color: var(--muted);
+}
+
+.company-hero__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.company-hero__pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(65, 88, 238, 0.08);
+  border: 1px solid rgba(65, 88, 238, 0.14);
+  color: #22314b;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.company-hero__stage {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.company-hero__stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(247, 249, 253, 0.02) 0%, rgba(15, 23, 42, 0.08) 54%, rgba(15, 23, 42, 0.44) 100%),
+    linear-gradient(135deg, rgba(65, 88, 238, 0.08) 0%, transparent 34%);
+  pointer-events: none;
+}
+
+.company-hero__stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.company-hero__badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 1;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.company-hero__badge-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-soft);
+}
+
+.company-hero__badge strong {
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.company-hero__stage-caption {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  z-index: 1;
+  margin: 0;
+  max-width: 32ch;
+  padding: 20px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(15, 23, 42, 0.46);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.company-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.company-overview__panel {
+  padding: 40px;
+  background:
+    radial-gradient(circle at top left, rgba(170, 190, 221, 0.12), transparent 28%),
+    #ffffff;
+}
+
+.company-section-title {
+  max-width: 24.5ch;
+}
+
+.company-overview__panel .products-section-copy+.products-section-copy {
+  margin-top: 18px;
+}
+
+.company-overview__aside {
+  display: grid;
+  gap: 20px;
+}
+
+.company-overview__card {
+  padding: 30px;
+}
+
+.company-overview__card h3,
+.company-pillar h3 {
+  margin: 0;
+  font-size: clamp(24px, 2.5vw, 32px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.company-overview__card p,
+.company-pillar p {
+  margin: 16px 0 0;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.company-overview__card--accent {
+  background:
+    linear-gradient(180deg, rgba(241, 243, 254, 0.92) 0%, #ffffff 100%);
+}
+
+.company-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.company-pillar {
+  padding: 32px 30px 34px;
+  background:
+    radial-gradient(circle at top right, rgba(170, 190, 221, 0.12), transparent 32%),
+    #ffffff;
+}
+
+.company-cta__panel {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+  gap: 40px;
+  align-items: end;
+  background:
+    radial-gradient(circle at top left, rgba(170, 190, 221, 0.16), transparent 32%),
+    linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+}
+
+.company-cta__content {
+  display: grid;
+  gap: 24px;
+  justify-items: start;
+}
+
+.company-cta__button {
+  min-width: 164px;
+  text-align: center;
+}
+
+@media (max-width: 1023px) {
+
+  .company-hero__lead,
+  .company-overview,
+  .company-cta__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .company-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .company-hero__intro,
+  .company-hero__summary,
+  .company-overview__panel,
+  .company-cta__panel {
+    padding: 32px 24px;
+  }
+
+  .company-overview__card,
+  .company-pillar {
+    padding: 28px 24px;
+  }
+
+  .company-hero__stage {
+    min-height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .company-hero__badge {
+    top: 18px;
+    right: 18px;
+    padding: 14px 16px;
+  }
+
+  .company-hero__stage-caption {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    max-width: none;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 720px) {
+  .company-main {
+    padding-bottom: 18px;
+  }
+
+  .company-hero,
+  .company-overview,
+  .company-pillars,
+  .company-cta {
+    padding-top: 18px;
+  }
+
+  .company-hero__intro,
+  .company-hero__summary,
+  .company-overview__panel,
+  .company-cta__panel {
+    padding: 26px 20px;
+  }
+
+  .company-overview__card,
+  .company-pillar {
+    padding: 24px 20px;
+  }
+
+  .company-hero__summary {
+    gap: 22px;
+  }
+
+  .company-hero__pills {
+    gap: 8px;
+  }
+
+  .company-hero__pill {
+    width: 100%;
+  }
+
+  .company-hero__stage {
+    aspect-ratio: 1.1 / 1;
+  }
+
+  .company-hero__badge {
+    top: 14px;
+    left: 14px;
+    right: auto;
+  }
+
+  .company-hero__stage-caption {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    padding: 16px 18px;
+  }
+}
