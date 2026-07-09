@@ -5,10 +5,7 @@
 .products-analytics-story__panel {
   padding: 40px;
   border: 1px solid var(--border);
-  background:
-    radial-gradient(circle at top left, rgba(170, 190, 221, 0.15), transparent 26%),
-    radial-gradient(circle at top right, rgba(203, 219, 241, 0.18), transparent 22%),
-    rgba(255, 255, 255, 0.88);
+  background: #ffffff;
   box-shadow: var(--shadow);
 }
 
@@ -125,7 +122,7 @@
 }
 
 .products-analytics-story__notes-intro h3 {
-  max-width: 9ch;
+  max-width: 13ch;
 }
 
 .products-analytics-story__notes-intro p,
@@ -151,7 +148,6 @@
 .products-analytics-story__media img {
   width: 100%;
   height: auto;
-  border-radius: 22px;
   display: block;
 }
 

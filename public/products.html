@@ -38,6 +38,26 @@
 
   <main class="products-main" id="main">
     <div class="products-shell">
+      <section class="products-hero">
+        <div class="products-hero__content">
+          <div>
+            <p class="products-eyebrow">Portale Mentorage</p>
+            <h1 class="products-title">Una visione chiara della struttura, in un’unica schermata.</h1>
+            <p class="products-subtitle">Mentorage organizza stanze, alert ed eventi in un’interfaccia semplice, pensata
+              per aiutare il personale a capire rapidamente dove serve attenzione.</p>
+          </div>
+          <ul class="products-hero__points" aria-label="Punti chiave del portale Mentorage">
+            <li>Panoramica immediata della struttura</li>
+            <li>Alert evidenziati per priorità</li>
+            <li>Storico eventi e statistiche sempre accessibili</li>
+          </ul>
+        </div>
+        <div class="products-hero__media">
+          <video class="products-hero__video" playsinline autoplay muted loop preload="auto">
+            <source src="assets/BED_EXIT.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
       <section class="products-analytics-story" id="product-overview" aria-labelledby="products-analytics-title">
         <div class="products-analytics-story__panel">
           <div class="products-analytics-story__screen-grid" data-products-story-view="structure">
@@ -87,178 +107,6 @@
               <figcaption>Panoramica operativa della struttura: indicatori essenziali sempre sotto controllo.
               </figcaption>
             </figure>
-          </div>
-
-          <div class="products-analytics-story__bridge">
-            <span class="products-analytics-story__bridge-icon"></span>
-            <p>Quando serve approfondire, passi dal quadro generale al <strong>dettaglio del singolo ospite</strong>.
-            </p>
-          </div>
-
-          <div class="products-analytics-story__screen-grid products-analytics-story__screen-grid--guest">
-            <div class="products-analytics-story__notes products-analytics-story__notes--guest">
-              <div class="products-analytics-story__notes-intro">
-                <p class="products-eyebrow">Statistiche ospite</p>
-                <h3>Statistiche del singolo ospite, chiare e utili.</h3>
-                <p>Una sintesi completa della notte monitorata, con visualizzazioni intuitive che aiutano a comprendere
-                  il comportamento e l'andamento nel tempo.</p>
-              </div>
-              <article class="products-analytics-story__note products-analytics-story__note--compact">
-                <span class="products-analytics-story__note-icon products-analytics-story__note-icon--blue"></span>
-                <div>
-                  <h3>Tempo a letto</h3>
-                  <p>Quanto tempo l'ospite ha trascorso a letto durante il periodo monitorato.</p>
-                </div>
-              </article>
-              <article class="products-analytics-story__note products-analytics-story__note--compact">
-                <span class="products-analytics-story__note-icon products-analytics-story__note-icon--cyan"></span>
-                <div>
-                  <h3>Tempo seduto</h3>
-                  <p>Il tempo in cui l'ospite &egrave; rimasto seduto.</p>
-                </div>
-              </article>
-              <article class="products-analytics-story__note products-analytics-story__note--compact">
-                <span class="products-analytics-story__note-icon products-analytics-story__note-icon--green"></span>
-                <div>
-                  <h3>Tempo in piedi</h3>
-                  <p>Il tempo in cui l'ospite &egrave; stato in piedi o in movimento.</p>
-                </div>
-              </article>
-              <article class="products-analytics-story__note products-analytics-story__note--compact">
-                <span class="products-analytics-story__note-icon products-analytics-story__note-icon--violet"></span>
-                <div>
-                  <h3>Timeline notturna</h3>
-                  <p>Una linea temporale mostra i cambi di stato durante la notte, in modo immediato.</p>
-                </div>
-              </article>
-            </div>
-
-            <div class="products-app products-app--guest" aria-label="Schermata statistiche del singolo ospite">
-              <div class="products-app__window">
-                <div class="products-app__topbar products-app__topbar--guest">
-                  <button class="products-app__back" type="button">Indietro</button>
-                  <div class="products-app__guest-meta">
-                    <strong>Stanza 103</strong>
-                    <span>Antonio</span>
-                  </div>
-                  <span class="products-app__chip">ID sensore: MENT-0039</span>
-                </div>
-                <div class="products-app__content products-app__content--guest">
-                  <div class="products-app__content-head products-app__content-head--guest">
-                    <div>
-                      <h3>Statistiche notturne</h3>
-                      <p>6 Mag - 7 Mag 2025 &middot; Periodo di monitoraggio: 21:30 - 07:00</p>
-                    </div>
-                  </div>
-
-                  <div class="products-app__kpis products-app__kpis--guest">
-                    <article class="products-app__kpi products-app__kpi--sleep">
-                      <p>A letto</p>
-                      <strong>7h 12m</strong>
-                      <span>75,2% del tempo totale</span>
-                    </article>
-                    <article class="products-app__kpi products-app__kpi--cyan">
-                      <p>Seduto</p>
-                      <strong>1h 47m</strong>
-                      <span>18,5% del tempo totale</span>
-                    </article>
-                    <article class="products-app__kpi products-app__kpi--mint">
-                      <p>In piedi</p>
-                      <strong>0h 31m</strong>
-                      <span>6,3% del tempo totale</span>
-                    </article>
-                  </div>
-
-                  <article class="products-timeline">
-                    <div class="products-timeline__head">
-                      <h4>Timeline notturna</h4>
-                      <p>Cambi di stato lungo tutta la notte</p>
-                    </div>
-                    <div class="products-timeline__hours">
-                      <span>21:30</span>
-                      <span>22:30</span>
-                      <span>23:30</span>
-                      <span>00:30</span>
-                      <span>01:30</span>
-                      <span>02:30</span>
-                      <span>03:30</span>
-                      <span>04:30</span>
-                      <span>05:30</span>
-                      <span>06:30</span>
-                      <span>07:00</span>
-                    </div>
-                    <div class="products-timeline__track" aria-hidden="true">
-                      <span class="is-sleep" style="--span:3"></span>
-                      <span class="is-seat" style="--span:1"></span>
-                      <span class="is-sleep" style="--span:4"></span>
-                      <span class="is-stand" style="--span:1"></span>
-                      <span class="is-sleep" style="--span:5"></span>
-                      <span class="is-seat" style="--span:1"></span>
-                      <span class="is-sleep" style="--span:3"></span>
-                      <span class="is-stand" style="--span:1"></span>
-                      <span class="is-sleep" style="--span:2"></span>
-                    </div>
-                    <div class="products-timeline__legend">
-                      <span><i class="is-sleep"></i>A letto</span>
-                      <span><i class="is-seat"></i>Seduto</span>
-                      <span><i class="is-stand"></i>In piedi</span>
-                    </div>
-                  </article>
-
-                  <div class="products-app__charts products-app__charts--guest">
-                    <article class="products-card products-card--split">
-                      <div>
-                        <h4>Distribuzione attivit&agrave;</h4>
-                        <div class="products-chart-donut products-chart-donut--guest" aria-hidden="true"></div>
-                      </div>
-                      <ul class="products-chart-legend products-chart-legend--stats">
-                        <li><span class="swatch swatch--sleep"></span>A letto <strong>7h 12m</strong> <em>75,2%</em>
-                        </li>
-                        <li><span class="swatch swatch--seat"></span>Seduto <strong>1h 47m</strong> <em>18,5%</em></li>
-                        <li><span class="swatch swatch--stand"></span>In piedi <strong>0h 31m</strong> <em>6,3%</em>
-                        </li>
-                      </ul>
-                    </article>
-
-                    <article class="products-card">
-                      <h4>Riepilogo attivit&agrave;</h4>
-                      <div class="products-summary-bars">
-                        <div class="products-summary-bars__item">
-                          <div class="products-summary-bars__meta">
-                            <span>A letto</span>
-                            <strong>7h 12m</strong>
-                            <em>75,2%</em>
-                          </div>
-                          <div class="products-summary-bars__track"><span class="is-sleep" style="--value:75.2%"></span>
-                          </div>
-                        </div>
-                        <div class="products-summary-bars__item">
-                          <div class="products-summary-bars__meta">
-                            <span>Seduto</span>
-                            <strong>1h 47m</strong>
-                            <em>18,5%</em>
-                          </div>
-                          <div class="products-summary-bars__track"><span class="is-seat" style="--value:18.5%"></span>
-                          </div>
-                        </div>
-                        <div class="products-summary-bars__item">
-                          <div class="products-summary-bars__meta">
-                            <span>In piedi</span>
-                            <strong>0h 31m</strong>
-                            <em>6,3%</em>
-                          </div>
-                          <div class="products-summary-bars__track"><span class="is-stand" style="--value:6.3%"></span>
-                          </div>
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-
-                  <p class="products-app__footnote">Le statistiche sono calcolate in base ai dati raccolti dai sensori e
-                    servono a offrire una lettura pi&ugrave; chiara del periodo monitorato.</p>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div class="products-analytics-story__trust" aria-label="Punti chiave della piattaforma">

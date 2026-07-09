@@ -34,6 +34,7 @@
   const noteTitleSecondary = document.querySelector('[data-products-story-note-title="secondary"]');
   const noteCopySecondary = document.querySelector('[data-products-story-note-copy="secondary"]');
   const noteIconSecondary = document.querySelector('[data-products-story-note-icon="secondary"]');
+  const storyImage = storyView ? storyView.querySelector('.products-analytics-story__media img') : null;
 
   const storyContent = {
     structure: {
@@ -47,6 +48,7 @@
         copy: 'Scendi nel dettaglio del singolo ospite per comprendere comportamenti e andamento notturno.',
         icon: 'products-analytics-story__note-icon--green',
       },
+      imageSrc: 'assets/mentorage-statistiche-struttura.png',
     },
     guest: {
       primary: {
@@ -59,6 +61,7 @@
         copy: 'Una sintesi ordinata della notte aiuta operatori e coordinatori a leggere subito cio che conta.',
         icon: 'products-analytics-story__note-icon--violet',
       },
+      imageSrc: 'assets/statistiche.png',
     },
   };
 
@@ -71,7 +74,7 @@
 
   const setStoryView = (view) => {
     const content = storyContent[view];
-    if (!content || !storyView || !noteTitlePrimary || !noteCopyPrimary || !noteIconPrimary || !noteTitleSecondary || !noteCopySecondary || !noteIconSecondary) {
+    if (!content || !storyView || !noteTitlePrimary || !noteCopyPrimary || !noteIconPrimary || !noteTitleSecondary || !noteCopySecondary || !noteIconSecondary || !storyImage) {
       return;
     }
 
@@ -87,6 +90,7 @@
     noteCopyPrimary.textContent = content.primary.copy;
     noteTitleSecondary.textContent = content.secondary.title;
     noteCopySecondary.textContent = content.secondary.copy;
+    storyImage.src = content.imageSrc;
 
     [noteIconPrimary, noteIconSecondary].forEach((icon) => {
       icon.classList.remove(...noteIconVariants);
