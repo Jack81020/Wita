@@ -1,11 +1,12 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="it">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Prodotti | Portale Mentorage</title>
+  <title>Prodotto | Portale Mentorage</title>
   <link rel="stylesheet" href="products.css" />
+  <link rel="stylesheet" href="products-dashboard.css" />
 </head>
 
 <body>
@@ -37,135 +38,256 @@
 
   <main class="products-main" id="main">
     <div class="products-shell">
-      <section class="products-hero">
-        <div class="products-hero__media">
-          <img src="assets/pc.png" alt="Placeholder dashboard overview del portale Mentorage" loading="lazy" />
-        </div>
-      </section>
+      <section class="products-analytics-story" id="product-overview" aria-labelledby="products-analytics-title">
+        <div class="products-analytics-story__panel">
+          <div class="products-analytics-story__screen-grid" data-products-story-view="structure">
+            <div class="products-analytics-story__column">
+              <div class="products-analytics-story__intro">
+                <div>
+                  <p class="products-eyebrow">Statistiche</p>
+                  <h2 class="products-title products-analytics-story__title" id="products-analytics-title">Dalla
+                    struttura al singolo ospite.</h2>
+                  <p class="products-subtitle products-analytics-story__subtitle">Mentorage offre una doppia lettura dei
+                    dati: una panoramica aggregata per seguire l'andamento generale della struttura e una vista
+                    individuale per approfondire il periodo monitorato di ogni ospite.</p>
+                </div>
+                <div class="products-analytics-story__switch" aria-label="Livelli di lettura">
+                  <button class="is-active" type="button" data-products-story-toggle="structure"
+                    aria-pressed="true">Vista struttura</button>
+                  <button type="button" data-products-story-toggle="guest" aria-pressed="false">Singolo ospite</button>
+                </div>
+              </div>
 
-      <section class="products-summary">
-        <div class="products-summary__grid">
-          <div>
-            <p class="products-eyebrow">Portale Mentorage</p>
-            <h1 class="products-title">Una lettura chiara di ci&ograve; che conta.</h1>
-            <p class="products-subtitle">Una vista progettata per aiutare il personale a capire in pochi secondi cosa
-              sta accadendo nella struttura, leggere priorit&agrave;, individuare cambiamenti e decidere meglio dove
-              intervenire.</p>
-          </div>
-          <div class="products-summary__aside">
-            <p>Mentorage concentra overview, dati, eventi e stato del paziente in un'unica interfaccia. Il risultato
-              &egrave; una lettura pi&ugrave; continua del reparto, meno dispersione operativa e pi&ugrave; supporto per
-              i team che devono coordinarsi durante il turno.</p>
-          </div>
-        </div>
-      </section>
+              <div class="products-analytics-story__notes">
+                <article class="products-analytics-story__note" data-products-story-note="primary">
+                  <span class="products-analytics-story__note-icon products-analytics-story__note-icon--blue"
+                    data-products-story-note-icon="primary"></span>
+                  <div>
+                    <h3 data-products-story-note-title="primary">Decisioni pi&ugrave; consapevoli</h3>
+                    <p data-products-story-note-copy="primary">Indicatori chiari su alert, tempi di risposta e aree
+                      critiche per coordinare meglio le attivit&agrave;.</p>
+                  </div>
+                </article>
+                <article class="products-analytics-story__note" data-products-story-note="secondary">
+                  <span class="products-analytics-story__note-icon products-analytics-story__note-icon--green"
+                    data-products-story-note-icon="secondary"></span>
+                  <div>
+                    <h3 data-products-story-note-title="secondary">Approfondimenti immediati</h3>
+                    <p data-products-story-note-copy="secondary">Scendi nel dettaglio del singolo ospite per comprendere
+                      comportamenti e andamento notturno.</p>
+                  </div>
+                </article>
+              </div>
+            </div>
 
-      <section class="products-benefits" aria-label="Panoramica funzionalit&agrave;">
-        <ul class="products-benefits__list">
-          <li class="products-benefit">
-            <h3>Overview</h3>
-            <p>Una sintesi immediata delle informazioni pi&ugrave; rilevanti per capire cosa sta succedendo in ogni
-              momento.</p>
-          </li>
-          <li class="products-benefit">
-            <h3>Dati</h3>
-            <p>Statistiche e andamenti nel tempo, dal singolo paziente fino alla lettura complessiva della struttura.
+            <figure class="products-analytics-story__media"
+              aria-label="Schermata Mentorage per le statistiche di struttura">
+              <img src="assets/mentorage-statistiche-struttura.png"
+                alt="Dashboard Mentorage con statistiche della struttura" loading="lazy" />
+              <figcaption>Panoramica operativa della struttura: indicatori essenziali sempre sotto controllo.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="products-analytics-story__bridge">
+            <span class="products-analytics-story__bridge-icon"></span>
+            <p>Quando serve approfondire, passi dal quadro generale al <strong>dettaglio del singolo ospite</strong>.
             </p>
-          </li>
-          <li class="products-benefit">
-            <h3>Eventi</h3>
-            <p>Alert configurabili in base al profilo di rischio e alle capacit&agrave; della persona assistita.</p>
-          </li>
-          <li class="products-benefit">
-            <h3>Stato paziente</h3>
-            <p>Indicazioni generali su sonno, veglia e attivit&agrave;, con meno check-in invasivi e pi&ugrave;
-              continuit&agrave;.</p>
-          </li>
-        </ul>
-      </section>
-
-      <section class="products-overview" id="product-overview">
-        <div class="products-overview__header">
-          <div>
-            <p class="products-eyebrow">Overview</p>
-            <h2 class="products-overview__title">Capire subito cosa sta succedendo.</h2>
           </div>
-          <p class="products-overview__copy">Ottieni una comprensione rapida di ci&ograve; che sta accadendo in
-            qualunque momento. Mentorage porta in primo piano i nuclei pi&ugrave; importanti dell'overview, cos&igrave;
-            il personale pu&ograve; leggere rapidamente il contesto operativo e dare la giusta priorit&agrave; alle
-            attivit&agrave; di cura.</p>
-        </div>
-        <div class="products-overview__media">
-          <img src="assets/mentorage.png" alt="Placeholder overview del portale Mentorage" loading="lazy" />
-        </div>
-      </section>
 
-      <section class="products-capabilities">
-        <div class="products-capabilities__frame">
-          <nav class="products-capabilities__nav" aria-label="Funzionalit&agrave; del portale Mentorage">
-            <ul>
-              <li data-active="true"><button type="button" data-products-panel-trigger="analytics">Dati e
-                  statistiche</button></li>
-              <li data-active="false"><button type="button" data-products-panel-trigger="events">Eventi</button></li>
-              <li data-active="false"><button type="button" data-products-panel-trigger="status">Stato paziente</button>
-              </li>
-            </ul>
-          </nav>
-          <div class="products-capabilities__body">
-            <article class="products-capabilities__panel" data-products-panel="analytics">
-              <div class="products-capabilities__content">
-                <p class="products-eyebrow">Dati e statistiche</p>
-                <h2 class="products-capabilities__title">Leggere come la realt&agrave; cambia nel tempo.</h2>
-                <p class="products-capabilities__text">Monitorare la realt&agrave; del reparto permette anche di capire
-                  come quella realt&agrave; evolve nel tempo. Dal livello individuale fino all'intera struttura, il
-                  portale rende leggibili pattern, frequenze e variazioni che aiutano a comprendere meglio ci&ograve;
-                  che accade ogni giorno.</p>
-                <ul class="products-capabilities__list">
-                  <li>Confronto nel tempo di stanze, eventi e segnali assistenziali.</li>
-                  <li>Lettura progressiva dal singolo paziente fino alla struttura completa.</li>
-                  <li>Supporto concreto a coordinamento, pianificazione e revisione operativa.</li>
-                </ul>
+          <div class="products-analytics-story__screen-grid products-analytics-story__screen-grid--guest">
+            <div class="products-analytics-story__notes products-analytics-story__notes--guest">
+              <div class="products-analytics-story__notes-intro">
+                <p class="products-eyebrow">Statistiche ospite</p>
+                <h3>Statistiche del singolo ospite, chiare e utili.</h3>
+                <p>Una sintesi completa della notte monitorata, con visualizzazioni intuitive che aiutano a comprendere
+                  il comportamento e l'andamento nel tempo.</p>
               </div>
-              <div class="products-capabilities__media">
-                <img src="assets/uff_stats.png" alt="Vista dati e statistiche del portale Mentorage" loading="lazy" />
+              <article class="products-analytics-story__note products-analytics-story__note--compact">
+                <span class="products-analytics-story__note-icon products-analytics-story__note-icon--blue"></span>
+                <div>
+                  <h3>Tempo a letto</h3>
+                  <p>Quanto tempo l'ospite ha trascorso a letto durante il periodo monitorato.</p>
+                </div>
+              </article>
+              <article class="products-analytics-story__note products-analytics-story__note--compact">
+                <span class="products-analytics-story__note-icon products-analytics-story__note-icon--cyan"></span>
+                <div>
+                  <h3>Tempo seduto</h3>
+                  <p>Il tempo in cui l'ospite &egrave; rimasto seduto.</p>
+                </div>
+              </article>
+              <article class="products-analytics-story__note products-analytics-story__note--compact">
+                <span class="products-analytics-story__note-icon products-analytics-story__note-icon--green"></span>
+                <div>
+                  <h3>Tempo in piedi</h3>
+                  <p>Il tempo in cui l'ospite &egrave; stato in piedi o in movimento.</p>
+                </div>
+              </article>
+              <article class="products-analytics-story__note products-analytics-story__note--compact">
+                <span class="products-analytics-story__note-icon products-analytics-story__note-icon--violet"></span>
+                <div>
+                  <h3>Timeline notturna</h3>
+                  <p>Una linea temporale mostra i cambi di stato durante la notte, in modo immediato.</p>
+                </div>
+              </article>
+            </div>
+
+            <div class="products-app products-app--guest" aria-label="Schermata statistiche del singolo ospite">
+              <div class="products-app__window">
+                <div class="products-app__topbar products-app__topbar--guest">
+                  <button class="products-app__back" type="button">Indietro</button>
+                  <div class="products-app__guest-meta">
+                    <strong>Stanza 103</strong>
+                    <span>Antonio</span>
+                  </div>
+                  <span class="products-app__chip">ID sensore: MENT-0039</span>
+                </div>
+                <div class="products-app__content products-app__content--guest">
+                  <div class="products-app__content-head products-app__content-head--guest">
+                    <div>
+                      <h3>Statistiche notturne</h3>
+                      <p>6 Mag - 7 Mag 2025 &middot; Periodo di monitoraggio: 21:30 - 07:00</p>
+                    </div>
+                  </div>
+
+                  <div class="products-app__kpis products-app__kpis--guest">
+                    <article class="products-app__kpi products-app__kpi--sleep">
+                      <p>A letto</p>
+                      <strong>7h 12m</strong>
+                      <span>75,2% del tempo totale</span>
+                    </article>
+                    <article class="products-app__kpi products-app__kpi--cyan">
+                      <p>Seduto</p>
+                      <strong>1h 47m</strong>
+                      <span>18,5% del tempo totale</span>
+                    </article>
+                    <article class="products-app__kpi products-app__kpi--mint">
+                      <p>In piedi</p>
+                      <strong>0h 31m</strong>
+                      <span>6,3% del tempo totale</span>
+                    </article>
+                  </div>
+
+                  <article class="products-timeline">
+                    <div class="products-timeline__head">
+                      <h4>Timeline notturna</h4>
+                      <p>Cambi di stato lungo tutta la notte</p>
+                    </div>
+                    <div class="products-timeline__hours">
+                      <span>21:30</span>
+                      <span>22:30</span>
+                      <span>23:30</span>
+                      <span>00:30</span>
+                      <span>01:30</span>
+                      <span>02:30</span>
+                      <span>03:30</span>
+                      <span>04:30</span>
+                      <span>05:30</span>
+                      <span>06:30</span>
+                      <span>07:00</span>
+                    </div>
+                    <div class="products-timeline__track" aria-hidden="true">
+                      <span class="is-sleep" style="--span:3"></span>
+                      <span class="is-seat" style="--span:1"></span>
+                      <span class="is-sleep" style="--span:4"></span>
+                      <span class="is-stand" style="--span:1"></span>
+                      <span class="is-sleep" style="--span:5"></span>
+                      <span class="is-seat" style="--span:1"></span>
+                      <span class="is-sleep" style="--span:3"></span>
+                      <span class="is-stand" style="--span:1"></span>
+                      <span class="is-sleep" style="--span:2"></span>
+                    </div>
+                    <div class="products-timeline__legend">
+                      <span><i class="is-sleep"></i>A letto</span>
+                      <span><i class="is-seat"></i>Seduto</span>
+                      <span><i class="is-stand"></i>In piedi</span>
+                    </div>
+                  </article>
+
+                  <div class="products-app__charts products-app__charts--guest">
+                    <article class="products-card products-card--split">
+                      <div>
+                        <h4>Distribuzione attivit&agrave;</h4>
+                        <div class="products-chart-donut products-chart-donut--guest" aria-hidden="true"></div>
+                      </div>
+                      <ul class="products-chart-legend products-chart-legend--stats">
+                        <li><span class="swatch swatch--sleep"></span>A letto <strong>7h 12m</strong> <em>75,2%</em>
+                        </li>
+                        <li><span class="swatch swatch--seat"></span>Seduto <strong>1h 47m</strong> <em>18,5%</em></li>
+                        <li><span class="swatch swatch--stand"></span>In piedi <strong>0h 31m</strong> <em>6,3%</em>
+                        </li>
+                      </ul>
+                    </article>
+
+                    <article class="products-card">
+                      <h4>Riepilogo attivit&agrave;</h4>
+                      <div class="products-summary-bars">
+                        <div class="products-summary-bars__item">
+                          <div class="products-summary-bars__meta">
+                            <span>A letto</span>
+                            <strong>7h 12m</strong>
+                            <em>75,2%</em>
+                          </div>
+                          <div class="products-summary-bars__track"><span class="is-sleep" style="--value:75.2%"></span>
+                          </div>
+                        </div>
+                        <div class="products-summary-bars__item">
+                          <div class="products-summary-bars__meta">
+                            <span>Seduto</span>
+                            <strong>1h 47m</strong>
+                            <em>18,5%</em>
+                          </div>
+                          <div class="products-summary-bars__track"><span class="is-seat" style="--value:18.5%"></span>
+                          </div>
+                        </div>
+                        <div class="products-summary-bars__item">
+                          <div class="products-summary-bars__meta">
+                            <span>In piedi</span>
+                            <strong>0h 31m</strong>
+                            <em>6,3%</em>
+                          </div>
+                          <div class="products-summary-bars__track"><span class="is-stand" style="--value:6.3%"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+
+                  <p class="products-app__footnote">Le statistiche sono calcolate in base ai dati raccolti dai sensori e
+                    servono a offrire una lettura pi&ugrave; chiara del periodo monitorato.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="products-analytics-story__trust" aria-label="Punti chiave della piattaforma">
+            <article class="products-analytics-story__trust-card">
+              <span class="products-analytics-story__trust-icon products-analytics-story__trust-icon--blue"></span>
+              <div>
+                <h3>Affidabile</h3>
+                <p>Dati raccolti dai sensori 3D e algoritmi di intelligenza artificiale.</p>
               </div>
             </article>
-
-            <article class="products-capabilities__panel" data-products-panel="events" hidden>
-              <div class="products-capabilities__content">
-                <p class="products-eyebrow">Eventi</p>
-                <h2 class="products-capabilities__title">Eventi costruiti sul rischio reale.</h2>
-                <p class="products-capabilities__text">Il sistema pu&ograve; essere adattato ai livelli di rischio e
-                  alle capacit&agrave; di ogni persona. Mentorage invia alert per attivit&agrave; predefinite, come una
-                  caduta o la presenza sul bordo del letto di un ospite a rischio, aiutando il team a far emergere
-                  ci&ograve; che richiede davvero attenzione.</p>
-                <ul class="products-capabilities__list">
-                  <li>Alert configurabili in base a profili, stanze e situazioni a rischio.</li>
-                  <li>Pi&ugrave; tempestivit&agrave; nel riconoscere eventi che contano davvero.</li>
-                  <li>Segnalazioni pi&ugrave; coerenti con il contesto assistenziale quotidiano.</li>
-                </ul>
-              </div>
-              <div class="products-capabilities__media">
-                <img src="assets/monitor.png" alt="Vista eventi del portale Mentorage" loading="lazy" />
+            <article class="products-analytics-story__trust-card">
+              <span class="products-analytics-story__trust-icon products-analytics-story__trust-icon--green"></span>
+              <div>
+                <h3>Sicuro</h3>
+                <p>Privacy e sicurezza dei dati al primo posto, nel rispetto delle normative.</p>
               </div>
             </article>
-
-            <article class="products-capabilities__panel" data-products-panel="status" hidden>
-              <div class="products-capabilities__content">
-                <p class="products-eyebrow">Stato paziente</p>
-                <h2 class="products-capabilities__title">Pi&ugrave; continuit&agrave;, meno interruzioni inutili.</h2>
-                <p class="products-capabilities__text">Riduci la necessit&agrave; di check-in invasivi o ripetitivi.
-                  Mentorage offre un'indicazione generale del sonno e della veglia nel tempo, aiutando il personale a
-                  leggere meglio lo stato del paziente e a limitare i risvegli non necessari solo per verificare la
-                  situazione.</p>
-                <ul class="products-capabilities__list">
-                  <li>Indicazioni sintetiche sullo stato generale della persona assistita.</li>
-                  <li>Meno interruzioni superflue durante le ore di riposo.</li>
-                  <li>Maggiore continuit&agrave; osservativa senza aumentare il carico operativo.</li>
-                </ul>
+            <article class="products-analytics-story__trust-card">
+              <span class="products-analytics-story__trust-icon products-analytics-story__trust-icon--violet"></span>
+              <div>
+                <h3>Immediato</h3>
+                <p>Informazioni essenziali visualizzate in modo chiaro e senza complessit&agrave;.</p>
               </div>
-              <div class="products-capabilities__media">
-                <img src="assets/smartphone.png" alt="Vista stato paziente del portale Mentorage" loading="lazy" />
+            </article>
+            <article class="products-analytics-story__trust-card">
+              <span class="products-analytics-story__trust-icon products-analytics-story__trust-icon--cyan"></span>
+              <div>
+                <h3>Accessibile</h3>
+                <p>Disponibile da web e da dispositivi mobile, ovunque e in ogni momento.</p>
               </div>
             </article>
           </div>
