@@ -66,6 +66,12 @@
 	--header-ease: cubic-bezier(0.22, 1, 0.36, 1);
 	--header-speed: 560ms;
 	--header-shell-max: min(calc(100% - 68px), 1500px);
+	--wita-accent: #04aec2;
+	--wita-accent-soft: rgba(4, 174, 194, 0.08);
+	--wita-accent-softer: rgba(4, 174, 194, 0.05);
+	--wita-accent-border: rgba(4, 174, 194, 0.18);
+	--wita-accent-strong: rgba(4, 174, 194, 0.28);
+	--wita-accent-text: #2c6e77;
 }
 
 footer {
@@ -179,12 +185,12 @@ li {
 }
 
 .PingingDot_pinging_dot_selected__TprvE .PingingDot_dot_core__XlXbk {
-	background-color: #6e9af8;
+	background-color: rgba(4, 174, 194, 0.78);
 }
 
 .PingingDot_pinging_dot_selected__TprvE .PingingDot_ring_effect__qbIZi {
 	opacity: 0.5;
-	border: 0.5px solid #6e9af8;
+	border: 0.5px solid rgba(4, 174, 194, 0.52);
 }
 
 .PingingDot_dot_core__XlXbk {
@@ -681,12 +687,12 @@ body.header-scrolled .site-header__desktop {
 }
 
 .wita-pinging-dot.is-active .wita-pinging-dot__core {
-	background-color: #6e9af8;
+	background-color: rgba(4, 174, 194, 0.78);
 }
 
 .wita-pinging-dot.is-active .wita-pinging-dot__ring {
 	opacity: 0.5;
-	border-color: #6e9af8;
+	border-color: rgba(4, 174, 194, 0.52);
 }
 
 .wita-product-drawer {
@@ -800,8 +806,8 @@ body.header-scrolled .site-header__desktop {
 	width: fit-content;
 	padding: 6px 12px;
 	border-radius: 4px;
-	background: #f1f3fe;
-	color: #4158ee;
+	background: linear-gradient(180deg, rgba(4, 174, 194, 0.12) 0%, rgba(4, 174, 194, 0.05) 100%);
+	color: var(--wita-accent-text);
 	font-size: 12px;
 	font-weight: 500;
 	letter-spacing: 0.08em;
@@ -978,7 +984,7 @@ body.wita-product-drawer-open {
 .wita-footer {
 	position: relative;
 	padding: clamp(76px, 9vw, 120px) 24px clamp(52px, 6vw, 76px);
-	background: linear-gradient(180deg, #ffffff 0%, #f3f6fb 100%);
+	background: #ffffff;
 	color: #111827;
 	overflow: hidden;
 }
@@ -1076,14 +1082,14 @@ body.wita-product-drawer-open {
 	text-decoration: none;
 	font-size: 15px;
 	line-height: 1;
-	box-shadow: 0 18px 34px rgba(15, 23, 42, 0.14);
+	box-shadow: 0 14px 24px rgba(15, 23, 42, 0.1);
 	transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
 }
 
 .wita-footer__cta:hover {
 	transform: translateY(-1px);
 	background: #000000;
-	box-shadow: 0 22px 40px rgba(15, 23, 42, 0.18);
+	box-shadow: 0 16px 28px rgba(15, 23, 42, 0.12);
 }
 
 .wita-footer__cta:active {

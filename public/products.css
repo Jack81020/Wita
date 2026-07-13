@@ -1,4 +1,4 @@
-@font-face {
+﻿@font-face {
   font-family: "Neue Montreal";
   src: url("assets/font/NeueMontreal-Regular.otf") format("opentype");
   font-weight: 400;
@@ -20,7 +20,11 @@
   --text: #111827;
   --muted: #5f6978;
   --muted-soft: #7a8597;
-  --shadow: 0 24px 64px rgba(15, 23, 42, 0.08);
+  --shadow: 0 18px 44px rgba(15, 23, 42, 0.05);
+  --accent-soft: rgba(4, 174, 194, 0.08);
+  --accent-softer: rgba(4, 174, 194, 0.05);
+  --accent-border: rgba(4, 174, 194, 0.18);
+  --accent-text: #2c6e77;
 }
 
 * {
@@ -34,10 +38,7 @@ html {
 body {
   margin: 0;
   font-family: "Neue Montreal", Arial, sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(170, 190, 221, 0.18), transparent 26%),
-    radial-gradient(circle at top right, rgba(179, 212, 221, 0.12), transparent 22%),
-    var(--page-bg);
+  background: var(--page-bg);
   color: var(--text);
 }
 
@@ -210,9 +211,7 @@ img {
   flex-direction: column;
   justify-content: space-between;
   min-height: 620px;
-  background:
-    radial-gradient(circle at top right, rgba(170, 190, 221, 0.12), transparent 34%),
-    #ffffff;
+  background: #ffffff;
 }
 
 .products-hero__points {
@@ -245,6 +244,96 @@ img {
 
 .products-summary {
   padding: 56px 0 0;
+}
+.products-installation {
+  padding: 20px 0 0;
+}
+
+.products-installation__panel {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.74fr) minmax(0, 1.26fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.products-installation__card,
+.products-installation__media {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.products-installation__card {
+  min-height: 620px;
+  padding: 28px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 22px;
+}
+
+.products-installation__intro {
+  padding: 26px 28px;
+  border: 1px solid rgba(4, 174, 194, 0.16);
+  background: #ffffff;
+}
+
+.products-installation__title {
+  max-width: 12ch;
+}
+
+.products-installation__subtitle {
+  max-width: 31ch;
+}
+
+.products-installation__points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.products-installation__points li {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  padding: 18px 20px;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  background: #fbfcfe;
+}
+
+.products-installation__points li p {
+  margin: 0;
+  color: #0f172a;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.products-installation__point-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(4, 174, 194, 0.18);
+  background: rgba(4, 174, 194, 0.08);
+  color: #1f3f73;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.products-installation__media {
+  min-height: 620px;
+  overflow: hidden;
+}
+
+.products-installation__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .products-summary__grid {
@@ -410,9 +499,7 @@ img {
 
 .products-capabilities__body {
   padding: 52px;
-  background:
-    radial-gradient(circle at top right, rgba(170, 190, 221, 0.12), transparent 32%),
-    #ffffff;
+  background: #ffffff;
 }
 
 .products-capabilities__panel[hidden] {
@@ -466,7 +553,7 @@ img {
   min-height: 560px;
   padding: 24px;
   border: 1px solid rgba(17, 24, 39, 0.08);
-  background: linear-gradient(180deg, rgba(247, 249, 252, 0.9), rgba(255, 255, 255, 0.98));
+  background: #ffffff;
 }
 
 .products-capabilities__media img {
@@ -606,7 +693,8 @@ img {
   .products-overview__header,
   .products-capabilities__panel,
   .products-footer__inner,
-  .products-footer__content {
+  .products-footer__content,
+  .products-installation__panel {
     grid-template-columns: 1fr;
   }
 
@@ -652,3 +740,9 @@ img {
     justify-content: flex-start;
   }
 }
+
+
+
+
+
+
