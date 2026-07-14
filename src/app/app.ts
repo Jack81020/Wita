@@ -83,12 +83,19 @@ export class App implements AfterViewInit, OnDestroy {
 
     const texts = Array.from(section.querySelectorAll<HTMLElement>('.TempElevationSound_text__E585b'));
     const items = Array.from(section.querySelectorAll<HTMLElement>('nav li'));
+    const autoplayDelay = 4000;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let activeIndex = 0;
+    let isSectionVisible = false;
+    let autoplayTimer: number | null = null;
 
-    const setActive = (activeIndex: number) => {
+    const setActive = (nextIndex: number) => {
+      activeIndex = nextIndex;
+
       config.forEach((item, index) => {
         const button = root.querySelector<HTMLElement>(`#${item.buttonId}`);
         const panel = root.querySelector<HTMLElement>(`#${item.panelId}`);
-        const isActive = index === activeIndex;
+        const isActive = index === nextIndex;
 
         button?.setAttribute('aria-current', String(isActive));
 
@@ -108,16 +115,67 @@ export class App implements AfterViewInit, OnDestroy {
       });
     };
 
+    const stopAutoplay = () => {
+      if (autoplayTimer === null) return;
+      window.clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    };
+
+    const startAutoplay = () => {
+      stopAutoplay();
+      if (!isSectionVisible || document.hidden || prefersReducedMotion.matches) return;
+
+      autoplayTimer = window.setInterval(() => {
+        setActive((activeIndex + 1) % config.length);
+      }, autoplayDelay);
+    };
+
     config.forEach((item, index) => {
       const button = root.querySelector<HTMLElement>(`#${item.buttonId}`);
       if (!button) return;
 
-      const onClick = () => setActive(index);
+      const onClick = () => {
+        setActive(index);
+        startAutoplay();
+      };
       button.addEventListener('click', onClick);
       this.cleanupFns.push(() => button.removeEventListener('click', onClick));
     });
 
     setActive(0);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isSectionVisible = entry.isIntersecting;
+        if (isSectionVisible) {
+          startAutoplay();
+        } else {
+          stopAutoplay();
+        }
+      },
+      { threshold: 0.35 },
+    );
+
+    const onVisibilityChange = () => {
+      if (document.hidden) {
+        stopAutoplay();
+      } else {
+        startAutoplay();
+      }
+    };
+
+    const onMotionPreferenceChange = () => startAutoplay();
+
+    observer.observe(section);
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    prefersReducedMotion.addEventListener('change', onMotionPreferenceChange);
+
+    this.cleanupFns.push(() => {
+      stopAutoplay();
+      observer.disconnect();
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      prefersReducedMotion.removeEventListener('change', onMotionPreferenceChange);
+    });
   }
 
   private setupMemberStoryVideos(): void {

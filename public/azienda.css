@@ -144,7 +144,7 @@
 
 .company-card__title--large {
   max-width: 16.5ch;
-  font-size: clamp(38px, 3vw, 52px);
+  font-size: clamp(30px, 3vw, 42px);
   line-height: 0.98;
 }
 

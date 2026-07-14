@@ -245,6 +245,7 @@ img {
 .products-summary {
   padding: 56px 0 0;
 }
+
 .products-installation {
   padding: 20px 0 0;
 }
@@ -253,7 +254,7 @@ img {
   display: grid;
   grid-template-columns: minmax(320px, 0.74fr) minmax(0, 1.26fr);
   gap: 20px;
-  align-items: stretch;
+  align-items: start;
 }
 
 .products-installation__card,
@@ -304,7 +305,7 @@ img {
 }
 
 .products-installation__points li p {
-  margin: 0;
+  margin: auto 0;
   color: #0f172a;
   font-size: 16px;
   line-height: 1.6;
@@ -325,13 +326,15 @@ img {
 }
 
 .products-installation__media {
-  min-height: 620px;
+  height: auto;
   overflow: hidden;
 }
 
 .products-installation__video {
-  width: 100%;
+  width: calc(100% + 8px);
+  max-width: none;
   height: 100%;
+  margin-left: -4px;
   object-fit: cover;
   object-position: center;
 }
@@ -364,7 +367,7 @@ img {
 .products-title {
   font-size: clamp(38px, 6vw, 42px);
   line-height: 0.96;
-  max-width: 14.7ch;
+  max-width: 18.7ch;
 }
 
 .products-subtitle,
@@ -698,6 +701,10 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .products-installation__media {
+    aspect-ratio: 16 / 10;
+  }
+
   .products-benefits__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -740,9 +747,3 @@ img {
     justify-content: flex-start;
   }
 }
-
-
-
-
-
-

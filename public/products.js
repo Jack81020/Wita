@@ -26,8 +26,26 @@
 
   setActivePanel('analytics');
 
+  const installationMedia = document.querySelector('.products-installation__media');
+  const installationCard = document.querySelector('.products-installation__card');
+  const desktopInstallationLayout = window.matchMedia('(min-width: 1024px)');
+
+  if (installationMedia && installationCard) {
+    const syncInstallationMediaHeight = () => {
+      installationMedia.style.height = desktopInstallationLayout.matches
+        ? `${installationCard.getBoundingClientRect().height}px`
+        : '';
+    };
+
+    const installationResizeObserver = new ResizeObserver(syncInstallationMediaHeight);
+    installationResizeObserver.observe(installationCard);
+    desktopInstallationLayout.addEventListener('change', syncInstallationMediaHeight);
+    syncInstallationMediaHeight();
+  }
+
   const storyButtons = Array.from(document.querySelectorAll('[data-products-story-toggle]'));
   const storyView = document.querySelector('[data-products-story-view]');
+  const storySection = document.querySelector('.products-analytics-story');
   const noteTitlePrimary = document.querySelector('[data-products-story-note-title="primary"]');
   const noteCopyPrimary = document.querySelector('[data-products-story-note-copy="primary"]');
   const noteIconPrimary = document.querySelector('[data-products-story-note-icon="primary"]');
@@ -35,6 +53,10 @@
   const noteCopySecondary = document.querySelector('[data-products-story-note-copy="secondary"]');
   const noteIconSecondary = document.querySelector('[data-products-story-note-icon="secondary"]');
   const storyImage = storyView ? storyView.querySelector('.products-analytics-story__media img') : null;
+  const storyAutoplayDelay = 4000;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let isStoryVisible = false;
+  let storyAutoplayTimer = null;
 
   const storyContent = {
     structure: {
@@ -100,13 +122,56 @@
     noteIconSecondary.classList.add(content.secondary.icon);
   };
 
+  const stopStoryAutoplay = () => {
+    if (storyAutoplayTimer === null) return;
+    window.clearInterval(storyAutoplayTimer);
+    storyAutoplayTimer = null;
+  };
+
+  const startStoryAutoplay = () => {
+    stopStoryAutoplay();
+    if (!isStoryVisible || document.hidden || prefersReducedMotion.matches) return;
+
+    storyAutoplayTimer = window.setInterval(() => {
+      const currentView = storyView && storyView.getAttribute('data-products-story-view');
+      setStoryView(currentView === 'structure' ? 'guest' : 'structure');
+    }, storyAutoplayDelay);
+  };
+
   storyButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const view = button.getAttribute('data-products-story-toggle');
       if (!view) return;
       setStoryView(view);
+      startStoryAutoplay();
     });
   });
 
   setStoryView('structure');
+
+  if (storySection) {
+    const storyObserver = new IntersectionObserver(
+      ([entry]) => {
+        isStoryVisible = entry.isIntersecting;
+        if (isStoryVisible) {
+          startStoryAutoplay();
+        } else {
+          stopStoryAutoplay();
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    storyObserver.observe(storySection);
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopStoryAutoplay();
+      } else {
+        startStoryAutoplay();
+      }
+    });
+
+    prefersReducedMotion.addEventListener('change', startStoryAutoplay);
+  }
 })();

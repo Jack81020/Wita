@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="it">
 
 <head>
@@ -36,125 +36,113 @@
     </div>
   </header>
 
-  <main class="products-main" id="main">
-    <div class="products-shell">
-      <section class="products-hero">
-        <div class="products-hero__content">
+  <main class="technology-main" id="main">
+    <div class="technology-shell">
+      <section class="technology-hero" aria-labelledby="technology-title">
+        <div class="technology-hero__content">
           <div>
-            <p class="products-eyebrow">Portale Mentorage</p>
-            <h1 class="products-title">Una visione chiara della struttura, in unâ€™unica schermata.</h1>
-            <p class="products-subtitle">Mentorage organizza stanze, alert ed eventi in unâ€™interfaccia semplice, pensata
-              per aiutare il personale a capire rapidamente dove serve attenzione.</p>
+            <p class="technology-eyebrow">Tecnologia Mentorage</p>
+            <h1 class="technology-title" id="technology-title">Dall&rsquo;immagine alla comprensione dell&rsquo;ambiente.</h1>
+            <p class="technology-copy technology-hero__copy">Mentorage combina immagini, profondit&agrave; e intelligenza artificiale per interpretare ci&ograve; che accade negli spazi assistenziali.</p>
           </div>
-          <ul class="products-hero__points" aria-label="Punti chiave del portale Mentorage">
-            <li>Panoramica immediata della struttura</li>
-            <li>Alert evidenziati per prioritÃ </li>
-            <li>Storico eventi e statistiche sempre accessibili</li>
-          </ul>
+
+          <div class="technology-layers" aria-label="Livelli di analisi Mentorage">
+            <article class="technology-layer">
+              <button type="button" data-technology-detail aria-expanded="false">
+                <span>Immagine RGB</span><span class="technology-layer__symbol" aria-hidden="true"></span>
+              </button>
+              <p hidden>La scena viene acquisita come immagine ambientale, offrendo il contesto visivo necessario all&rsquo;analisi.</p>
+            </article>
+            <article class="technology-layer">
+              <button type="button" data-technology-detail aria-expanded="false">
+                <span>Profondit&agrave; della scena</span><span class="technology-layer__symbol" aria-hidden="true"></span>
+              </button>
+              <p hidden>La profondit&agrave; misura distanze e volumi, permettendo di comprendere la posizione degli elementi nello spazio.</p>
+            </article>
+            <article class="technology-layer">
+              <button type="button" data-technology-detail aria-expanded="false">
+                <span>Segmentazione degli elementi</span><span class="technology-layer__symbol" aria-hidden="true"></span>
+              </button>
+              <p hidden>Persone e oggetti vengono distinti per interpretare la scena senza trasformare il sensore in una videocamera di sorveglianza.</p>
+            </article>
+          </div>
         </div>
-        <div class="products-hero__media">
-          <video class="products-hero__video" playsinline autoplay muted loop preload="auto">
-            <source src="assets/BED_EXIT.mp4" type="video/mp4" />
+
+        <div class="technology-hero__media">
+
+          <video class="technology-video" controls playsinline muted loop preload="metadata" aria-label="Elaborazione RGB, profondit&agrave; e segmentazione della scena">
+            <source src="assets/rgb-depth-segmentation-h264.mp4" type="video/mp4" />
           </video>
         </div>
       </section>
 
-      <section class="products-feature products-feature--immersive" id="product-overview">
-        <div class="products-feature__media products-feature__media--hero">
-          <img src="assets/interactiveimage.png" alt="Vista interattiva del portale Mentorage" loading="lazy" />
+      <section class="technology-spatial" aria-labelledby="technology-spatial-title">
+        <div class="technology-spatial__content">
+          <p class="technology-eyebrow">Una lettura pi&ugrave; completa</p>
+          <h2 class="technology-section-title" id="technology-spatial-title">Ogni ambiente diventa una fonte di informazioni.</h2>
+          <p class="technology-copy">La combinazione di dati spaziali e intelligenza artificiale permette di leggere gli ambienti nel tempo, riconoscendo presenze, movimenti e cambiamenti rilevanti.</p>
         </div>
-        <div class="products-feature__panel">
-          <p class="products-eyebrow">Overview</p>
-          <h2 class="products-section-title">Capire subito cosa sta succedendo.</h2>
-          <p class="products-section-copy">Mentorage concentra stanze, segnali e priorit&agrave; operative in una
-            lettura semplice, pensata per aiutare il personale a orientarsi in pochi secondi.</p>
-        </div>
-      </section>
 
-      <section class="products-story">
-        <div class="products-story__intro">
-          <p class="products-eyebrow">Dati ed eventi</p>
-          <div class="products-story__intro-grid">
-            <h2 class="products-section-title">Schermate ampie, dettagli subito leggibili.</h2>
-            <p class="products-section-copy">Statistiche, alert e stato paziente vengono mostrati con tagli diversi ma
-              dentro una composizione pi&ugrave; sobria, cos&igrave; la pagina resta dinamica senza sembrare
-              artificiosa.</p>
-          </div>
-        </div>
-        <div class="products-story__grid">
-          <div class="products-story__card products-story__card--main">
-            <img src="assets/uff_stats.png" alt="Dashboard statistiche del portale Mentorage" loading="lazy" />
-          </div>
-          <div class="products-story__aside">
-            <div class="products-story__card products-story__card--top">
-              <img src="assets/monitor.png" alt="Vista eventi del portale Mentorage" loading="lazy" />
+        <div class="technology-spatial__visual" aria-label="Rappresentazione di percorsi, presenza e permanenza negli ambienti">
+          <svg class="technology-map" viewBox="0 0 760 370" role="img" aria-labelledby="technology-map-title technology-map-desc">
+            <title id="technology-map-title">Mappa tecnica degli ambienti monitorati</title>
+            <desc id="technology-map-desc">Pianta tridimensionale con tre percorsi colorati e punti di rilevamento.</desc>
+            <g class="technology-map__floor">
+              <path d="M48 82 385 20 650 107 314 174Z" />
+              <path d="M48 82v135l266 104V174Z" />
+              <path d="m314 174 336-67v132l-336 82Z" />
+            </g>
+            <g class="technology-map__rooms">
+              <path d="M82 95v105m68-118v145m72-158v185m91-202v119m88-135v120m91-97v123m82-99v107" />
+              <path d="M58 144 314 238l326-73M71 190l243 91 326-86M150 82l266 89M246 61l264 89M349 41l263 87" />
+            </g>
+            <g class="technology-map__furniture">
+              <path d="m105 126 55-13 48 18-58 15Zm173 18 62-13 49 17-64 16Zm202-29 58-11 43 15-59 14ZM180 205l54-10 42 17-55 12Zm228 21 63-14 49 18-66 15Z" />
+            </g>
+            <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path class="technology-map__route technology-map__route--one" d="M102 159c29 4 50 18 63 37 15 22 37 24 63 11 30-15 46-11 56 9 12 24 33 34 62 28 26-5 44-22 61-51 18-31 47-37 87-18" />
+              <path class="technology-map__route technology-map__route--two" d="M139 121c14 20 31 35 53 44 25 10 50 7 75-9 26-17 49-19 69-7 18 10 26 30 24 59-1 22 10 39 34 49 26 11 53 7 83-13" />
+              <path class="technology-map__route technology-map__route--three" d="M209 266c22-28 43-40 64-35 22 6 31 29 28 69m213-164c-10 29-7 51 10 66 16 14 40 17 72 7" />
+            </g>
+            <g class="technology-map__nodes">
+              <circle class="technology-map__node--cyan" cx="102" cy="159" r="6" />
+              <circle class="technology-map__node--orange" cx="228" cy="207" r="6" />
+              <circle class="technology-map__node--blue" cx="407" cy="193" r="6" />
+              <circle class="technology-map__node--violet" cx="139" cy="121" r="6" />
+              <circle class="technology-map__node--green" cx="209" cy="266" r="6" />
+              <circle class="technology-map__node--orange" cx="514" cy="136" r="6" />
+            </g>
+          </svg>
+
+          <aside class="technology-legend" aria-label="Legenda della mappa">
+            <div class="technology-legend__block">
+              <h3>Percorsi rilevati</h3>
+              <p><i class="technology-legend__line technology-legend__line--one"></i>Assistito 1</p>
+              <p><i class="technology-legend__line technology-legend__line--two"></i>Assistito 2</p>
+              <p><i class="technology-legend__line technology-legend__line--three"></i>Assistito 3</p>
             </div>
-            <div class="products-story__card products-story__card--bottom">
-              <img src="assets/smartphone.png" alt="Vista mobile del portale Mentorage" loading="lazy" />
+            <div class="technology-legend__block">
+              <h3>Presenza nell&rsquo;ambiente</h3>
+              <svg class="technology-heatmap" viewBox="0 0 190 54" role="img" aria-label="Mappa di calore della presenza">
+                <defs>
+                  <radialGradient id="heat-high"><stop offset="0" stop-color="#ffef31"/><stop offset=".34" stop-color="#ff4b22"/><stop offset=".7" stop-color="#2f5fff" stop-opacity=".88"/><stop offset="1" stop-color="#071f58" stop-opacity="0"/></radialGradient>
+                  <radialGradient id="heat-mid"><stop offset="0" stop-color="#35e2dc"/><stop offset=".45" stop-color="#136ee8"/><stop offset="1" stop-color="#071f58" stop-opacity="0"/></radialGradient>
+                </defs>
+                <rect width="190" height="54" fill="#071f58"/>
+                <ellipse cx="38" cy="25" rx="38" ry="30" fill="url(#heat-mid)"/>
+                <ellipse cx="91" cy="30" rx="48" ry="32" fill="url(#heat-high)"/>
+                <ellipse cx="153" cy="19" rx="38" ry="27" fill="url(#heat-mid)"/>
+                <ellipse cx="166" cy="43" rx="30" ry="20" fill="url(#heat-high)"/>
+              </svg>
+              <div class="technology-legend__scale"><span>Bassa</span><span>Alta</span></div>
             </div>
-          </div>
-        </div>
-        <div class="products-story__highlights" aria-label="Punti chiave della UI">
-          <span>Dashboard struttura</span>
-          <span>Monitoraggio eventi</span>
-          <span>Vista mobile</span>
-        </div>
-      </section>
-
-      <section class="products-capabilities">
-        <div class="products-capabilities__frame">
-          <nav class="products-capabilities__nav" aria-label="Funzionalit&agrave; del portale Mentorage">
-            <ul>
-              <li data-active="true"><button type="button" data-products-panel-trigger="analytics">Dati e
-                  statistiche</button></li>
-              <li data-active="false"><button type="button" data-products-panel-trigger="events">Eventi</button></li>
-              <li data-active="false"><button type="button" data-products-panel-trigger="status">Stato paziente</button>
-              </li>
-            </ul>
-          </nav>
-          <div class="products-capabilities__body">
-            <article class="products-capabilities__panel" data-products-panel="analytics">
-              <div class="products-capabilities__content">
-                <p class="products-eyebrow">Dati e statistiche</p>
-                <h2 class="products-capabilities__title">Leggere come la realt&agrave; cambia nel tempo.</h2>
-                <p class="products-capabilities__text">Pattern, frequenze e andamento operativo diventano pi&ugrave;
-                  immediati da leggere, dal singolo paziente fino alla struttura.</p>
+            <div class="technology-legend__block">
+              <h3>Permanenza</h3>
+              <div class="technology-dwell" aria-label="Permanenza crescente">
+                <i></i><i></i><i></i><i></i><i></i><i></i>
               </div>
-              <div class="products-capabilities__media-wrap">
-                <div class="products-capabilities__media products-capabilities__media--wide">
-                  <img src="assets/uff_stats.png" alt="Vista dati e statistiche del portale Mentorage" loading="lazy" />
-                </div>
-              </div>
-            </article>
-
-            <article class="products-capabilities__panel" data-products-panel="events" hidden>
-              <div class="products-capabilities__content">
-                <p class="products-eyebrow">Eventi</p>
-                <h2 class="products-capabilities__title">Eventi costruiti sul rischio reale.</h2>
-                <p class="products-capabilities__text">Alert e segnalazioni emergono in modo pi&ugrave; coerente con il
-                  contesto assistenziale, aiutando a dare attenzione rapida a ci&ograve; che conta.</p>
-              </div>
-              <div class="products-capabilities__media-wrap">
-                <div class="products-capabilities__media products-capabilities__media--wide">
-                  <img src="assets/monitor.png" alt="Vista eventi del portale Mentorage" loading="lazy" />
-                </div>
-              </div>
-            </article>
-
-            <article class="products-capabilities__panel" data-products-panel="status" hidden>
-              <div class="products-capabilities__content">
-                <p class="products-eyebrow">Stato paziente</p>
-                <h2 class="products-capabilities__title">Pi&ugrave; continuit&agrave;, meno interruzioni inutili.</h2>
-                <p class="products-capabilities__text">Uno sguardo sintetico su sonno, veglia e presenza aiuta a
-                  limitare controlli superflui e a mantenere pi&ugrave; fluidit&agrave; nel turno.</p>
-              </div>
-              <div class="products-capabilities__media-wrap">
-                <div class="products-capabilities__media products-capabilities__media--wide">
-                  <img src="assets/inf_cell.png" alt="Vista stato paziente del portale Mentorage" loading="lazy" />
-                </div>
-              </div>
-            </article>
-          </div>
+            </div>
+          </aside>
         </div>
       </section>
     </div>
@@ -188,7 +176,7 @@
     </div>
   </footer>
 
-  <script src="products.js"></script>
+  <script src="tecnologia.js"></script>
 </body>
 
 </html>

@@ -42,7 +42,7 @@
 .products-analytics-story__title {
   font-size: clamp(40px, 5vw, 48px);
   line-height: 0.94;
-  max-width: 7.2ch;
+  max-width: 14.2ch;
 }
 
 .products-analytics-story__subtitle {
@@ -1102,4 +1102,3 @@
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4.5' y='6' width='15' height='10.5' rx='2'/%3E%3Cpath d='M9 19h6M12 16.5V19'/%3E%3C/svg%3E");
   -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4.5' y='6' width='15' height='10.5' rx='2'/%3E%3Cpath d='M9 19h6M12 16.5V19'/%3E%3C/svg%3E");
 }
-

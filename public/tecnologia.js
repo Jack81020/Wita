@@ -1,28 +1,37 @@
 (() => {
-  const triggers = Array.from(document.querySelectorAll('[data-products-panel-trigger]'));
-  const items = triggers.map((trigger) => trigger.closest('li'));
-  const panels = Array.from(document.querySelectorAll('[data-products-panel]'));
+  const detailButtons = Array.from(document.querySelectorAll('[data-technology-detail]'));
 
-  const setActivePanel = (panelId) => {
-    panels.forEach((panel) => {
-      panel.hidden = panel.getAttribute('data-products-panel') !== panelId;
-    });
+  detailButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const isOpen = button.getAttribute('aria-expanded') === 'true';
+      const detail = button.closest('.technology-layer')?.querySelector('p');
 
-    items.forEach((item) => {
-      if (!item) return;
-      const button = item.querySelector('button');
-      const isActive = button && button.getAttribute('data-products-panel-trigger') === panelId;
-      item.setAttribute('data-active', String(Boolean(isActive)));
-    });
-  };
-
-  triggers.forEach((trigger) => {
-    trigger.addEventListener('click', () => {
-      const panelId = trigger.getAttribute('data-products-panel-trigger');
-      if (!panelId) return;
-      setActivePanel(panelId);
+      button.setAttribute('aria-expanded', String(!isOpen));
+      if (detail) detail.hidden = isOpen;
     });
   });
 
-  setActivePanel('analytics');
+  const video = document.querySelector('.technology-video');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (!video || prefersReducedMotion.matches) return;
+
+  const videoObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting && !document.hidden) {
+        void video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    },
+    { threshold: 0.45 }
+  );
+
+  videoObserver.observe(video);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      video.pause();
+    }
+  });
 })();
