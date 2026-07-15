@@ -42,35 +42,41 @@
         <div class="technology-hero__content">
           <div>
             <p class="technology-eyebrow">Tecnologia Mentorage</p>
-            <h1 class="technology-title" id="technology-title">Dall&rsquo;immagine alla comprensione dell&rsquo;ambiente.</h1>
-            <p class="technology-copy technology-hero__copy">Mentorage combina immagini, profondit&agrave; e intelligenza artificiale per interpretare ci&ograve; che accade negli spazi assistenziali.</p>
+            <h1 class="technology-title" id="technology-title">Come Mentorage capisce ciò che accade</h1>
+            <p class="technology-copy technology-hero__copy">Il sensore osserva l’ambiente, comprende la scena e
+              riconosce i movimenti. L’intelligenza artificiale trasforma ciò che accade nella stanza in informazioni
+              utili per chi assiste, senza registrare video.</p>
           </div>
 
           <div class="technology-layers" aria-label="Livelli di analisi Mentorage">
             <article class="technology-layer">
               <button type="button" data-technology-detail aria-expanded="false">
-                <span>Immagine RGB</span><span class="technology-layer__symbol" aria-hidden="true"></span>
+                <span>Osserva senza invadere</span><span class="technology-layer__symbol" aria-hidden="true"></span>
               </button>
-              <p hidden>La scena viene acquisita come immagine ambientale, offrendo il contesto visivo necessario all&rsquo;analisi.</p>
+              <p hidden>Mentorage rileva ciò che accade nella stanza senza trasformarla in un ambiente videosorvegliato.
+              </p>
             </article>
             <article class="technology-layer">
               <button type="button" data-technology-detail aria-expanded="false">
-                <span>Profondit&agrave; della scena</span><span class="technology-layer__symbol" aria-hidden="true"></span>
+                <span>Comprende lo spazio</span><span class="technology-layer__symbol" aria-hidden="true"></span>
               </button>
-              <p hidden>La profondit&agrave; misura distanze e volumi, permettendo di comprendere la posizione degli elementi nello spazio.</p>
+              <p hidden>Riconosce dove si trovano le persone e gli oggetti, misura le distanze e segue i movimenti
+                nell’ambiente.</p>
             </article>
             <article class="technology-layer">
               <button type="button" data-technology-detail aria-expanded="false">
-                <span>Segmentazione degli elementi</span><span class="technology-layer__symbol" aria-hidden="true"></span>
+                <span>Riconosce le situazioni</span><span class="technology-layer__symbol" aria-hidden="true"></span>
               </button>
-              <p hidden>Persone e oggetti vengono distinti per interpretare la scena senza trasformare il sensore in una videocamera di sorveglianza.</p>
+              <p hidden>Capisce quando una persona si alza, cade, esce dalla stanza o permane a lungo in un determinato
+                ambiente.</p>
             </article>
           </div>
         </div>
 
         <div class="technology-hero__media">
 
-          <video class="technology-video" controls playsinline muted loop preload="metadata" aria-label="Elaborazione RGB, profondit&agrave; e segmentazione della scena">
+          <video class="technology-video" controls playsinline muted loop preload="metadata"
+            aria-label="Elaborazione RGB, profondit&agrave; e segmentazione della scena">
             <source src="assets/rgb-depth-segmentation-h264.mp4" type="video/mp4" />
           </video>
         </div>
@@ -79,14 +85,19 @@
       <section class="technology-spatial" aria-labelledby="technology-spatial-title">
         <div class="technology-spatial__content">
           <p class="technology-eyebrow">Una lettura pi&ugrave; completa</p>
-          <h2 class="technology-section-title" id="technology-spatial-title">Ogni ambiente diventa una fonte di informazioni.</h2>
-          <p class="technology-copy">La combinazione di dati spaziali e intelligenza artificiale permette di leggere gli ambienti nel tempo, riconoscendo presenze, movimenti e cambiamenti rilevanti.</p>
+          <h2 class="technology-section-title" id="technology-spatial-title">Ogni ambiente diventa una fonte di
+            informazioni.</h2>
+          <p class="technology-copy">La combinazione di dati spaziali e intelligenza artificiale permette di leggere gli
+            ambienti nel tempo, riconoscendo presenze, movimenti e cambiamenti rilevanti.</p>
         </div>
 
-        <div class="technology-spatial__visual" aria-label="Rappresentazione di percorsi, presenza e permanenza negli ambienti">
-          <svg class="technology-map" viewBox="0 0 760 370" role="img" aria-labelledby="technology-map-title technology-map-desc">
+        <div class="technology-spatial__visual"
+          aria-label="Rappresentazione di percorsi, presenza e permanenza negli ambienti">
+          <svg class="technology-map" viewBox="0 0 760 370" role="img"
+            aria-labelledby="technology-map-title technology-map-desc">
             <title id="technology-map-title">Mappa tecnica degli ambienti monitorati</title>
-            <desc id="technology-map-desc">Pianta tridimensionale con tre percorsi colorati e punti di rilevamento.</desc>
+            <desc id="technology-map-desc">Pianta tridimensionale con tre percorsi colorati e punti di rilevamento.
+            </desc>
             <g class="technology-map__floor">
               <path d="M48 82 385 20 650 107 314 174Z" />
               <path d="M48 82v135l266 104V174Z" />
@@ -97,12 +108,16 @@
               <path d="M58 144 314 238l326-73M71 190l243 91 326-86M150 82l266 89M246 61l264 89M349 41l263 87" />
             </g>
             <g class="technology-map__furniture">
-              <path d="m105 126 55-13 48 18-58 15Zm173 18 62-13 49 17-64 16Zm202-29 58-11 43 15-59 14ZM180 205l54-10 42 17-55 12Zm228 21 63-14 49 18-66 15Z" />
+              <path
+                d="m105 126 55-13 48 18-58 15Zm173 18 62-13 49 17-64 16Zm202-29 58-11 43 15-59 14ZM180 205l54-10 42 17-55 12Zm228 21 63-14 49 18-66 15Z" />
             </g>
             <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path class="technology-map__route technology-map__route--one" d="M102 159c29 4 50 18 63 37 15 22 37 24 63 11 30-15 46-11 56 9 12 24 33 34 62 28 26-5 44-22 61-51 18-31 47-37 87-18" />
-              <path class="technology-map__route technology-map__route--two" d="M139 121c14 20 31 35 53 44 25 10 50 7 75-9 26-17 49-19 69-7 18 10 26 30 24 59-1 22 10 39 34 49 26 11 53 7 83-13" />
-              <path class="technology-map__route technology-map__route--three" d="M209 266c22-28 43-40 64-35 22 6 31 29 28 69m213-164c-10 29-7 51 10 66 16 14 40 17 72 7" />
+              <path class="technology-map__route technology-map__route--one"
+                d="M102 159c29 4 50 18 63 37 15 22 37 24 63 11 30-15 46-11 56 9 12 24 33 34 62 28 26-5 44-22 61-51 18-31 47-37 87-18" />
+              <path class="technology-map__route technology-map__route--two"
+                d="M139 121c14 20 31 35 53 44 25 10 50 7 75-9 26-17 49-19 69-7 18 10 26 30 24 59-1 22 10 39 34 49 26 11 53 7 83-13" />
+              <path class="technology-map__route technology-map__route--three"
+                d="M209 266c22-28 43-40 64-35 22 6 31 29 28 69m213-164c-10 29-7 51 10 66 16 14 40 17 72 7" />
             </g>
             <g class="technology-map__nodes">
               <circle class="technology-map__node--cyan" cx="102" cy="159" r="6" />
@@ -123,16 +138,26 @@
             </div>
             <div class="technology-legend__block">
               <h3>Presenza nell&rsquo;ambiente</h3>
-              <svg class="technology-heatmap" viewBox="0 0 190 54" role="img" aria-label="Mappa di calore della presenza">
+              <svg class="technology-heatmap" viewBox="0 0 190 54" role="img"
+                aria-label="Mappa di calore della presenza">
                 <defs>
-                  <radialGradient id="heat-high"><stop offset="0" stop-color="#ffef31"/><stop offset=".34" stop-color="#ff4b22"/><stop offset=".7" stop-color="#2f5fff" stop-opacity=".88"/><stop offset="1" stop-color="#071f58" stop-opacity="0"/></radialGradient>
-                  <radialGradient id="heat-mid"><stop offset="0" stop-color="#35e2dc"/><stop offset=".45" stop-color="#136ee8"/><stop offset="1" stop-color="#071f58" stop-opacity="0"/></radialGradient>
+                  <radialGradient id="heat-high">
+                    <stop offset="0" stop-color="#ffef31" />
+                    <stop offset=".34" stop-color="#ff4b22" />
+                    <stop offset=".7" stop-color="#2f5fff" stop-opacity=".88" />
+                    <stop offset="1" stop-color="#071f58" stop-opacity="0" />
+                  </radialGradient>
+                  <radialGradient id="heat-mid">
+                    <stop offset="0" stop-color="#35e2dc" />
+                    <stop offset=".45" stop-color="#136ee8" />
+                    <stop offset="1" stop-color="#071f58" stop-opacity="0" />
+                  </radialGradient>
                 </defs>
-                <rect width="190" height="54" fill="#071f58"/>
-                <ellipse cx="38" cy="25" rx="38" ry="30" fill="url(#heat-mid)"/>
-                <ellipse cx="91" cy="30" rx="48" ry="32" fill="url(#heat-high)"/>
-                <ellipse cx="153" cy="19" rx="38" ry="27" fill="url(#heat-mid)"/>
-                <ellipse cx="166" cy="43" rx="30" ry="20" fill="url(#heat-high)"/>
+                <rect width="190" height="54" fill="#071f58" />
+                <ellipse cx="38" cy="25" rx="38" ry="30" fill="url(#heat-mid)" />
+                <ellipse cx="91" cy="30" rx="48" ry="32" fill="url(#heat-high)" />
+                <ellipse cx="153" cy="19" rx="38" ry="27" fill="url(#heat-mid)" />
+                <ellipse cx="166" cy="43" rx="30" ry="20" fill="url(#heat-high)" />
               </svg>
               <div class="technology-legend__scale"><span>Bassa</span><span>Alta</span></div>
             </div>
@@ -180,4 +205,3 @@
 </body>
 
 </html>
-
