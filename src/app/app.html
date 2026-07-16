@@ -1,63 +1,6 @@
 <!--/$-->
 <div style="background-color:white;color:black">
-	<header class="NavBar_container__jaa13" tabindex="-1" id="header">
-		<a class="skip-main" role="link" aria-label="Collegamento di ancoraggio al contenuto principale"
-			href="#main">Contenuto principale</a>
-		<a class="skip-main" role="link" aria-label="Link di ancoraggio a Footer" href="#footer">Piè di pagina</a>
-		<a class="skip-main" aria-label="Link all'accessibilità" role="link" href="/it/accessibility">Dichiarazione
-			di accessibilità</a>
-		<div class="site-header__shell">
-			<div class="site-header__desktop">
-				<nav class="site-header__nav site-header__nav--left" aria-label="Navigazione principale desktop">
-					<a class="nav_bar_item" href="products.html">Prodotto</a>
-					<a class="nav_bar_item" href="tecnologia.html">Tecnologia</a>
-					<a class="nav_bar_item" href="azienda.html">Azienda</a>
-				</nav>
-				<a class="site-header__brand" href="./" aria-label="Mentorage home">
-					<img class="site-header__brand-image" src="assets/mentorage.svg" alt="Mentorage Logo"
-						loading="lazy" />
-				</a>
-				<div class="site-header__nav site-header__nav--right">
-					<a class="nav_bar_item site-header__account-link" href="contatti.html">Contatti</a>
-					<!-- <a class="site-header__icon-link" href="/cart" aria-label="Carrello">
-							<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none">
-								<path
-									d="M3.5 4.75H5.3C5.74 4.75 6.12 5.06 6.2 5.49L6.54 7.25H20.5L18.87 13.68C18.7 14.33 18.12 14.79 17.45 14.79H9.38C8.69 14.79 8.1 14.31 7.95 13.64L6.14 5.79"
-									stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-									stroke-linejoin="round" />
-								<circle cx="9.6" cy="18.35" r="1.2" fill="currentColor" />
-								<circle cx="17.2" cy="18.35" r="1.2" fill="currentColor" />
-							</svg>
-						</a>
-						<a id="desktop-get-pod-btn"
-							class="Button_base__NYfuD Button_dark__hONrt DesktopHeaderNav_desktop_nav__cta_button__ORcXl site-header__cta"
-							role="link" aria-label="Acquista il Pod" href="/it/product/pod-cover/">
-							<span class="Button_button_span__owTS_">Acquista il Pod</span>
-						</a> -->
-				</div>
-			</div>
-			<div class="site-header__mobile">
-				<button id="hamburger" class="Button_base__NYfuD site-header__mobile-toggle" role="button" type="button"
-					aria-label="Apri menu">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-						<path d="M2.25 9H21.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-						</path>
-						<path d="M2.25 15H21.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="square">
-						</path>
-					</svg>
-				</button>
-				<a class="site-header__brand site-header__brand--mobile" href="./" aria-label="Mentorage home">
-					<img class="site-header__brand-image" src="assets/mentorage.svg" alt="Eight Sleep Logo"
-						loading="lazy" />
-				</a>
-				<!-- <a id="nav-get-pod-btn"
-					class="Button_base__NYfuD Button_dark__hONrt DesktopHeaderNav_desktop_nav__cta_button__ORcXl site-header__cta site-header__cta--mobile"
-					role="link" aria-label="Acquista il Pod" href="/it/product/pod-cover/">
-					<span class="Button_button_span__owTS_">Acquista Mentorage</span>
-				</a> -->
-			</div>
-		</div>
-	</header>
+	<site-navbar></site-navbar>
 	<div id="main">
 		<section class="Pod5Hero_container__NsAaG">
 			<div class="Pod5Hero_media_container_basic__DWldD" style="--shade-amount:0.3">
@@ -204,7 +147,7 @@
 				</article>
 				<article id="temp-elevation-sound-sound" class="TempElevationSound_content__jhyFt" data-active="false">
 					<picture class="TempElevationSound_image_variant__tkcfO"><img class="Img_img__1JKI7"
-							src="assets/avvisa.png" alt="" loading="lazy" style="object-fit:cover" /></picture>
+							src="assets/avvisa-v2.png" alt="Allerte Mentorage per caduta, uscita dal letto e uscita dalla stanza" loading="lazy" style="object-fit:cover" /></picture>
 				</article>
 			</div>
 		</section>
@@ -445,27 +388,4 @@
 		</div>
 	</aside>
 </div>
-<footer class="wita-footer" id="footer" aria-label="Footer sito">
-	<div class="wita-footer__inner">
-		<div class="wita-footer__brand">
-			<img class="wita-footer__logo" src="assets/wita-logo.png" alt="Wita Care" loading="lazy" />
-			<p class="wita-footer__legal">WITA S.r.l.</p>
-		</div>
-		<div class="wita-footer__content">
-			<address class="wita-footer__address">
-				<span>38123 TRENTO | Via della Cooperazione, 105</span>
-				<a href="mailto:info@wita.care">info@wita.care</a>
-				<a href="tel:+3904611610253">+39 0461 1610253</a>
-				<span>P.IVA 02539330221</span>
-			</address>
-			<a class="wita-footer__cta" href="https://maps.google.com/?q=Via+della+Cooperazione+105,+38123+Trento"
-				target="_blank" rel="noreferrer">Indicazioni stradali</a>
-		</div>
-	</div>
-	<div class="wita-footer__bottom">
-		<div class="wita-footer__bottom-inner">
-			<p class="wita-footer__bottom-copy">Copyright &copy; Wita S.r.l. 2026</p>
-			<a class="wita-footer__bottom-link" href="privacy.html">Informativa sulla privacy</a>
-		</div>
-	</div>
-</footer>
+<site-footer></site-footer>

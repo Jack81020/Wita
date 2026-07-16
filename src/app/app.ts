@@ -1,10 +1,11 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, inject } from '@angular/core';
+import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, OnDestroy, inject } from '@angular/core';
 
 @Component({
   standalone: true,
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class App implements AfterViewInit, OnDestroy {
   private readonly host = inject(ElementRef<HTMLElement>);
@@ -12,7 +13,6 @@ export class App implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.setupHeroVideo();
-    this.setupStickyHeader();
     this.setupTempElevationTabs();
     this.setupMemberStoryVideos();
     this.setupLeaderCards();
@@ -21,7 +21,7 @@ export class App implements AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.cleanupFns.forEach((cleanup) => cleanup());
-    document.body.classList.remove('header-scrolled', 'wita-product-drawer-open');
+    document.body.classList.remove('wita-product-drawer-open');
   }
 
   private setupHeroVideo(): void {
@@ -83,10 +83,12 @@ export class App implements AfterViewInit, OnDestroy {
 
     const texts = Array.from(section.querySelectorAll<HTMLElement>('.TempElevationSound_text__E585b'));
     const items = Array.from(section.querySelectorAll<HTMLElement>('nav li'));
-    const autoplayDelay = 4000;
+    const autoplayDelay = 8000;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let activeIndex = 0;
     let isSectionVisible = false;
+    let isMouseOverSection = false;
+    let hasFocusWithinSection = false;
     let autoplayTimer: number | null = null;
 
     const setActive = (nextIndex: number) => {
@@ -123,7 +125,7 @@ export class App implements AfterViewInit, OnDestroy {
 
     const startAutoplay = () => {
       stopAutoplay();
-      if (!isSectionVisible || document.hidden || prefersReducedMotion.matches) return;
+      if (!isSectionVisible || document.hidden || prefersReducedMotion.matches || isMouseOverSection || hasFocusWithinSection) return;
 
       autoplayTimer = window.setInterval(() => {
         setActive((activeIndex + 1) % config.length);
@@ -140,6 +142,41 @@ export class App implements AfterViewInit, OnDestroy {
       };
       button.addEventListener('click', onClick);
       this.cleanupFns.push(() => button.removeEventListener('click', onClick));
+    });
+
+    const onMouseEnter = () => {
+      isMouseOverSection = true;
+      stopAutoplay();
+    };
+
+    const onMouseLeave = () => {
+      isMouseOverSection = false;
+      startAutoplay();
+    };
+
+    const onFocusIn = () => {
+      hasFocusWithinSection = true;
+      stopAutoplay();
+    };
+
+    const onFocusOut = (event: FocusEvent) => {
+      const nextTarget = event.relatedTarget;
+      if (nextTarget instanceof Node && section.contains(nextTarget)) return;
+
+      hasFocusWithinSection = false;
+      startAutoplay();
+    };
+
+    section.addEventListener('mouseenter', onMouseEnter);
+    section.addEventListener('mouseleave', onMouseLeave);
+    section.addEventListener('focusin', onFocusIn);
+    section.addEventListener('focusout', onFocusOut);
+
+    this.cleanupFns.push(() => {
+      section.removeEventListener('mouseenter', onMouseEnter);
+      section.removeEventListener('mouseleave', onMouseLeave);
+      section.removeEventListener('focusin', onFocusIn);
+      section.removeEventListener('focusout', onFocusOut);
     });
 
     setActive(0);
@@ -244,29 +281,6 @@ export class App implements AfterViewInit, OnDestroy {
 
       setFlipped(false);
     });
-  }
-
-  private setupStickyHeader(): void {
-    const header = document.getElementById('header');
-    if (!header) return;
-
-    const threshold = 24;
-    let ticking = false;
-
-    const sync = () => {
-      document.body.classList.toggle('header-scrolled', window.scrollY > threshold);
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(sync);
-    };
-
-    sync();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    this.cleanupFns.push(() => window.removeEventListener('scroll', onScroll));
   }
 
   private setupInteractiveProductDrawer(): void {

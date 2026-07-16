@@ -7,34 +7,11 @@
   <link rel="icon" type="image/png" href="assets/favicon-wita.png" />
   <title>Tecnologia | Portale Mentorage</title>
   <link rel="stylesheet" href="tecnologia.css" />
+  <link rel="stylesheet" href="components/shared-components.css" />
 </head>
 
 <body>
-  <a class="skip-main" href="#main">Contenuto principale</a>
-  <a class="skip-main" href="#footer">Pi&egrave; di pagina</a>
-
-  <header class="site-header" tabindex="-1" id="header">
-    <div class="site-header__shell">
-      <div class="site-header__desktop">
-        <nav class="site-header__nav site-header__nav--left" aria-label="Navigazione principale desktop">
-          <a class="nav-link" href="products.html">Prodotto</a>
-          <a class="nav-link is-active" href="tecnologia.html" aria-current="page">Tecnologia</a>
-          <a class="nav-link" href="azienda.html">Azienda</a>
-        </nav>
-        <a class="site-header__brand" href="index.html" aria-label="Mentorage home">
-          <img class="site-header__brand-image" src="assets/mentorage.svg" alt="Mentorage Logo" loading="lazy" />
-        </a>
-        <div class="site-header__nav site-header__nav--right">
-          <a class="nav-link site-header__account-link" href="contatti.html">Contatti</a>
-        </div>
-      </div>
-      <div class="site-header__mobile">
-        <a class="site-header__brand site-header__brand--mobile" href="index.html" aria-label="Mentorage home">
-          <img class="site-header__brand-image" src="assets/mentorage.svg" alt="Mentorage Logo" loading="lazy" />
-        </a>
-      </div>
-    </div>
-  </header>
+  <site-navbar></site-navbar>
 
   <main class="technology-main" id="main">
     <div class="technology-shell">
@@ -93,114 +70,18 @@
 
         <div class="technology-spatial__visual"
           aria-label="Rappresentazione di percorsi, presenza e permanenza negli ambienti">
-          <svg class="technology-map" viewBox="0 0 760 370" role="img"
-            aria-labelledby="technology-map-title technology-map-desc">
-            <title id="technology-map-title">Mappa tecnica degli ambienti monitorati</title>
-            <desc id="technology-map-desc">Pianta tridimensionale con tre percorsi colorati e punti di rilevamento.
-            </desc>
-            <g class="technology-map__floor">
-              <path d="M48 82 385 20 650 107 314 174Z" />
-              <path d="M48 82v135l266 104V174Z" />
-              <path d="m314 174 336-67v132l-336 82Z" />
-            </g>
-            <g class="technology-map__rooms">
-              <path d="M82 95v105m68-118v145m72-158v185m91-202v119m88-135v120m91-97v123m82-99v107" />
-              <path d="M58 144 314 238l326-73M71 190l243 91 326-86M150 82l266 89M246 61l264 89M349 41l263 87" />
-            </g>
-            <g class="technology-map__furniture">
-              <path
-                d="m105 126 55-13 48 18-58 15Zm173 18 62-13 49 17-64 16Zm202-29 58-11 43 15-59 14ZM180 205l54-10 42 17-55 12Zm228 21 63-14 49 18-66 15Z" />
-            </g>
-            <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path class="technology-map__route technology-map__route--one"
-                d="M102 159c29 4 50 18 63 37 15 22 37 24 63 11 30-15 46-11 56 9 12 24 33 34 62 28 26-5 44-22 61-51 18-31 47-37 87-18" />
-              <path class="technology-map__route technology-map__route--two"
-                d="M139 121c14 20 31 35 53 44 25 10 50 7 75-9 26-17 49-19 69-7 18 10 26 30 24 59-1 22 10 39 34 49 26 11 53 7 83-13" />
-              <path class="technology-map__route technology-map__route--three"
-                d="M209 266c22-28 43-40 64-35 22 6 31 29 28 69m213-164c-10 29-7 51 10 66 16 14 40 17 72 7" />
-            </g>
-            <g class="technology-map__nodes">
-              <circle class="technology-map__node--cyan" cx="102" cy="159" r="6" />
-              <circle class="technology-map__node--orange" cx="228" cy="207" r="6" />
-              <circle class="technology-map__node--blue" cx="407" cy="193" r="6" />
-              <circle class="technology-map__node--violet" cx="139" cy="121" r="6" />
-              <circle class="technology-map__node--green" cx="209" cy="266" r="6" />
-              <circle class="technology-map__node--orange" cx="514" cy="136" r="6" />
-            </g>
-          </svg>
-
-          <aside class="technology-legend" aria-label="Legenda della mappa">
-            <div class="technology-legend__block">
-              <h3>Percorsi rilevati</h3>
-              <p><i class="technology-legend__line technology-legend__line--one"></i>Assistito 1</p>
-              <p><i class="technology-legend__line technology-legend__line--two"></i>Assistito 2</p>
-              <p><i class="technology-legend__line technology-legend__line--three"></i>Assistito 3</p>
-            </div>
-            <div class="technology-legend__block">
-              <h3>Presenza nell&rsquo;ambiente</h3>
-              <svg class="technology-heatmap" viewBox="0 0 190 54" role="img"
-                aria-label="Mappa di calore della presenza">
-                <defs>
-                  <radialGradient id="heat-high">
-                    <stop offset="0" stop-color="#ffef31" />
-                    <stop offset=".34" stop-color="#ff4b22" />
-                    <stop offset=".7" stop-color="#2f5fff" stop-opacity=".88" />
-                    <stop offset="1" stop-color="#071f58" stop-opacity="0" />
-                  </radialGradient>
-                  <radialGradient id="heat-mid">
-                    <stop offset="0" stop-color="#35e2dc" />
-                    <stop offset=".45" stop-color="#136ee8" />
-                    <stop offset="1" stop-color="#071f58" stop-opacity="0" />
-                  </radialGradient>
-                </defs>
-                <rect width="190" height="54" fill="#071f58" />
-                <ellipse cx="38" cy="25" rx="38" ry="30" fill="url(#heat-mid)" />
-                <ellipse cx="91" cy="30" rx="48" ry="32" fill="url(#heat-high)" />
-                <ellipse cx="153" cy="19" rx="38" ry="27" fill="url(#heat-mid)" />
-                <ellipse cx="166" cy="43" rx="30" ry="20" fill="url(#heat-high)" />
-              </svg>
-              <div class="technology-legend__scale"><span>Bassa</span><span>Alta</span></div>
-            </div>
-            <div class="technology-legend__block">
-              <h3>Permanenza</h3>
-              <div class="technology-dwell" aria-label="Permanenza crescente">
-                <i></i><i></i><i></i><i></i><i></i><i></i>
-              </div>
-            </div>
-          </aside>
+          <img class="technology-spatial__map-image" src="assets/technology-spatial-map.png"
+            alt="Planimetria tridimensionale di un ambiente con quattro percorsi rilevati" loading="lazy" />
+          <img class="technology-spatial__insights-image" src="assets/technology-spatial-insights.png"
+            alt="Legenda dei percorsi rilevati, della presenza nell'ambiente e della permanenza" loading="lazy" />
         </div>
       </section>
     </div>
   </main>
 
-  <footer class="products-footer" id="footer">
-    <div class="products-footer__inner">
-      <div class="products-footer__brandblock">
-        <img class="products-footer__logo" src="assets/wita-logo.png" alt="Wita Care" loading="lazy" />
-        <p class="products-footer__tag">Soluzioni digitali per una cura pi&ugrave; continua, leggibile e coordinata.</p>
-      </div>
-      <div class="products-footer__content">
-        <div class="products-footer__column products-footer__column--main">
-          <h2>WITA S.r.l.</h2>
-          <p>38123 Trento | Via della Cooperazione, 105</p>
-          <p><a href="mailto:info@wita.care">info@wita.care</a></p>
-          <p><a href="tel:+3904611610253">+39 0461 1610253</a></p>
-          <p>P.IVA 02539330221</p>
-        </div>
-        <div class="products-footer__column products-footer__column--actions">
-          <a class="products-footer__button" href="https://maps.google.com/?q=Via+della+Cooperazione+105,+38123+Trento"
-            target="_blank" rel="noreferrer">Indicazioni stradali</a>
-        </div>
-      </div>
-    </div>
-    <div class="products-footer__legal">
-      <p>Copyright &copy; Wita S.r.l. 2026</p>
-      <nav aria-label="Link legali">
-        <a href="privacy.html">Informativa sulla privacy</a>
-      </nav>
-    </div>
-  </footer>
+  <site-footer></site-footer>
 
+  <script type="module" src="components/shared-components.js"></script>
   <script src="tecnologia.js"></script>
 </body>
 
