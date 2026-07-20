@@ -1030,10 +1030,14 @@
 
   .products-analytics-story__switch {
     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .products-analytics-story__switch span {
-    flex: 1 1 0;
+  .products-analytics-story__switch button {
+    width: 100%;
+    min-width: 0;
+    padding-inline: 12px;
   }
 
   .products-analytics-story__notes,
