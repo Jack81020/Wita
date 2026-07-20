@@ -92,9 +92,6 @@ body {
 	padding-top: 0;
 	font-family: "Neue Montreal Local", sans-serif;
 	font-synthesis: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	text-rendering: optimizeLegibility;
 }
 
 html,
@@ -562,7 +559,7 @@ li {
 }
 
 .wita-product-drawer.is-open .wita-product-drawer__panel {
-	transform: translateX(0);
+	transform: none;
 	opacity: 1;
 	box-shadow: -32px 0 96px rgba(15, 23, 42, 0.16);
 }
@@ -634,9 +631,10 @@ li {
 	border-radius: 4px;
 	background: linear-gradient(180deg, rgba(4, 174, 194, 0.12) 0%, rgba(4, 174, 194, 0.05) 100%);
 	color: var(--wita-accent-text);
-	font-size: 12px;
+	font-size: 13px;
 	font-weight: 500;
-	letter-spacing: 0.08em;
+	line-height: 1;
+	letter-spacing: 0.06em;
 	text-transform: uppercase;
 }
 
@@ -728,7 +726,7 @@ li {
 .wita-product-drawer.is-open .wita-product-drawer__content,
 .wita-product-drawer.is-open .wita-product-drawer__footer {
 	opacity: 1;
-	transform: translateY(0);
+	transform: none;
 }
 
 .wita-product-drawer.is-open .wita-product-drawer__media {
@@ -803,7 +801,7 @@ body.wita-product-drawer-open {
 
 	100% {
 		opacity: 1;
-		transform: translateY(0);
+		transform: none;
 	}
 }
 /* Night events: preserve the desktop composition and provide a dedicated mobile layout. */
