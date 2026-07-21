@@ -115,8 +115,13 @@
 
             <figure class="products-analytics-story__media"
               aria-label="Schermata Mentorage per le statistiche di struttura">
-              <img src="assets/mentorage-statistiche-struttura.png"
-                alt="Dashboard Mentorage con statistiche della struttura" loading="lazy" />
+              <picture>
+                <source media="(max-width: 720px)"
+                  srcset="assets/mentorage-statistiche-struttura-mobile.png"
+                  data-products-story-mobile-source />
+                <img src="assets/mentorage-statistiche-struttura.png"
+                  alt="Dashboard Mentorage con statistiche della struttura" loading="lazy" />
+              </picture>
               <figcaption>Panoramica operativa della struttura: indicatori essenziali sempre sotto controllo.
               </figcaption>
             </figure>

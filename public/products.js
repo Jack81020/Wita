@@ -53,16 +53,18 @@
   const noteCopySecondary = document.querySelector('[data-products-story-note-copy="secondary"]');
   const noteIconSecondary = document.querySelector('[data-products-story-note-icon="secondary"]');
   const storyImage = storyView ? storyView.querySelector('.products-analytics-story__media img') : null;
+  const storyMobileSource = storyView ? storyView.querySelector('[data-products-story-mobile-source]') : null;
   const storyAutoplayDelay = 4000;
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let isStoryVisible = false;
+  let isStoryHovered = false;
   let storyAutoplayTimer = null;
 
   const storyContent = {
     structure: {
       primary: {
-        title: 'Decisioni piu consapevoli',
-        copy: 'Indicatori chiari su alert, tempi di risposta e aree critiche per coordinare meglio le attivita.',
+        title: 'Decisioni più consapevoli',
+        copy: 'Indicatori chiari su alert, tempi di risposta e aree critiche per coordinare meglio le attività.',
         icon: 'products-analytics-story__note-icon--blue',
       },
       secondary: {
@@ -71,19 +73,21 @@
         icon: 'products-analytics-story__note-icon--green',
       },
       imageSrc: 'assets/mentorage-statistiche-struttura.png',
+      mobileImageSrc: 'assets/mentorage-statistiche-struttura-mobile.png',
     },
     guest: {
       primary: {
         title: 'Lettura del comportamento',
-        copy: 'Visualizza stati, tempi e cambi di attivita per capire meglio come si muove il singolo ospite.',
+        copy: 'Visualizza stati, tempi e cambi di attività per capire meglio come si muove il singolo ospite.',
         icon: 'products-analytics-story__note-icon--cyan',
       },
       secondary: {
-        title: 'Contesto piu utile',
-        copy: 'Una sintesi ordinata della notte aiuta operatori e coordinatori a leggere subito cio che conta.',
+        title: 'Contesto più utile',
+        copy: 'Una sintesi ordinata della notte aiuta operatori e coordinatori a leggere subito ciò che conta.',
         icon: 'products-analytics-story__note-icon--violet',
       },
       imageSrc: 'assets/statistiche.png',
+      mobileImageSrc: 'assets/statistiche-mobile.png',
     },
   };
 
@@ -113,6 +117,9 @@
     noteTitleSecondary.textContent = content.secondary.title;
     noteCopySecondary.textContent = content.secondary.copy;
     storyImage.src = content.imageSrc;
+    if (storyMobileSource) {
+      storyMobileSource.srcset = content.mobileImageSrc;
+    }
 
     [noteIconPrimary, noteIconSecondary].forEach((icon) => {
       icon.classList.remove(...noteIconVariants);
@@ -130,7 +137,7 @@
 
   const startStoryAutoplay = () => {
     stopStoryAutoplay();
-    if (!isStoryVisible || document.hidden || prefersReducedMotion.matches) return;
+    if (!isStoryVisible || isStoryHovered || document.hidden || prefersReducedMotion.matches) return;
 
     storyAutoplayTimer = window.setInterval(() => {
       const currentView = storyView && storyView.getAttribute('data-products-story-view');
@@ -163,6 +170,16 @@
     );
 
     storyObserver.observe(storySection);
+
+    storySection.addEventListener('mouseenter', () => {
+      isStoryHovered = true;
+      stopStoryAutoplay();
+    });
+
+    storySection.addEventListener('mouseleave', () => {
+      isStoryHovered = false;
+      startStoryAutoplay();
+    });
 
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {

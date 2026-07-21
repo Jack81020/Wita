@@ -520,6 +520,11 @@ img {
 }
 
 @media (max-width: 640px) {
+  .products-hero__video {
+    transform: scale(1.35);
+    transform-origin: center top;
+  }
+
   .products-installation__card {
     order: -1;
   }

@@ -122,6 +122,50 @@ site-navbar {
   white-space: nowrap;
 }
 
+.site-header__language {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border: 1px solid #dbe5e7;
+  border-radius: 999px;
+  background: #f2f6f7;
+}
+
+.site-header__language button {
+  width: 34px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #6a737d;
+  font-family: "Neue Montreal Shared", "Neue Montreal Local", "Neue Montreal", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.site-header__language button:hover {
+  color: #087786;
+}
+
+.site-header__language button.is-active {
+  background: #ffffff;
+  color: #087786;
+  box-shadow: 0 2px 8px rgba(18, 44, 51, 0.1);
+}
+
+.site-header__language button:focus-visible {
+  outline: 2px solid #04aec2;
+  outline-offset: 1px;
+}
+
+.site-header__language--mobile {
+  justify-self: end;
+}
+
 .products-footer {
   margin-top: 12px;
   padding: 72px 24px 24px;
@@ -241,7 +285,7 @@ site-navbar {
 
   .site-header__mobile {
     display: grid;
-    grid-template-columns: 44px 1fr 44px;
+    grid-template-columns: 68px 1fr 68px;
     padding: 0 14px;
   }
 

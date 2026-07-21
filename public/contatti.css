@@ -1,158 +1,457 @@
-/* contatti.css */
+:root {
+  --contact-text: #121d2f;
+  --contact-muted: #647084;
+  --contact-accent: #04aec2;
+  --contact-accent-dark: #087786;
+  --contact-border: rgba(18, 44, 51, 0.11);
+  --contact-card: #e0edee40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .contatti-main {
-  min-height: calc(100vh - 140px);
-  /* Adjust based on header/footer size */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 20px;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(179, 241, 248, 0.35), transparent 28%),
+    linear-gradient(180deg, #f8fafc 0%, #f3f7f9 100%);
+  color: var(--contact-text);
 }
 
 .contatti-container {
-  max-width: 1100px;
-  width: 100%;
+  width: min(1240px, calc(100% - 56px));
   margin: 0 auto;
 }
 
-.contatti-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 180px;
+.contatti-hero {
+  padding: clamp(72px, 8vw, 116px) 0 72px;
 }
 
-.contatti-text {
-  flex: 1 1 400px;
-  max-width: 500px;
+.contatti-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.94fr) minmax(440px, 0.78fr);
+  gap: clamp(56px, 8vw, 112px);
+  align-items: start;
+}
+
+.contatti-intro {
+  padding-top: 20px;
+}
+
+.contatti-eyebrow {
+  margin: 0 0 18px;
+  color: var(--contact-accent-dark);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.085em;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
 .contatti-title {
-  color: #1a1a1a;
-  font-size: 3.5rem;
-  line-height: 1.1;
+  max-width: 11.5ch;
+  margin: 0;
+  color: var(--contact-text);
+  font-size: clamp(48px, 5.1vw, 76px);
   font-weight: 500;
-  margin-bottom: 24px;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
 }
 
 .contatti-desc {
-  color: #8fa0bd;
-  font-size: 1.25rem;
-  line-height: 1.6;
+  max-width: 600px;
+  margin: 30px 0 0;
+  color: var(--contact-muted);
+  font-size: clamp(18px, 1.45vw, 21px);
+  line-height: 1.55;
 }
 
-.contatti-form-wrapper {
-  flex: 1 1 450px;
-  max-width: 550px;
-  position: relative;
+.contatti-assurances {
+  max-width: 590px;
+  margin: 42px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+  list-style: none;
 }
 
-/* Creating the soft white glow effect behind the form seen in the image */
-.contatti-form-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120%;
-  height: 120%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 0) 70%);
-  z-index: -1;
-  pointer-events: none;
+.contatti-assurances li {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 15px;
+  align-items: start;
+}
+
+.contatti-assurance-icon {
+  width: 44px;
+  height: 44px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid rgba(4, 174, 194, 0.2);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--contact-accent-dark);
+  font-size: 17px;
+  box-shadow: 0 12px 28px rgba(18, 44, 51, 0.06);
+}
+
+.contatti-assurances strong {
+  display: block;
+  margin-top: 1px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.contatti-assurances p {
+  margin: 5px 0 0;
+  color: var(--contact-muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.contatti-form-card {
+  padding: clamp(28px, 3vw, 42px);
+  border: 1px solid rgba(4, 174, 194, 0.16);
+  border-radius: 26px;
+  background: var(--contact-card);
+  box-shadow: 0 26px 70px rgba(18, 44, 51, 0.1);
+}
+
+.contatti-form-heading {
+  margin-bottom: 28px;
+}
+
+.contatti-form-heading .contatti-eyebrow {
+  margin-bottom: 12px;
+}
+
+.contatti-form-heading h2 {
+  margin: 0;
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+}
+
+.contatti-form-heading>p:last-child {
+  margin: 16px 0 0;
+  color: var(--contact-muted);
+  font-size: 16px;
+  line-height: 1.55;
 }
 
 .contatti-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  gap: 17px;
+}
+
+.contatti-field {
+  display: grid;
+  gap: 8px;
+}
+
+.contatti-field label {
+  padding-left: 2px;
+  color: #344254;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .contatti-input {
   width: 100%;
-  padding: 16px 20px;
-  border: none;
-  border-radius: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  font-family: inherit;
-  font-size: 1rem;
-  color: #172440;
-  font-weight: 500;
+  min-height: 54px;
+  padding: 15px 17px;
+  border: 1px solid rgba(18, 44, 51, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.93);
+  color: var(--contact-text);
+  font: inherit;
+  font-size: 16px;
   outline: none;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 8px 22px rgba(18, 44, 51, 0.035);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .contatti-input::placeholder {
-  color: #172440;
+  color: #8a94a3;
   opacity: 1;
 }
 
 .contatti-input:focus {
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
+  border-color: rgba(4, 174, 194, 0.62);
+  box-shadow: 0 0 0 4px rgba(4, 174, 194, 0.1);
   transform: translateY(-1px);
 }
 
 .contatti-textarea {
+  min-height: 128px;
   resize: vertical;
-  min-height: 120px;
-  border-radius: 20px;
 }
 
 .contatti-checkbox-label {
+  margin-top: 2px;
   display: flex;
+  gap: 11px;
   align-items: flex-start;
-  gap: 10px;
-  font-size: 0.85rem;
-  color: #485671;
-  margin: 8px 0;
+  color: #536173;
+  font-size: 13px;
+  line-height: 1.45;
   cursor: pointer;
 }
 
 .contatti-checkbox {
-  margin-top: 4px;
+  width: 16px;
+  height: 16px;
+  margin: 2px 0 0;
+  accent-color: var(--contact-accent);
   cursor: pointer;
 }
 
 .contatti-privacy-link {
-  color: #8fa0c5;
-  text-decoration: none;
-}
-
-.contatti-privacy-link:hover {
-  text-decoration: underline;
+  color: var(--contact-accent-dark);
+  text-underline-offset: 3px;
 }
 
 .contatti-submit {
-  background-color: #111a2f;
-  color: #ffffff;
-  border: none;
-  border-radius: 30px;
-  padding: 18px 32px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
   width: 100%;
-  margin-top: 10px;
+  min-height: 56px;
+  margin-top: 5px;
+  padding: 0 28px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--contact-text);
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
 .contatti-submit:hover {
-  background-color: #0b1120;
+  background: #087786;
+  box-shadow: 0 14px 30px rgba(8, 119, 134, 0.2);
   transform: translateY(-2px);
 }
 
-@media (max-width: 900px) {
-  .contatti-content {
-    flex-direction: column;
-    gap: 40px;
+.contatti-submit:focus-visible {
+  outline: 3px solid rgba(4, 174, 194, 0.34);
+  outline-offset: 3px;
+}
+
+.contatti-details {
+  padding: 0 0 clamp(80px, 9vw, 128px);
+}
+
+.contatti-details-heading {
+  max-width: 720px;
+  margin-bottom: 34px;
+}
+
+.contatti-details-heading .contatti-eyebrow {
+  margin-bottom: 12px;
+}
+
+.contatti-details-heading h2 {
+  margin: 0;
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.03;
+}
+
+.contatti-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.contatti-info-card {
+  min-height: 230px;
+  padding: 28px;
+  border: 1px solid var(--contact-border);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 18px 48px rgba(18, 44, 51, 0.055);
+}
+
+.contatti-info-card>span {
+  display: inline-flex;
+  min-width: 40px;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: rgba(4, 174, 194, 0.1);
+  color: var(--contact-accent-dark);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.contatti-info-card h3 {
+  margin: 30px 0 10px;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.contatti-info-card p {
+  margin: 0;
+  color: var(--contact-muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.contatti-direct {
+  margin-top: 18px;
+  padding: 30px 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  border: 1px solid rgba(4, 174, 194, 0.16);
+  border-radius: 20px;
+  background: var(--contact-card);
+}
+
+.contatti-direct .contatti-eyebrow {
+  margin-bottom: 9px;
+}
+
+.contatti-direct h2 {
+  margin: 0;
+  font-size: clamp(25px, 2.6vw, 36px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.contatti-direct-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.contatti-direct-links a {
+  min-height: 46px;
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(18, 44, 51, 0.13);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--contact-text);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.contatti-direct-links a:hover {
+  border-color: rgba(4, 174, 194, 0.52);
+  color: var(--contact-accent-dark);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 980px) {
+  .contatti-grid {
+    grid-template-columns: 1fr;
+    gap: 52px;
   }
 
-  .contatti-text,
-  .contatti-form-wrapper {
-    max-width: 100%;
+  .contatti-intro {
+    padding-top: 0;
   }
 
   .contatti-title {
-    font-size: 2.5rem;
+    max-width: 13ch;
+  }
+
+  .contatti-form-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .contatti-container {
+    width: min(100% - 32px, 640px);
+  }
+
+  .contatti-hero {
+    padding: 52px 0 56px;
+  }
+
+  .contatti-grid {
+    gap: 42px;
+  }
+
+  .contatti-title {
+    max-width: none;
+    font-size: clamp(40px, 12vw, 54px);
+  }
+
+  .contatti-desc {
+    margin-top: 24px;
+    font-size: 18px;
+  }
+
+  .contatti-assurances {
+    margin-top: 34px;
+  }
+
+  .contatti-form-card {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .contatti-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contatti-info-card {
+    min-height: 0;
+    padding: 24px;
+  }
+
+  .contatti-info-card h3 {
+    margin-top: 22px;
+  }
+
+  .contatti-direct {
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contatti-direct-links {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .contatti-direct-links a {
+    flex: 1 1 200px;
+  }
+}
+
+@media (max-width: 440px) {
+  .contatti-assurances li {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .contatti-assurance-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contatti-direct-links {
+    flex-direction: column;
+  }
+
+  .contatti-direct-links a {
+    width: 100%;
+    flex-basis: auto;
   }
 }

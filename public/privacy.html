@@ -4,6 +4,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="icon" type="image/png" href="assets/favicon-wita.png" />
+	<link rel="stylesheet" href="components/shared-components.css" />
   <title>Informativa sulla privacy | Wita S.r.l.</title>
 	<style>
 		@font-face {
@@ -219,10 +220,11 @@
 	</style>
 </head>
 <body>
+	<site-navbar></site-navbar>
 	<div class="wita-privacy-shell">
 		<div class="wita-privacy-topbar">
 			<a class="wita-privacy-back" href="./">Torna al sito</a>
-			<img class="wita-privacy-brand" src="assets/wita-logo.png" alt="Wita Care" />
+
 		</div>
 
 		<main class="wita-privacy-page">
@@ -283,5 +285,7 @@
 			</div>
 		</main>
 	</div>
+	<site-footer></site-footer>
+	<script type="module" src="components/shared-components.js"></script>
 </body>
 </html>
