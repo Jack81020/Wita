@@ -1066,3 +1066,52 @@ body.wita-product-drawer-open {
 		font-size: 1rem;
 	}
 }
+
+/* Priority cards carousel */
+[data-priority-carousel] {
+	scroll-behavior: smooth;
+}
+
+.wita-priority-carousel__controls {
+	display: flex;
+	align-self: flex-end;
+	gap: 10px;
+	padding-bottom: 4px;
+}
+
+.wita-priority-carousel__controls button {
+	display: inline-flex;
+	width: 48px;
+	height: 48px;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #c8dfe2;
+	border-radius: 999px;
+	background: #fff;
+	color: #0f1a2e;
+	font-size: 1.35rem;
+	line-height: 1;
+	transition: border-color 160ms ease, background-color 160ms ease, opacity 160ms ease;
+}
+
+.wita-priority-carousel__controls button:hover:not(:disabled),
+.wita-priority-carousel__controls button:focus-visible {
+	border-color: #08adc1;
+	background: #e0edee40;
+}
+
+.wita-priority-carousel__controls button:focus-visible {
+	outline: 2px solid #08adc1;
+	outline-offset: 3px;
+}
+
+.wita-priority-carousel__controls button:disabled {
+	cursor: default;
+	opacity: 0.35;
+}
+
+@media (max-width: 1023px) {
+	.wita-priority-carousel__controls {
+		display: none;
+	}
+}

@@ -68,5 +68,13 @@ export default [
   ["Offre una vista completa della struttura per monitorare stanze, eventi e priorità operative con immediatezza.", "It provides a complete facility overview for monitoring rooms, events and operational priorities at a glance."],
   ["Permette di consultare statistiche sull’andamento degli ospiti e della struttura, aiutando coordinatori e responsabili a valorizzare meglio i dati, individuare trend ricorrenti e supportare decisioni organizzative più consapevoli.", "Resident and facility analytics help coordinators and managers use data effectively, identify recurring trends and make more informed organizational decisions."],
   ["Rende notifiche e informazioni sempre accessibili, così il personale può restare aggiornato anche in movimento.", "It keeps notifications and information accessible so staff can stay informed while moving through the facility."],
-  ["Gli operatori possono ricevere alert, controllare lo stato delle stanze e intervenire con maggiore tempestività, direttamente dal proprio smartphone, senza dover tornare ogni volta a una postazione fissa.", "Care teams can receive alerts, check room status and respond more promptly from their smartphone without returning to a fixed workstation."]
+  ["Gli operatori possono ricevere alert, controllare lo stato delle stanze e intervenire con maggiore tempestività, direttamente dal proprio smartphone, senza dover tornare ogni volta a una postazione fissa.", "Care teams can receive alerts, check room status and respond more promptly from their smartphone without returning to a fixed workstation."],
+  ["INSTALLAZIONE SEMPLICE", "EASY INSTALLATION"],
+  ["Installazione non invasiva", "Non-invasive installation"],
+  ["Il sensore si installa in modo semplice e discreto, fissato a parete senza interventi invasivi sulla stanza. Si integra facilmente negli ambienti assistenziali esistenti, riducendo l’impatto sull’operatività e facilitando una rapida attivazione del sistema.", "The sensor is installed simply and discreetly, mounted on the wall without invasive work in the room. It integrates easily into existing care environments, reducing disruption to daily operations and enabling rapid system activation."],
+  ["Sensore Mentorage installato a parete", "Mentorage sensor installed on a wall"],
+  ["Navigazione delle priorità", "Priority cards navigation"],
+  ["Priorità delle strutture", "Facility priorities"],
+  ["Scorri alle card precedenti", "Scroll to previous cards"],
+  ["Scorri alle card successive", "Scroll to next cards"],
 ];

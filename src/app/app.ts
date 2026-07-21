@@ -14,6 +14,7 @@ export class App implements AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.setupHeroVideo();
     this.setupTempElevationTabs();
+    this.setupPriorityCarousel();
     this.setupMemberStoryVideos();
     this.setupLeaderCards();
     this.setupInteractiveProductDrawer();
@@ -22,6 +23,54 @@ export class App implements AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.cleanupFns.forEach((cleanup) => cleanup());
     document.body.classList.remove('wita-product-drawer-open');
+  }
+
+  private setupPriorityCarousel(): void {
+    const root: HTMLElement = this.host.nativeElement;
+    const carousel = root.querySelector<HTMLElement>('[data-priority-carousel]');
+    const previousButton = root.querySelector<HTMLButtonElement>('[data-priority-prev]');
+    const nextButton = root.querySelector<HTMLButtonElement>('[data-priority-next]');
+
+    if (!carousel || !previousButton || !nextButton) return;
+
+    const getScrollStep = () => {
+      const card = carousel.querySelector<HTMLElement>('[data-card="true"]');
+      const track = card?.parentElement;
+      const gap = track ? Number.parseFloat(window.getComputedStyle(track).columnGap || '0') : 0;
+
+      return (card?.getBoundingClientRect().width || carousel.clientWidth * 0.8) + gap;
+    };
+
+    const updateControls = () => {
+      const maximumScroll = Math.max(0, carousel.scrollWidth - carousel.clientWidth);
+      previousButton.disabled = carousel.scrollLeft <= 2;
+      nextButton.disabled = carousel.scrollLeft >= maximumScroll - 2;
+    };
+
+    const scrollByCard = (direction: -1 | 1) => {
+      carousel.scrollBy({
+        left: direction * getScrollStep(),
+        behavior: 'smooth',
+      });
+    };
+
+    const onPrevious = () => scrollByCard(-1);
+    const onNext = () => scrollByCard(1);
+    const onScroll = () => updateControls();
+    const onResize = () => updateControls();
+
+    previousButton.addEventListener('click', onPrevious);
+    nextButton.addEventListener('click', onNext);
+    carousel.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+    updateControls();
+
+    this.cleanupFns.push(() => {
+      previousButton.removeEventListener('click', onPrevious);
+      nextButton.removeEventListener('click', onNext);
+      carousel.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
+    });
   }
 
   private setupHeroVideo(): void {
