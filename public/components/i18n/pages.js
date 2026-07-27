@@ -43,6 +43,8 @@ export default [
   ["Punti chiave della piattaforma", "Key platform features"],
   ["Ecosistema connesso", "Connected ecosystem"],
   ["Pensato per integrarsi. Pronto a crescere.", "Designed to integrate. Ready to grow."],
+  ["Pensato per integrarsi.", "Designed to integrate."],
+  ["Pronto a crescere.", "Ready to grow."],
   ["Mentorage non \u00e8 un sistema chiuso. Pu\u00f2 dialogare con piattaforme, dispositivi indossabili e altre soluzioni connesse gi\u00e0 presenti nella struttura, portando informazioni e notifiche negli strumenti utilizzati ogni giorno dal personale.", "Mentorage is not a closed system. It can connect with platforms, wearable devices and other connected solutions already used in the facility, bringing information and notifications into the tools staff rely on every day."],
   ["Si adatta ai sistemi esistenti", "Works with existing systems"],
   ["Mentorage pu\u00f2 essere collegato a software gestionali, sistemi di chiamata, dashboard e altre piattaforme digitali, in base alle esigenze della struttura.", "Mentorage can connect to management software, call systems, dashboards and other digital platforms, according to the facility's needs."],
