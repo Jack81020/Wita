@@ -461,7 +461,11 @@ img {
 
 
 .products-ecosystem {
-  padding: 0 0 120px;
+  padding: 0;
+}
+
+.products-shell > .products-analytics-story__trust {
+  margin: 28px 0 120px;
 }
 
 .products-ecosystem__panel {
@@ -673,7 +677,11 @@ img {
   }
 
   .products-ecosystem {
-    padding-bottom: 80px;
+    padding-bottom: 0;
+  }
+
+  .products-shell > .products-analytics-story__trust {
+    margin-bottom: 80px;
   }
 
   .products-ecosystem__content {
