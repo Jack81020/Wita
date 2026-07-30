@@ -1,0 +1,107 @@
+name: Deploy production
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wita-production
+  cancel-in-progress: false
+
+env:
+  NODE_VERSION: '22.12.0'
+  BUILD_DIRECTORY: dist/wita/browser
+  DEPLOY_HOST: 20.13.14.29
+  DEPLOY_PORT: '22'
+  DEPLOY_USER: wita-deploy
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production site
+        run: npm run build
+
+      - name: Package site
+        run: tar -C "$BUILD_DIRECTORY" -czf wita-site.tar.gz .
+
+      - name: Configure SSH
+        env:
+          DEPLOY_PRIVATE_KEY: ${{ secrets.WITA_DEPLOY_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.WITA_SSH_KNOWN_HOSTS }}
+        run: |
+          test -n "$DEPLOY_PRIVATE_KEY"
+          test -n "$SSH_KNOWN_HOSTS"
+          install -m 700 -d "$HOME/.ssh"
+          printf '%s\n' "$DEPLOY_PRIVATE_KEY" > "$HOME/.ssh/wita_deploy"
+          chmod 600 "$HOME/.ssh/wita_deploy"
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/known_hosts"
+
+      - name: Upload release
+        run: |
+          scp \
+            -P "$DEPLOY_PORT" \
+            -o BatchMode=yes \
+            -o IdentitiesOnly=yes \
+            -o ConnectTimeout=15 \
+            -i "$HOME/.ssh/wita_deploy" \
+            wita-site.tar.gz \
+            "$DEPLOY_USER@$DEPLOY_HOST:/tmp/wita-$GITHUB_SHA.tar.gz"
+
+      - name: Activate release
+        run: |
+          ssh \
+            -p "$DEPLOY_PORT" \
+            -o BatchMode=yes \
+            -o IdentitiesOnly=yes \
+            -o ConnectTimeout=15 \
+            -i "$HOME/.ssh/wita_deploy" \
+            "$DEPLOY_USER@$DEPLOY_HOST" \
+            "bash -s -- '$GITHUB_SHA' '/tmp/wita-$GITHUB_SHA.tar.gz'" <<'REMOTE_SCRIPT'
+          set -euo pipefail
+
+          sha="$1"
+          archive="$2"
+          base="/var/www/wita"
+          release="$base/releases/$sha"
+
+          test -f "$archive"
+          mkdir -p "$release"
+          tar -xzf "$archive" -C "$release"
+          test -f "$release/index.html"
+
+          ln -sfn "$release" "$base/current.next"
+          mv -Tf "$base/current.next" "$base/current"
+          rm -f "$archive"
+
+          find "$base/releases" \
+            -mindepth 1 \
+            -maxdepth 1 \
+            -type d \
+            -printf '%T@ %p\n' \
+            | sort -rn \
+            | tail -n +6 \
+            | cut -d' ' -f2- \
+            | xargs -r rm -rf
+          REMOTE_SCRIPT
