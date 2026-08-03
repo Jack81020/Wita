@@ -1,6 +1,7 @@
 import { getLanguage, onLanguageChange, setLanguage, translate } from "./site-i18n.js";
 
 const navigationItems = [
+  { key: "home", label: "Home", href: "./", page: "index.html" },
   { key: "product", label: "Prodotto", href: "products.html", page: "products.html" },
   { key: "technology", label: "Tecnologia", href: "tecnologia.html", page: "tecnologia.html" },
   { key: "company", label: "Azienda", href: "azienda.html", page: "azienda.html" }
@@ -30,6 +31,7 @@ function languageSwitcher(variant) {
 }
 
 const labels = {
+  home: "Home",
   product: "Prodotto",
   technology: "Tecnologia",
   company: "Azienda",

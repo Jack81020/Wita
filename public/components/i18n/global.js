@@ -1,4 +1,5 @@
 export default [
+  ["Home", "Home"],
   ["Prodotto", "Product"],
   ["Tecnologia", "Technology"],
   ["Azienda", "Company"],
