@@ -111,6 +111,7 @@
 }
 
 .contatti-form-card {
+  scroll-margin-top: 94px;
   padding: clamp(28px, 3vw, 42px);
   border: 1px solid rgba(4, 174, 194, 0.16);
   border-radius: 26px;

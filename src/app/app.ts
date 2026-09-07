@@ -1,5 +1,17 @@
 import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, OnDestroy, inject } from '@angular/core';
 
+export const HERO_STEP_TIMELINE = [
+  { startSeconds: 16, endSeconds: 26 },
+  { startSeconds: 26, endSeconds: 30 },
+  { startSeconds: 30, endSeconds: 40 },
+] as const;
+
+export function getHeroStepIndex(currentTime: number): number {
+  return HERO_STEP_TIMELINE.findIndex(
+    ({ startSeconds, endSeconds }) => currentTime >= startSeconds && currentTime < endSeconds,
+  );
+}
+
 @Component({
   standalone: true,
   selector: 'app-root',
@@ -13,7 +25,6 @@ export class App implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.setupHeroVideo();
-    this.setupTempElevationTabs();
     this.setupPriorityCarousel();
     this.setupMemberStoryVideos();
     this.setupLeaderCards();
@@ -78,6 +89,26 @@ export class App implements AfterViewInit, OnDestroy {
     const video = root.querySelector<HTMLVideoElement>('.Pod5Hero_container__NsAaG video');
     if (!video) return;
 
+    const heroSteps = Array.from(root.querySelectorAll<HTMLElement>('.wita-hero-steps li'));
+    let activeStepIndex = -1;
+
+    const syncHeroSteps = () => {
+      const nextStepIndex = getHeroStepIndex(video.currentTime);
+      if (activeStepIndex === nextStepIndex) return;
+
+      activeStepIndex = nextStepIndex;
+      heroSteps.forEach((step, index) => {
+        const isActive = index === activeStepIndex;
+        step.classList.toggle('is-active', isActive);
+
+        if (isActive) {
+          step.setAttribute('aria-current', 'step');
+        } else {
+          step.removeAttribute('aria-current');
+        }
+      });
+    };
+
     video.muted = true;
     video.defaultMuted = true;
     video.autoplay = true;
@@ -96,6 +127,7 @@ export class App implements AfterViewInit, OnDestroy {
 
     const onLoadedData = () => attemptPlay();
     const onCanPlay = () => attemptPlay();
+    const onTimeUpdate = () => syncHeroSteps();
     const onVisibilityChange = () => {
       if (!document.hidden) {
         attemptPlay();
@@ -104,7 +136,12 @@ export class App implements AfterViewInit, OnDestroy {
 
     video.addEventListener('loadeddata', onLoadedData);
     video.addEventListener('canplay', onCanPlay);
+    video.addEventListener('timeupdate', onTimeUpdate);
+    video.addEventListener('seeking', onTimeUpdate);
+    video.addEventListener('loadedmetadata', onTimeUpdate);
     document.addEventListener('visibilitychange', onVisibilityChange);
+
+    syncHeroSteps();
 
     if (video.readyState >= 2) {
       attemptPlay();
@@ -115,152 +152,10 @@ export class App implements AfterViewInit, OnDestroy {
     this.cleanupFns.push(() => {
       video.removeEventListener('loadeddata', onLoadedData);
       video.removeEventListener('canplay', onCanPlay);
+      video.removeEventListener('timeupdate', onTimeUpdate);
+      video.removeEventListener('seeking', onTimeUpdate);
+      video.removeEventListener('loadedmetadata', onTimeUpdate);
       document.removeEventListener('visibilitychange', onVisibilityChange);
-    });
-  }
-
-  private setupTempElevationTabs(): void {
-    const root: HTMLElement = this.host.nativeElement;
-    const section = root.querySelector<HTMLElement>('.TempElevationSound_container__uBfdh');
-    if (!section) return;
-
-    const config = [
-      { buttonId: 'jump-to-temperature', panelId: 'temp-elevation-sound-temperature' },
-      { buttonId: 'jump-to-elevation', panelId: 'temp-elevation-sound-elevation' },
-      { buttonId: 'jump-to-sound', panelId: 'temp-elevation-sound-sound' },
-    ];
-
-    const texts = Array.from(section.querySelectorAll<HTMLElement>('.TempElevationSound_text__E585b'));
-    const items = Array.from(section.querySelectorAll<HTMLElement>('nav li'));
-    const autoplayDelay = 8000;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let activeIndex = 0;
-    let isSectionVisible = false;
-    let isMouseOverSection = false;
-    let hasFocusWithinSection = false;
-    let autoplayTimer: number | null = null;
-
-    const setActive = (nextIndex: number) => {
-      activeIndex = nextIndex;
-
-      config.forEach((item, index) => {
-        const button = root.querySelector<HTMLElement>(`#${item.buttonId}`);
-        const panel = root.querySelector<HTMLElement>(`#${item.panelId}`);
-        const isActive = index === nextIndex;
-
-        button?.setAttribute('aria-current', String(isActive));
-
-        if (panel) {
-          panel.dataset['active'] = String(isActive);
-          panel.hidden = !isActive;
-        }
-
-        if (texts[index]) {
-          texts[index].dataset['active'] = String(isActive);
-          texts[index].hidden = !isActive;
-        }
-
-        if (items[index]) {
-          items[index].dataset['active'] = String(isActive);
-        }
-      });
-    };
-
-    const stopAutoplay = () => {
-      if (autoplayTimer === null) return;
-      window.clearInterval(autoplayTimer);
-      autoplayTimer = null;
-    };
-
-    const startAutoplay = () => {
-      stopAutoplay();
-      if (!isSectionVisible || document.hidden || prefersReducedMotion.matches || isMouseOverSection || hasFocusWithinSection) return;
-
-      autoplayTimer = window.setInterval(() => {
-        setActive((activeIndex + 1) % config.length);
-      }, autoplayDelay);
-    };
-
-    config.forEach((item, index) => {
-      const button = root.querySelector<HTMLElement>(`#${item.buttonId}`);
-      if (!button) return;
-
-      const onClick = () => {
-        setActive(index);
-        startAutoplay();
-      };
-      button.addEventListener('click', onClick);
-      this.cleanupFns.push(() => button.removeEventListener('click', onClick));
-    });
-
-    const onMouseEnter = () => {
-      isMouseOverSection = true;
-      stopAutoplay();
-    };
-
-    const onMouseLeave = () => {
-      isMouseOverSection = false;
-      startAutoplay();
-    };
-
-    const onFocusIn = () => {
-      hasFocusWithinSection = true;
-      stopAutoplay();
-    };
-
-    const onFocusOut = (event: FocusEvent) => {
-      const nextTarget = event.relatedTarget;
-      if (nextTarget instanceof Node && section.contains(nextTarget)) return;
-
-      hasFocusWithinSection = false;
-      startAutoplay();
-    };
-
-    section.addEventListener('mouseenter', onMouseEnter);
-    section.addEventListener('mouseleave', onMouseLeave);
-    section.addEventListener('focusin', onFocusIn);
-    section.addEventListener('focusout', onFocusOut);
-
-    this.cleanupFns.push(() => {
-      section.removeEventListener('mouseenter', onMouseEnter);
-      section.removeEventListener('mouseleave', onMouseLeave);
-      section.removeEventListener('focusin', onFocusIn);
-      section.removeEventListener('focusout', onFocusOut);
-    });
-
-    setActive(0);
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isSectionVisible = entry.isIntersecting;
-        if (isSectionVisible) {
-          startAutoplay();
-        } else {
-          stopAutoplay();
-        }
-      },
-      { threshold: 0.35 },
-    );
-
-    const onVisibilityChange = () => {
-      if (document.hidden) {
-        stopAutoplay();
-      } else {
-        startAutoplay();
-      }
-    };
-
-    const onMotionPreferenceChange = () => startAutoplay();
-
-    observer.observe(section);
-    document.addEventListener('visibilitychange', onVisibilityChange);
-    prefersReducedMotion.addEventListener('change', onMotionPreferenceChange);
-
-    this.cleanupFns.push(() => {
-      stopAutoplay();
-      observer.disconnect();
-      document.removeEventListener('visibilitychange', onVisibilityChange);
-      prefersReducedMotion.removeEventListener('change', onMotionPreferenceChange);
     });
   }
 

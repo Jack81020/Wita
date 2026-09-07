@@ -1,7 +1,6 @@
 import { getLanguage, onLanguageChange, setLanguage, translate } from "./site-i18n.js";
 
 const navigationItems = [
-  { key: "home", label: "Home", href: "./", page: "index.html" },
   { key: "product", label: "Prodotto", href: "products.html", page: "products.html" },
   { key: "technology", label: "Tecnologia", href: "tecnologia.html", page: "tecnologia.html" },
   { key: "company", label: "Azienda", href: "azienda.html", page: "azienda.html" }
@@ -31,7 +30,6 @@ function languageSwitcher(variant) {
 }
 
 const labels = {
-  home: "Home",
   product: "Prodotto",
   technology: "Tecnologia",
   company: "Azienda",
@@ -55,11 +53,13 @@ export class SiteNavbar extends HTMLElement {
           '<div class="site-header__desktop">' +
             '<nav class="site-header__nav site-header__nav--left" data-nav-label="desktop" aria-label="' +
               translate("Navigazione principale desktop") + '">' +
+              '<a class="site-header__brand site-header__brand--desktop" href="./" aria-label="Wita Care home">' +
+                '<span class="wita-wordmark wita-wordmark--header" aria-hidden="true">' +
+                  '<span class="wita-wordmark__wita">WITA</span><span class="wita-wordmark__care">CARE</span>' +
+                "</span>" +
+              "</a>" +
               navigationItems.map(navigationLink).join("") +
             "</nav>" +
-            '<a class="site-header__brand" href="./" aria-label="Mentorage home">' +
-              '<img class="site-header__brand-image" src="assets/mentorage.svg" alt="Mentorage Logo" loading="lazy" />' +
-            "</a>" +
             '<div class="site-header__nav site-header__nav--right">' +
               '<a class="nav-link site-header__account-link' + (contactActive ? " is-active" : "") +
                 '" data-nav-key="contact" href="contatti.html"' +
@@ -72,8 +72,10 @@ export class SiteNavbar extends HTMLElement {
               'aria-controls="mobile-navigation" aria-label="' + translate("Apri menu") + '">' +
               '<span class="site-header__menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>' +
             "</button>" +
-            '<a class="site-header__brand site-header__brand--mobile" href="./" aria-label="Mentorage home">' +
-              '<img class="site-header__brand-image" src="assets/mentorage.svg" alt="Mentorage Logo" loading="lazy" />' +
+            '<a class="site-header__brand site-header__brand--mobile" href="./" aria-label="Wita Care home">' +
+              '<span class="wita-wordmark wita-wordmark--header" aria-hidden="true">' +
+                '<span class="wita-wordmark__wita">WITA</span><span class="wita-wordmark__care">CARE</span>' +
+              "</span>" +
             "</a>" +
             languageSwitcher("mobile") +
           "</div>" +

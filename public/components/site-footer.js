@@ -15,23 +15,22 @@ export class SiteFooter extends HTMLElement {
       '<footer class="products-footer" id="footer">' +
         '<div class="products-footer__inner">' +
           '<div class="products-footer__brandblock">' +
-            '<img class="products-footer__logo" src="assets/wita-logo.png" alt="Wita Care" loading="lazy" />' +
+            '<span class="wita-wordmark wita-wordmark--footer" role="img" aria-label="Wita Care">' +
+              '<span class="wita-wordmark__wita" aria-hidden="true">WITA</span>' +
+              '<span class="wita-wordmark__care" aria-hidden="true">CARE</span>' +
+            "</span>" +
             '<p class="products-footer__tag">' +
-              translate("Più controllo per chi cura. Più serenità per chi è assistito.", language) +
+              translate("Capire prima, assistere meglio.", language) +
             "</p>" +
           "</div>" +
           '<div class="products-footer__content">' +
             '<div class="products-footer__column products-footer__column--main">' +
-              "<h2>WITA S.r.l.</h2>" +
-              "<p>38123 Trento | Via della Cooperazione, 105</p>" +
-              '<p><a href="mailto:info@wita.care">info@wita.care</a></p>' +
-              '<p><a href="tel:+3904611610253">+39 0461 1610253</a></p>' +
-              "<p>" + translate("P.IVA 02539330221", language) + "</p>" +
+              "<h2>" + translate("Parliamo della tua struttura.", language) + "</h2>" +
+              "<p>" + translate("Scopri come Mentorage può integrarsi nei tuoi ambienti e nei flussi di lavoro del personale.", language) + "</p>" +
             "</div>" +
             '<div class="products-footer__column products-footer__column--actions">' +
-              '<a class="products-footer__button" ' +
-                'href="https://maps.google.com/?q=Via+della+Cooperazione+105,+38123+Trento" ' +
-                'target="_blank" rel="noreferrer">' + translate("Indicazioni stradali", language) + "</a>" +
+              '<a class="products-footer__button" href="contatti.html#richiedi-demo">' +
+                translate("Richiedi una demo", language) + "</a>" +
             "</div>" +
           "</div>" +
         "</div>" +
