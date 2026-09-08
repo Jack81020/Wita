@@ -21,7 +21,7 @@ export default [
   ["Informativa sulla privacy", "Privacy policy"],
   ["P.IVA 02539330221", "VAT No. 02539330221"],
   ["Parliamo della tua struttura.", "Let's talk about your facility."],
-  ["Scopri come Mentorage può integrarsi nei tuoi ambienti e nei flussi di lavoro del personale.", "Discover how Mentorage can integrate with your care environments and staff workflows."],
+  ["Scopri come Mentorage™ può integrarsi nei tuoi ambienti e nei flussi di lavoro del personale.", "Discover how Mentorage™ can integrate with your care environments and staff workflows."],
   ["Richiedi una demo", "Request a demo"],
 
   ["Parliamo della tua struttura", "Let's talk about your facility"],

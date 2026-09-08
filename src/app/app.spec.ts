@@ -40,10 +40,19 @@ describe('App', () => {
     expect(mainChildren[1]?.classList.contains('PodDoesNotReplaceBed_section__wTT6w')).toBe(true);
     expect(mainChildren[1]?.id).toBe('come-funziona');
     expect(compiled.querySelector('.TempElevationSound_container__uBfdh')).toBeNull();
+    expect(compiled.querySelector('.PodDoesNotReplaceBed_media_container__RRGMx img')?.getAttribute('src'))
+      .toBe('assets/interactiveimage-villa-armonia-bathroom.png');
     const benefits = compiled.querySelector('#mentorage-in-breve');
     const benefitTitles = Array.from(benefits?.querySelectorAll('h4') ?? []).map((title) => title.textContent?.trim());
     expect(benefits?.querySelector('h2')?.textContent).toContain('Monitora, interpreta e avvisa.');
     expect(benefitTitles).toEqual(['Monitora', 'Interpreta', 'Avvisa']);
+
+    const coordinationCard = Array.from(compiled.querySelectorAll<HTMLElement>('[data-card="true"]')).find((card) =>
+      card.textContent?.includes('Una vista chiara su stanze ed eventi'),
+    );
+    const coordinationImage = coordinationCard?.querySelector<HTMLImageElement>('img');
+    expect(coordinationImage?.getAttribute('src')).toBe('assets/care-coordination-villa-armonia.png');
+    expect(coordinationImage?.getAttribute('alt')).toContain('vista unificata di stanze ed eventi');
   });
 
   it('should map the provisional video timeline to one active hero card at a time', () => {

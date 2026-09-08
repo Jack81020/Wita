@@ -11,6 +11,12 @@ function normalize(value) {
   return String(value || "").replace(/\s+/g, " ").trim();
 }
 
+function withTrademarks(value) {
+  return String(value || "")
+    .replace(/\bWita Care\b(?!™)/gi, (brand) => brand + "™")
+    .replace(/\bMentorage\b(?!™)/gi, (brand) => brand + "™");
+}
+
 const englishByItalian = new Map(
   [...globalEntries, ...homeEntries, ...pageEntries, ...privacyEntries]
     .map(([italian, english]) => [normalize(italian), english])
@@ -59,9 +65,10 @@ function translateTextNode(node) {
 
   const leading = (source.match(/^\s*/) || [""])[0];
   const trailing = (source.match(/\s*$/) || [""])[0];
-  const translated = currentLanguage === "en"
+  const localized = currentLanguage === "en"
     ? (englishByItalian.get(core) || core)
     : core;
+  const translated = withTrademarks(localized);
   const nextValue = leading + translated + trailing;
 
   if (node.nodeValue !== nextValue) {
@@ -85,7 +92,8 @@ function translateElementAttributes(element) {
     }
 
     const source = sources.get(attribute) || "";
-    const nextValue = currentLanguage === "en" ? translate(source, "en") : source;
+    const localized = currentLanguage === "en" ? translate(source, "en") : source;
+    const nextValue = withTrademarks(localized);
     if (element.getAttribute(attribute) !== nextValue) {
       element.setAttribute(attribute, nextValue);
     }
@@ -134,9 +142,10 @@ function translateDocumentMetadata() {
     "Informativa sulla privacy | Wita S.r.l.": "Privacy Policy | Wita S.r.l."
   };
 
-  document.title = currentLanguage === "en"
+  const localizedTitle = currentLanguage === "en"
     ? (titleTranslations[originalTitle] || originalTitle)
     : originalTitle;
+  document.title = withTrademarks(localizedTitle);
 
   const description = document.querySelector('meta[name="description"]');
   if (!description) return;
@@ -147,7 +156,7 @@ function translateDocumentMetadata() {
 
   description.setAttribute(
     "content",
-    currentLanguage === "en" ? translate(originalDescription, "en") : originalDescription
+    withTrademarks(currentLanguage === "en" ? translate(originalDescription, "en") : originalDescription)
   );
 }
 

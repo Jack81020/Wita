@@ -15,10 +15,7 @@ export class SiteFooter extends HTMLElement {
       '<footer class="products-footer" id="footer">' +
         '<div class="products-footer__inner">' +
           '<div class="products-footer__brandblock">' +
-            '<span class="wita-wordmark wita-wordmark--footer" role="img" aria-label="Wita Care">' +
-              '<span class="wita-wordmark__wita" aria-hidden="true">WITA</span>' +
-              '<span class="wita-wordmark__care" aria-hidden="true">CARE</span>' +
-            "</span>" +
+            '<img class="products-footer__brand-image" src="assets/wita-care-footer-logo.png" alt="Wita Care">' +
             '<p class="products-footer__tag">' +
               translate("Capire prima, assistere meglio.", language) +
             "</p>" +
@@ -26,7 +23,7 @@ export class SiteFooter extends HTMLElement {
           '<div class="products-footer__content">' +
             '<div class="products-footer__column products-footer__column--main">' +
               "<h2>" + translate("Parliamo della tua struttura.", language) + "</h2>" +
-              "<p>" + translate("Scopri come Mentorage può integrarsi nei tuoi ambienti e nei flussi di lavoro del personale.", language) + "</p>" +
+              "<p>" + translate("Scopri come Mentorage™ può integrarsi nei tuoi ambienti e nei flussi di lavoro del personale.", language) + "</p>" +
             "</div>" +
             '<div class="products-footer__column products-footer__column--actions">' +
               '<a class="products-footer__button" href="contatti.html#richiedi-demo">' +

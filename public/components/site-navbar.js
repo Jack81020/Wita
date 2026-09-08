@@ -54,9 +54,7 @@ export class SiteNavbar extends HTMLElement {
             '<nav class="site-header__nav site-header__nav--left" data-nav-label="desktop" aria-label="' +
               translate("Navigazione principale desktop") + '">' +
               '<a class="site-header__brand site-header__brand--desktop" href="./" aria-label="Wita Care home">' +
-                '<span class="wita-wordmark wita-wordmark--header" aria-hidden="true">' +
-                  '<span class="wita-wordmark__wita">WITA</span><span class="wita-wordmark__care">CARE</span>' +
-                "</span>" +
+                '<img class="site-header__brand-image" src="assets/wita-logo-mark.png" alt="" aria-hidden="true">' +
               "</a>" +
               navigationItems.map(navigationLink).join("") +
             "</nav>" +
@@ -73,9 +71,7 @@ export class SiteNavbar extends HTMLElement {
               '<span class="site-header__menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>' +
             "</button>" +
             '<a class="site-header__brand site-header__brand--mobile" href="./" aria-label="Wita Care home">' +
-              '<span class="wita-wordmark wita-wordmark--header" aria-hidden="true">' +
-                '<span class="wita-wordmark__wita">WITA</span><span class="wita-wordmark__care">CARE</span>' +
-              "</span>" +
+              '<img class="site-header__brand-image" src="assets/wita-logo-mark.png" alt="" aria-hidden="true">' +
             "</a>" +
             languageSwitcher("mobile") +
           "</div>" +
