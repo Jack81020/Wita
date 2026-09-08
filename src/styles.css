@@ -962,15 +962,29 @@ body.wita-product-drawer-open {
 	text-wrap: balance;
 }
 
-.ScrollSequenceStatic_benefit2__8NNRi > img {
-	width: 3.5rem;
-	height: 3.5rem;
+.wita-benefit-icon {
+	display: block;
+	flex: 0 0 auto;
+	width: 4rem;
+	height: 4rem;
 	margin: 0.75rem 0 0;
-	padding: 0.75rem;
-	border: 2px solid #04aec2;
 	border-radius: 50%;
-	background: #fff;
-	object-fit: contain;
+	overflow: hidden;
+	background-image: url("/assets/benefit-icons-strip.png");
+	background-repeat: no-repeat;
+	background-size: 29.51rem 4rem;
+}
+
+.wita-benefit-icon--monitor {
+	background-position: 0 0;
+}
+
+.wita-benefit-icon--interpret {
+	background-position: -12.79rem -0.03rem;
+}
+
+.wita-benefit-icon--alert {
+	background-position: -25.77rem -0.19rem;
 }
 
 .ScrollSequenceStatic_benefit2__8NNRi p {
@@ -1166,7 +1180,7 @@ html {
 .wita-hero-copy h1 {
 	margin: 0;
 	font-size: clamp(3.9rem, 5.25vw, 6rem);
-	font-weight: 300;
+	font-weight: 400;
 	letter-spacing: -0.055em;
 	line-height: 0.98;
 }
