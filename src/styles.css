@@ -957,7 +957,7 @@ body.wita-product-drawer-open {
 
 .ScrollSequenceStatic_benefit2__8NNRi h4 {
 	margin: 0;
-	font-size: clamp(1.65rem, 2vw, 2rem);
+	font-size: clamp(2.2rem, 2.8vw, 2.75rem);
 	line-height: 1.1;
 	text-wrap: balance;
 }
@@ -965,14 +965,14 @@ body.wita-product-drawer-open {
 .wita-benefit-icon {
 	display: block;
 	flex: 0 0 auto;
-	width: 4rem;
-	height: 4rem;
+	width: 5.75rem;
+	height: 5.75rem;
 	margin: 0.75rem 0 0;
 	border-radius: 50%;
 	overflow: hidden;
 	background-image: url("/assets/benefit-icons-strip.png");
 	background-repeat: no-repeat;
-	background-size: 29.51rem 4rem;
+	background-size: 42.4206rem 5.75rem;
 }
 
 .wita-benefit-icon--monitor {
@@ -980,15 +980,17 @@ body.wita-product-drawer-open {
 }
 
 .wita-benefit-icon--interpret {
-	background-position: -12.79rem -0.03rem;
+	background-position: -18.3856rem -0.0431rem;
 }
 
 .wita-benefit-icon--alert {
-	background-position: -25.77rem -0.19rem;
+	background-position: -37.0444rem -0.2731rem;
 }
 
 .ScrollSequenceStatic_benefit2__8NNRi p {
 	margin: 0.75rem auto 0 !important;
+	font-size: 1.25rem;
+	line-height: 1.45;
 }
 /* Home benefit section */
 .wita-benefits-heading {
@@ -997,22 +999,22 @@ body.wita-product-drawer-open {
 	text-align: center;
 }
 
-.wita-benefits-heading__eyebrow {
-	margin: 0 0 16px;
-	color: var(--wita-accent-text);
-	font-size: 0.8125rem;
-	font-weight: 500;
-	letter-spacing: 0.09em;
-	line-height: 1.2;
-	text-transform: uppercase;
-}
-
 .wita-benefits-heading h2 {
 	margin: 0;
 	font-size: clamp(2.5rem, 4.2vw, 4rem);
 	font-weight: 400;
 	letter-spacing: -0.04em;
 	line-height: 1.02;
+}
+
+.wita-benefits-heading h2 sup {
+	position: relative;
+	top: -0.15em;
+	margin-left: 0.08em;
+	font-size: 0.28em;
+	letter-spacing: 0;
+	line-height: 0;
+	vertical-align: super;
 }
 
 .wita-benefits-heading > p:last-child {

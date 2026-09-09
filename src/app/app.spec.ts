@@ -44,7 +44,8 @@ describe('App', () => {
       .toBe('assets/interactiveimage-villa-armonia-bathroom.png');
     const benefits = compiled.querySelector('#mentorage-in-breve');
     const benefitTitles = Array.from(benefits?.querySelectorAll('h4') ?? []).map((title) => title.textContent?.trim());
-    expect(benefits?.querySelector('h2')?.textContent).toContain('Monitora, interpreta e avvisa.');
+    expect(benefits?.querySelector('h2')?.textContent?.trim()).toBe('Cosa fa MentorageTM');
+    expect(benefits?.querySelector('.wita-benefits-heading__eyebrow')).toBeNull();
     expect(benefitTitles).toEqual(['Monitora', 'Interpreta', 'Avvisa']);
 
     const coordinationCard = Array.from(compiled.querySelectorAll<HTMLElement>('[data-card="true"]')).find((card) =>
