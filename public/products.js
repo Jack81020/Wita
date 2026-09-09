@@ -1,4 +1,27 @@
 (() => {
+  const detailButtons = Array.from(document.querySelectorAll('[data-products-detail]'));
+
+  detailButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const isOpen = button.getAttribute('aria-expanded') === 'true';
+      const panelId = button.getAttribute('aria-controls');
+      const panel = panelId ? document.getElementById(panelId) : null;
+
+      if (!isOpen) {
+        detailButtons.forEach((otherButton) => {
+          const otherPanelId = otherButton.getAttribute('aria-controls');
+          const otherPanel = otherPanelId ? document.getElementById(otherPanelId) : null;
+
+          otherButton.setAttribute('aria-expanded', 'false');
+          if (otherPanel) otherPanel.hidden = true;
+        });
+      }
+
+      button.setAttribute('aria-expanded', String(!isOpen));
+      if (panel) panel.hidden = isOpen;
+    });
+  });
+
   const triggers = Array.from(document.querySelectorAll('[data-products-panel-trigger]'));
   const items = triggers.map((trigger) => trigger.closest('li'));
   const panels = Array.from(document.querySelectorAll('[data-products-panel]'));
@@ -26,21 +49,125 @@
 
   setActivePanel('analytics');
 
-  const installationMedia = document.querySelector('.products-installation__media');
-  const installationCard = document.querySelector('.products-installation__card');
-  const desktopInstallationLayout = window.matchMedia('(min-width: 1024px)');
+  const applicationsRoot = document.querySelector('[data-products-applications]');
+  const applicationTabList = applicationsRoot?.querySelector('.products-applications__tabs');
+  const applicationTabs = Array.from(document.querySelectorAll('[data-products-application-tab]'));
+  const applicationPanels = Array.from(document.querySelectorAll('[data-products-application-panel]'));
+  const applicationsReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const applicationAutoplayDelay = 5000;
+  let applicationIndex = 0;
+  let applicationAutoplayTimer = null;
+  let isApplicationVisible = false;
+  let isApplicationHovered = false;
+  let isApplicationFocused = false;
 
-  if (installationMedia && installationCard) {
-    const syncInstallationMediaHeight = () => {
-      installationMedia.style.height = desktopInstallationLayout.matches
-        ? `${installationCard.getBoundingClientRect().height}px`
-        : '';
-    };
+  const setApplicationTab = (applicationId, shouldScroll = true) => {
+    applicationPanels.forEach((panel) => {
+      panel.hidden = panel.getAttribute('data-products-application-panel') !== applicationId;
+    });
 
-    const installationResizeObserver = new ResizeObserver(syncInstallationMediaHeight);
-    installationResizeObserver.observe(installationCard);
-    desktopInstallationLayout.addEventListener('change', syncInstallationMediaHeight);
-    syncInstallationMediaHeight();
+    applicationTabs.forEach((tab, index) => {
+      const isActive = tab.getAttribute('data-products-application-tab') === applicationId;
+      tab.setAttribute('aria-selected', String(isActive));
+      tab.tabIndex = isActive ? 0 : -1;
+
+      if (isActive) {
+        applicationIndex = index;
+        if (shouldScroll && applicationTabList) {
+          const centeredLeft = tab.offsetLeft - ((applicationTabList.clientWidth - tab.offsetWidth) / 2);
+          applicationTabList.scrollTo({
+            left: centeredLeft,
+            behavior: applicationsReducedMotion.matches ? 'auto' : 'smooth',
+          });
+        }
+      }
+    });
+  };
+
+  const stopApplicationAutoplay = () => {
+    if (applicationAutoplayTimer === null) return;
+    window.clearInterval(applicationAutoplayTimer);
+    applicationAutoplayTimer = null;
+  };
+
+  const startApplicationAutoplay = () => {
+    stopApplicationAutoplay();
+    if (!applicationsRoot || applicationTabs.length < 2 || !isApplicationVisible || isApplicationHovered
+      || isApplicationFocused || document.hidden || applicationsReducedMotion.matches) {
+      return;
+    }
+
+    applicationAutoplayTimer = window.setInterval(() => {
+      const nextIndex = (applicationIndex + 1) % applicationTabs.length;
+      const nextId = applicationTabs[nextIndex].getAttribute('data-products-application-tab');
+      if (nextId) setApplicationTab(nextId);
+    }, applicationAutoplayDelay);
+  };
+
+  applicationTabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+      const applicationId = tab.getAttribute('data-products-application-tab');
+      if (applicationId) setApplicationTab(applicationId);
+      startApplicationAutoplay();
+    });
+
+    tab.addEventListener('keydown', (event) => {
+      let nextIndex = index;
+      if (event.key === 'ArrowRight') nextIndex = (index + 1) % applicationTabs.length;
+      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + applicationTabs.length) % applicationTabs.length;
+      if (event.key === 'Home') nextIndex = 0;
+      if (event.key === 'End') nextIndex = applicationTabs.length - 1;
+      if (nextIndex === index) return;
+
+      event.preventDefault();
+      const nextTab = applicationTabs[nextIndex];
+      const nextId = nextTab.getAttribute('data-products-application-tab');
+      if (nextId) setApplicationTab(nextId);
+      nextTab.focus();
+    });
+  });
+
+  if (applicationsRoot && applicationTabs.length) {
+    setApplicationTab(applicationTabs[0].getAttribute('data-products-application-tab'), false);
+
+    const applicationsObserver = new IntersectionObserver(
+      ([entry]) => {
+        isApplicationVisible = entry.isIntersecting;
+        if (isApplicationVisible) startApplicationAutoplay();
+        else stopApplicationAutoplay();
+      },
+      { threshold: 0.4 }
+    );
+
+    applicationsObserver.observe(applicationsRoot);
+
+    applicationsRoot.addEventListener('mouseenter', () => {
+      isApplicationHovered = true;
+      stopApplicationAutoplay();
+    });
+
+    applicationsRoot.addEventListener('mouseleave', () => {
+      isApplicationHovered = false;
+      startApplicationAutoplay();
+    });
+
+    applicationsRoot.addEventListener('focusin', () => {
+      isApplicationFocused = true;
+      stopApplicationAutoplay();
+    });
+
+    applicationsRoot.addEventListener('focusout', (event) => {
+      if (applicationsRoot.contains(event.relatedTarget)) return;
+      isApplicationFocused = false;
+      startApplicationAutoplay();
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopApplicationAutoplay();
+      else startApplicationAutoplay();
+    });
+
+    applicationsReducedMotion.addEventListener('change', startApplicationAutoplay);
   }
 
   const storyButtons = Array.from(document.querySelectorAll('[data-products-story-toggle]'));
@@ -191,4 +318,73 @@
 
     prefersReducedMotion.addEventListener('change', startStoryAutoplay);
   }
+
+  const counterSections = Array.from(
+    document.querySelectorAll('[data-products-impact], [data-products-system-impact]')
+  );
+  const counterAnimationDuration = 1200;
+  const animatedCounterSections = new WeakSet();
+  const groupedNumberFormatter = new Intl.NumberFormat(document.documentElement.lang || 'it-IT');
+
+  const renderCounter = (counter, value) => {
+    const prefix = counter.getAttribute('data-count-prefix') || '';
+    const suffix = counter.getAttribute('data-count-suffix') || '';
+    const formattedValue = counter.getAttribute('data-count-grouped') === 'true'
+      ? groupedNumberFormatter.format(value)
+      : String(value);
+    counter.textContent = `${prefix}${formattedValue}${suffix}`;
+  };
+
+  const showFinalCounterValues = (counters) => {
+    counters.forEach((counter) => {
+      const finalValue = Number(counter.getAttribute('data-count-end')) || 0;
+      renderCounter(counter, finalValue);
+    });
+  };
+
+  const animateCounterSection = (section) => {
+    const counters = Array.from(
+      section.querySelectorAll('[data-products-impact-counter], [data-products-system-counter]')
+    );
+    if (animatedCounterSections.has(section) || !counters.length) return;
+    animatedCounterSections.add(section);
+
+    if (prefersReducedMotion.matches) {
+      showFinalCounterValues(counters);
+      return;
+    }
+
+    const startTime = performance.now();
+    const updateCounters = (currentTime) => {
+      const progress = Math.min((currentTime - startTime) / counterAnimationDuration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+      counters.forEach((counter) => {
+        const finalValue = Number(counter.getAttribute('data-count-end')) || 0;
+        const nextValue = Math.round(finalValue * easedProgress);
+        renderCounter(counter, nextValue);
+      });
+
+      if (progress < 1) {
+        window.requestAnimationFrame(updateCounters);
+      } else {
+        showFinalCounterValues(counters);
+      }
+    };
+
+    window.requestAnimationFrame(updateCounters);
+  };
+
+  counterSections.forEach((section) => {
+    const counterObserver = new IntersectionObserver(
+      ([entry], observer) => {
+        if (!entry.isIntersecting) return;
+        animateCounterSection(section);
+        observer.disconnect();
+      },
+      { threshold: 0.28 }
+    );
+
+    counterObserver.observe(section);
+  });
 })();

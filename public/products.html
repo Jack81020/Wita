@@ -19,17 +19,50 @@
       <section class="products-hero">
         <div class="products-hero__content">
           <div>
-            <p class="products-eyebrow">Portale Mentorage</p>
-            <h1 class="products-title">Una visione chiara della struttura, in un&apos;unica schermata.</h1>
-            <p class="products-subtitle">Mentorage organizza stanze, alert ed eventi in un&apos;interfaccia semplice,
-              pensata
-              per aiutare il personale a capire rapidamente dove serve attenzione.</p>
+            <h1 class="products-title">Ecosistema Mentorage</h1>
+            <p class="products-subtitle">Mentorage&trade; &egrave; il sistema di monitoraggio ambientale intelligente
+              in grado di rilevare autonomamente eventi rilevanti e informare in tempo reale il personale dedicato</p>
           </div>
-          <ul class="products-hero__points" aria-label="Punti chiave del portale Mentorage">
-            <li>Panoramica immediata della struttura</li>
-            <li>Alert evidenziati per priorit&agrave;</li>
-            <li>Storico eventi e statistiche sempre accessibili</li>
-          </ul>
+          <div class="products-hero__details" aria-label="Componenti dell'ecosistema Mentorage">
+            <article class="products-hero__detail">
+              <button type="button" data-products-detail aria-expanded="false" aria-controls="products-detail-sensor">
+                <span>Sensore intelligente</span>
+                <span class="products-hero__detail-symbol" aria-hidden="true"></span>
+              </button>
+              <div class="products-hero__detail-panel" id="products-detail-sensor" hidden>
+                <p>Rileva in tempo reale ci&ograve; che accade nella stanza, in modo anonimo, continuo e non invasivo.
+                  Installato a parete o a soffitto, monitora autonomamente l&rsquo;ambiente e trasforma ci&ograve; che
+                  rileva in informazioni utili per l&rsquo;assistenza.</p>
+                <p>Un singolo sensore copre fino a 30 m&sup2; e, grazie alla tecnologia
+                  &laquo;plug and play&raquo;, si installa in 20 minuti.</p>
+              </div>
+            </article>
+            <article class="products-hero__detail">
+              <button type="button" data-products-detail aria-expanded="false" aria-controls="products-detail-desktop">
+                <span>Portale Desktop</span>
+                <span class="products-hero__detail-symbol" aria-hidden="true"></span>
+              </button>
+              <div class="products-hero__detail-panel" id="products-detail-desktop" hidden>
+                <p>Offre una vista completa della struttura e consente di monitorare pi&ugrave; ambienti
+                  contemporaneamente. Il portale permette di consultare statistiche, analizzare i dati e individuare
+                  trend ricorrenti o cambiamenti significativi.</p>
+                <p>Uno strumento pensato per supportare coordinatori e responsabili nella gestione quotidiana e nelle
+                  decisioni organizzative e assistenziali.</p>
+              </div>
+            </article>
+            <article class="products-hero__detail">
+              <button type="button" data-products-detail aria-expanded="false" aria-controls="products-detail-mobile">
+                <span>App Mobile</span>
+                <span class="products-hero__detail-symbol" aria-hidden="true"></span>
+              </button>
+              <div class="products-hero__detail-panel" id="products-detail-mobile" hidden>
+                <p>Rende notifiche e informazioni sempre accessibili in tempo reale, anche in movimento.</p>
+                <p>L&rsquo;app consente di ricevere alert, verificare lo stato delle stanze e intervenire con maggiore
+                  tempestivit&agrave; direttamente dal proprio smartphone.</p>
+                <p>Mentorage Mobile &egrave; disponibile per dispositivi Android e IOS.</p>
+              </div>
+            </article>
+          </div>
         </div>
         <div class="products-hero__media">
           <video class="products-hero__video" playsinline autoplay muted loop preload="auto">
@@ -40,44 +73,313 @@
 
       <section class="products-installation" aria-labelledby="products-installation-title">
         <div class="products-installation__panel">
-          <div class="products-installation__media">
-            <video class="products-installation__video" playsinline autoplay muted loop preload="auto">
-              <source src="assets/device_installation.mp4" type="video/mp4" />
-            </video>
-          </div>
           <div class="products-installation__card">
             <div class="products-installation__intro">
-              <p class="products-eyebrow">Semplice da installare</p>
-              <h2 class="products-title products-installation__title" id="products-installation-title">Si installa
-                facilmente, senza cambiare la struttura.</h2>
-              <p class="products-subtitle products-installation__subtitle">Per alimentare il sensore basta una normale
-                presa di corrente. Oppure, se &egrave; disponibile il PoE, alimentazione e connessione arrivano insieme
-                attraverso un solo cavo Ethernet.</p>
+              <h2 class="products-title products-installation__title" id="products-installation-title">Una tecnologia,
+                diversi ambiti di applicazione</h2>
+              <p class="products-subtitle products-installation__subtitle">Mentorage&trade; si adatta a differenti
+                bisogni assistenziali e livelli di fragilit&agrave;</p>
             </div>
-            <ul class="products-installation__points" aria-label="Vantaggi dell'installazione del sensore">
-              <li>
-                <span class="products-installation__point-index">01</span>
-                <p>Si collega a una normale presa di corrente, senza dover ripensare gli impianti.</p>
-              </li>
-              <li>
-                <span class="products-installation__point-index">02</span>
-                <p>In alternativa, con il PoE basta un solo cavo Ethernet per alimentazione e connessione.</p>
-              </li>
-              <li>
-                <span class="products-installation__point-index">03</span>
-                <p>Una volta installato lavora in modo discreto: niente luci accese o segnali visivi nella stanza.</p>
-              </li>
-            </ul>
+            <div class="products-applications" data-products-applications>
+              <div class="products-applications__tabs" role="tablist" aria-label="Ambiti di applicazione di Mentorage">
+                <button class="products-application-tab" id="products-application-tab-care" type="button" role="tab"
+                  data-products-application-tab="care" aria-selected="true"
+                  aria-controls="products-application-panel-care" tabindex="0">
+                  <span class="products-application-tab__icon" aria-hidden="true">
+                    <img src="assets/application-socio-assistenziale.png" alt="" />
+                  </span>
+                  <span class="products-application-tab__label">Socio-assistenziale</span>
+                </button>
+                <button class="products-application-tab" id="products-application-tab-health" type="button" role="tab"
+                  data-products-application-tab="health" aria-selected="false"
+                  aria-controls="products-application-panel-health" tabindex="-1">
+                  <span class="products-application-tab__icon" aria-hidden="true">
+                    <img src="assets/application-socio-sanitario.png" alt="" />
+                  </span>
+                  <span class="products-application-tab__label">Socio-sanitario</span>
+                </button>
+                <button class="products-application-tab" id="products-application-tab-hospital" type="button" role="tab"
+                  data-products-application-tab="hospital" aria-selected="false"
+                  aria-controls="products-application-panel-hospital" tabindex="-1">
+                  <span class="products-application-tab__icon" aria-hidden="true">
+                    <img src="assets/application-ospedali.png" alt="" />
+                  </span>
+                  <span class="products-application-tab__label">Ospedali</span>
+                </button>
+                <button class="products-application-tab" id="products-application-tab-home" type="button" role="tab"
+                  data-products-application-tab="home" aria-selected="false"
+                  aria-controls="products-application-panel-home" tabindex="-1">
+                  <span class="products-application-tab__icon" aria-hidden="true">
+                    <img src="assets/application-domiciliare.png" alt="" />
+                  </span>
+                  <span class="products-application-tab__label">Domiciliare</span>
+                </button>
+              </div>
+              <div class="products-applications__panels">
+                <article class="products-application-panel" id="products-application-panel-care" role="tabpanel"
+                  data-products-application-panel="care" aria-labelledby="products-application-tab-care">
+                  <h3>Socio-assistenziale</h3>
+                  <p>Nelle strutture residenziali, Mentorage supporta l&rsquo;assistenza a persone anziane o fragili,
+                    con difficolt&agrave; cognitive o motorie. Cadute, tentativi di alzarsi in autonomia,
+                    disorientamento
+                    e permanenze prolungate possono richiedere particolare attenzione da parte degli operatori.</p>
+                </article>
+                <article class="products-application-panel" id="products-application-panel-health" role="tabpanel"
+                  data-products-application-panel="health" aria-labelledby="products-application-tab-health" hidden>
+                  <h3>Socio-sanitario</h3>
+                  <p>Nei contesti dedicati a persone con ridotta autonomia, disabilit&agrave; o bisogni assistenziali
+                    complessi, Mentorage aiuta a riconoscere tempestivamente situazioni potenzialmente critiche, come
+                    movimenti inconsueti, uscite dal letto o cadute.</p>
+                </article>
+                <article class="products-application-panel" id="products-application-panel-hospital" role="tabpanel"
+                  data-products-application-panel="hospital" aria-labelledby="products-application-tab-hospital" hidden>
+                  <h3>Ospedali</h3>
+                  <p>Pazienti anziani, fragili, disorientati o in fase post-operatoria possono essere maggiormente
+                    esposti al rischio di caduta o a tentativi di mobilizzazione senza assistenza. Il monitoraggio
+                    dell&rsquo;ambiente diventa un supporto concreto nella prevenzione delle potenziali situazioni di
+                    rischio.</p>
+                </article>
+                <article class="products-application-panel" id="products-application-panel-home" role="tabpanel"
+                  data-products-application-panel="home" aria-labelledby="products-application-tab-home" hidden>
+                  <h3>Domiciliare</h3>
+                  <p>Per persone anziane o fragili che vivono sole o trascorrono parte della giornata senza la presenza
+                    di un caregiver, anche un semplice evento pu&ograve; diventare critico se non viene rilevato
+                    tempestivamente. Cadute, inattivit&agrave; prolungata o situazioni insolite possono essere
+                    individuate senza ricorrere a sistemi invasivi, offrendo un supporto alla persona e a chi se ne
+                    prende cura.</p>
+                </article>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+      <section class="products-impact" aria-labelledby="products-impact-title" data-products-impact>
+        <div class="products-impact__header">
+          <h2 class="products-title products-impact__title" id="products-impact-title">Impatto di Mentorage&trade;
+            sull&rsquo;operativit&agrave; assistenziale</h2>
+        </div>
+
+        <div class="products-impact__grid">
+          <article class="products-impact__stat"
+            aria-label="Meno di 50 secondi. Tempo di risposta medio degli operatori ad un evento di rischio">
+            <span class="products-impact__value" aria-hidden="true" data-products-impact-counter data-count-end="50"
+              data-count-prefix="&lt; " data-count-suffix=" s">&lt; 0 s</span>
+            <p>Tempo di risposta medio degli operatori ad un evento di rischio</p>
+          </article>
+
+          <article class="products-impact__stat"
+            aria-label="Meno 97 per cento. Riduzione del tempo medio di intervento rispetto alla gestione senza Mentorage">
+            <span class="products-impact__value" aria-hidden="true" data-products-impact-counter data-count-end="97"
+              data-count-prefix="&minus;" data-count-suffix="%">&minus;0%</span>
+            <p>Riduzione del tempo medio di intervento rispetto alla gestione senza Mentorage&trade;</p>
+          </article>
+
+          <article class="products-impact__stat" aria-label="Meno 48 per cento. Riduzione delle cadute"
+            aria-describedby="products-impact-source">
+            <div class="products-impact__value-line">
+              <span class="products-impact__value" aria-hidden="true" data-products-impact-counter data-count-end="48"
+                data-count-prefix="&minus;" data-count-suffix="%">&minus;0%</span>
+              <a class="products-footnote-link" href="#products-impact-source"
+                aria-label="Vai alla fonte del dato meno 48 per cento">*</a>
+            </div>
+            <p>Riduzione delle cadute</p>
+          </article>
+
+          <article class="products-impact__stat" aria-label="Meno 71 per cento. Ore di osservazione individuale"
+            aria-describedby="products-impact-source">
+            <div class="products-impact__value-line">
+              <span class="products-impact__value" aria-hidden="true" data-products-impact-counter data-count-end="71"
+                data-count-prefix="&minus;" data-count-suffix="%">&minus;0%</span>
+              <a class="products-footnote-link" href="#products-impact-source"
+                aria-label="Vai alla fonte del dato meno 71 per cento">*</a>
+            </div>
+            <p>Ore di osservazione individuale</p>
+          </article>
+
+        </div>
+        <p class="products-impact__source" id="products-impact-source"><span aria-hidden="true">*</span> Wright K, Singh
+          S., <cite>Journal of Patient Safety</cite>, 2022.</p>
+      </section>
+
+      <section class="products-protection" aria-labelledby="products-protection-title">
+        <div class="products-protection__card">
+          <figure class="products-protection__media">
+            <img src="assets/mentorage-tutela-assistenza.png"
+              alt="Una persona presta assistenza a una persona distesa a terra, con un indicatore di potenziale pericolo"
+              loading="lazy" />
+            <span class="products-protection__warning" aria-hidden="true">
+              <svg viewBox="0 0 64 58" focusable="false">
+                <path d="M32 4 60 54H4L32 4Z"></path>
+                <path class="products-protection__warning-mark" d="M32 20v17"></path>
+                <circle class="products-protection__warning-dot" cx="32" cy="44.5" r="2.2"></circle>
+              </svg>
+            </span>
+          </figure>
+
+          <div class="products-protection__content">
+            <h2 class="products-title products-protection__title" id="products-protection-title">
+              Informazioni oggettive,<br />
+              maggiore tutela per tutti
+            </h2>
+            <p class="products-protection__subtitle">Avere una visione completa di ci&ograve; che accade negli ambienti
+              permette di comprendere meglio le dinamiche assistenziali e ricostruire con maggiore precisione gli
+              eventi.</p>
+            <p class="products-protection__text">Mentorage&trade; consente di analizzare quanto avvenuto prima, durante
+              e dopo un episodio, offrendo informazioni oggettive utili a fare chiarezza sulle circostanze e sulle
+              modalit&agrave; di intervento. Un supporto concreto che contribuisce a tutelare operatori, strutture,
+              ospiti e famiglie.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="products-unified-view" aria-labelledby="products-unified-view-title">
+        <div class="products-unified-view__header">
+          <h2 class="products-title products-unified-view__title" id="products-unified-view-title">La visione giusta,
+            per ogni livello di complessit&agrave;</h2>
+
+          <div class="products-unified-view__intro">
+            <div>
+              <p>Per contesti semplici, la vista multipla consente di monitorare efficacemente le singole stanze.</p>
+              <p>La sfida inizia quando gli spazi da presidiare diventano numerosi e distribuiti su pi&ugrave;
+                unit&agrave; o piani.</p>
+            </div>
+            <div>
+              <p>All&rsquo;aumentare della complessit&agrave; della struttura, Mentorage&trade; affianca una vista 3D
+                degli spazi, offrendo una visione pi&ugrave; ampia e immediata del contesto.</p>
+              <p>In questo modo gli operatori possono focalizzarsi pi&ugrave; facilmente sulle situazioni rilevanti e il
+                monitoraggio diventa efficace alla gestione quotidiana dell&rsquo;assistenza.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="products-unified-view__comparison">
+          <article class="products-unified-view__card products-unified-view__card--fragmented">
+            <div class="products-unified-view__card-header">
+              <div>
+                <h3>Vista multipla <span>(stanze separate)</span></h3>
+                <p>Pi&ugrave; schermate, meno contesto.</p>
+              </div>
+            </div>
+            <figure class="products-unified-view__media">
+              <img src="assets/care-coordination-rooms-events.png"
+                alt="Vista multipla di stanze monitorate separatamente" loading="lazy" />
+            </figure>
+          </article>
+
+          <article class="products-unified-view__card products-unified-view__card--integrated">
+            <div class="products-unified-view__card-header">
+              <div>
+                <h3>Vista d&rsquo;insieme <span>(mappa 3D)</span></h3>
+                <p>Tutti gli ambienti, in un&rsquo;unica visione.</p>
+              </div>
+            </div>
+            <figure class="products-unified-view__media">
+              <img src="assets/technology-spatial-map.png"
+                alt="Mappa tridimensionale integrata degli ambienti monitorati" loading="lazy" />
+            </figure>
+          </article>
+        </div>
+      </section>
+
+      <section class="products-impact products-impact--system" aria-labelledby="products-system-impact-title"
+        data-products-system-impact>
+        <div class="products-impact__header">
+          <h2 class="products-title products-impact__title" id="products-system-impact-title">Performance del ecosistema
+            Mentorage
+          </h2>
+        </div>
+
+        <div class="products-impact__grid">
+          <article class="products-impact__stat"
+            aria-label="Oltre il 96 per cento degli eventi critici rilevati correttamente">
+            <span class="products-impact__value" aria-hidden="true" data-products-system-counter data-count-end="96"
+              data-count-prefix="&gt; " data-count-suffix="%">&gt; 0%</span>
+            <p>Eventi critici rilevati correttamente</p>
+          </article>
+
+          <article class="products-impact__stat" aria-label="Meno di 3 secondi dall'evento reale all'alert del sistema">
+            <span class="products-impact__value" aria-hidden="true" data-products-system-counter data-count-end="3"
+              data-count-prefix="&lt; " data-count-suffix=" secondi">&lt; 0 secondi</span>
+            <p>Dall&rsquo;evento reale all&rsquo;alert del sistema</p>
+          </article>
+
+          <article class="products-impact__stat"
+            aria-label="Oltre un milione e cinquecentomila ore di monitoraggio reale">
+            <span class="products-impact__value" aria-hidden="true" data-products-system-counter
+              data-count-end="1500000" data-count-prefix="+ " data-count-suffix=" ore" data-count-grouped="true">+ 0
+              ore</span>
+            <p>Monitoraggio reale</p>
+          </article>
+
+          <article class="products-impact__stat" aria-label="Oltre seicentocinquantamila eventi analizzati dal sistema">
+            <span class="products-impact__value" aria-hidden="true" data-products-system-counter data-count-end="650000"
+              data-count-prefix="+ " data-count-suffix=" eventi" data-count-grouped="true">+ 0 eventi</span>
+            <p>Analizzati dal sistema</p>
+          </article>
+
+          <article class="products-impact__stat"
+            aria-label="Fino a 30 metri quadrati di copertura con un singolo sensore">
+            <span class="products-impact__value" aria-hidden="true" data-products-system-counter data-count-end="30"
+              data-count-prefix="Fino a " data-count-suffix=" m&sup2;">Fino a 0 m&sup2;</span>
+            <p>Copertura di un singolo sensore</p>
+          </article>
+
+          <article class="products-impact__stat"
+            aria-label="Circa 20 minuti per l'installazione e la calibrazione del sensore">
+            <span class="products-impact__value" aria-hidden="true" data-products-system-counter data-count-end="20"
+              data-count-prefix="~ " data-count-suffix=" minuti">~ 0 minuti</span>
+            <p>Installazione e calibrazione del sensore</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="products-study" aria-labelledby="products-study-title">
+        <div class="products-study__header">
+          <h2 class="products-title products-study__title" id="products-study-title">Studio CERGAS Universit&agrave; L.
+            Bocconi su Mentorage&trade;</h2>
+        </div>
+
+        <div class="products-study__grid">
+          <article class="products-study__item">
+            <span class="products-study__index" aria-hidden="true">01</span>
+            <div>
+              <h3>&asymp; 2 <abbr title="Full-Time Equivalent">FTE</abbr><a class="products-footnote-link"
+                  href="#products-study-fte-note" aria-label="Vai al significato di FTE">*</a> di saving stimato
+                sull&rsquo;organico notturno</h3>
+              <p>La sperimentazione ha evidenziato la possibilit&agrave; di ridimensionare le risorse dedicate alla
+                sorveglianza notturna, liberando capacit&agrave; da reinvestire nel potenziamento della struttura.</p>
+            </div>
+          </article>
+
+          <article class="products-study__item">
+            <span class="products-study__index" aria-hidden="true">02</span>
+            <div>
+              <h3>Pi&ugrave; collaborazione e sicurezza tra gli operatori</h3>
+              <p>&Egrave; emerso un maggiore ricorso agli interventi effettuati in coppia, con benefici per la sicurezza
+                sia degli assistiti sia dei professionisti.</p>
+            </div>
+          </article>
+
+          <article class="products-study__item">
+            <span class="products-study__index" aria-hidden="true">03</span>
+            <div>
+              <h3>Migliore organizzazione e benessere del personale</h3>
+              <p>Una gestione pi&ugrave; efficace di turni, permessi e ferie, insieme al coinvolgimento diretto degli
+                operatori nell&rsquo;introduzione della tecnologia, ha contribuito a rendere il cambiamento pi&ugrave;
+                sostenibile per il team.</p>
+            </div>
+          </article>
+        </div>
+        <p class="products-study__note" id="products-study-fte-note"><span aria-hidden="true">*</span> FTE:
+          Full-Time Equivalent.</p>
+      </section>
+
       <section class="products-analytics-story" id="product-overview" aria-labelledby="products-analytics-title">
         <div class="products-analytics-story__panel">
           <div class="products-analytics-story__screen-grid" data-products-story-view="structure">
             <div class="products-analytics-story__column">
               <div class="products-analytics-story__intro">
                 <div>
-                  <p class="products-eyebrow">Statistiche</p>
                   <h2 class="products-title products-analytics-story__title" id="products-analytics-title">Dalla
                     struttura al singolo ospite.</h2>
                   <p class="products-subtitle products-analytics-story__subtitle">Mentorage offre una doppia lettura dei
@@ -116,8 +418,7 @@
             <figure class="products-analytics-story__media"
               aria-label="Schermata Mentorage per le statistiche di struttura">
               <picture>
-                <source media="(max-width: 720px)"
-                  srcset="assets/mentorage-statistiche-struttura-mobile.png"
+                <source media="(max-width: 720px)" srcset="assets/mentorage-statistiche-struttura-mobile.png"
                   data-products-story-mobile-source />
                 <img src="assets/mentorage-statistiche-struttura.png"
                   alt="Dashboard Mentorage con statistiche della struttura" loading="lazy" />
@@ -129,89 +430,6 @@
         </div>
 
       </section>
-
-      <section class="products-ecosystem" aria-labelledby="products-ecosystem-title">
-        <div class="products-ecosystem__panel">
-          <figure class="products-ecosystem__media">
-            <img src="assets/mentorage-ecosistema-connesso-verticale.png"
-              alt="Il sensore Mentorage collegato a smartphone, smartwatch e altri dispositivi connessi"
-              loading="lazy" />
-          </figure>
-
-          <div class="products-ecosystem__content">
-            <div>
-              <p class="products-eyebrow">Ecosistema connesso</p>
-              <h2 class="products-title products-ecosystem__title" id="products-ecosystem-title">
-                <span class="products-ecosystem__title-line">Pensato per integrarsi.</span>
-                <span class="products-ecosystem__title-line">Pronto a crescere.</span>
-              </h2>
-              <p class="products-ecosystem__intro">Mentorage non &egrave; un sistema chiuso. Pu&ograve; dialogare con
-                piattaforme, dispositivi indossabili e altre soluzioni connesse gi&agrave; presenti nella struttura,
-                portando informazioni e notifiche negli strumenti utilizzati ogni giorno dal personale.</p>
-            </div>
-
-            <div class="products-ecosystem__points">
-              <article class="products-ecosystem__point">
-                <span class="products-ecosystem__point-index">01</span>
-                <div>
-                  <h3>Si adatta ai sistemi esistenti</h3>
-                  <p>Mentorage pu&ograve; essere collegato a software gestionali, sistemi di chiamata, dashboard e altre
-                    piattaforme digitali, in base alle esigenze della struttura.</p>
-                </div>
-              </article>
-              <article class="products-ecosystem__point">
-                <span class="products-ecosystem__point-index">02</span>
-                <div>
-                  <h3>Informazioni disponibili dove servono</h3>
-                  <p>Alert ed eventi possono essere condivisi con smartphone, smartwatch, dispositivi connessi e altri
-                    strumenti operativi, rendendo pi&ugrave; immediata la gestione delle situazioni rilevanti.</p>
-                </div>
-              </article>
-              <article class="products-ecosystem__point">
-                <span class="products-ecosystem__point-index">03</span>
-                <div>
-                  <h3>Una soluzione pronta a evolvere</h3>
-                  <p>Nuovi servizi, dispositivi e modalit&agrave; di utilizzo possono essere aggiunti nel tempo, senza
-                    dover ripensare l&rsquo;intera infrastruttura.</p>
-                </div>
-              </article>
-            </div>
-
-            <p class="products-ecosystem__closing">Un&rsquo;unica tecnologia, capace di lavorare insieme agli strumenti
-              che gi&agrave; utilizzi.</p>
-          </div>
-        </div>
-      </section>
-      <div class="products-analytics-story__trust" aria-label="Punti chiave della piattaforma">
-        <article class="products-analytics-story__trust-card">
-          <span class="products-analytics-story__trust-icon products-analytics-story__trust-icon--blue"></span>
-          <div>
-            <h3>Affidabile</h3>
-            <p>Dati raccolti dai sensori 3D e algoritmi di intelligenza artificiale.</p>
-          </div>
-        </article>
-        <article class="products-analytics-story__trust-card">
-          <span class="products-analytics-story__trust-icon products-analytics-story__trust-icon--green"></span>
-          <div>
-            <h3>Sicuro</h3>
-            <p>Privacy e sicurezza dei dati al primo posto, nel rispetto delle normative.</p>
-          </div>
-        </article>
-        <article class="products-analytics-story__trust-card">
-          <span class="products-analytics-story__trust-icon products-analytics-story__trust-icon--violet"></span>
-          <div>
-            <h3>Immediato</h3>
-            <p>Informazioni essenziali visualizzate in modo chiaro e senza complessit&agrave;.</p>
-          </div>
-        </article>
-        <article class="products-analytics-story__trust-card">
-          <span class="products-analytics-story__trust-icon products-analytics-story__trust-icon--cyan"></span>
-          <div>
-            <h3>Accessibile</h3>
-            <p>Disponibile da web e da dispositivi mobile, ovunque e in ogni momento.</p>
-          </div>
-        </article>
-      </div>
     </div>
   </main>
 

@@ -40,8 +40,6 @@
 }
 
 .products-analytics-story__title {
-  font-size: clamp(40px, 5vw, 48px);
-  line-height: 0.94;
   max-width: 14.2ch;
 }
 
@@ -1033,7 +1031,6 @@
 
   .products-analytics-story__title {
     max-width: none;
-    font-size: clamp(34px, 10vw, 40px);
   }
 
   .products-analytics-story__switch {
