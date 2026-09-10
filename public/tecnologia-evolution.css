@@ -21,7 +21,7 @@
 
 .technology-hero--v2 .technology-title {
   max-width: 11ch;
-  font-size: clamp(52px, 5.4vw, 78px);
+  font-size: 42px;
   line-height: .87;
   letter-spacing: -.06em;
 }
@@ -67,6 +67,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.technology-training-feature .technology-hero__media,
+.technology-training-feature .technology-video {
+  background: #000;
+}
+
+.technology-training-feature .technology-video {
+  object-fit: contain;
 }
 
 .technology-media-frame {
@@ -310,7 +319,7 @@
 }
 
 .technology-mocap__content .technology-section-title {
-  max-width: 10ch;
+  max-width: 18ch;
 }
 
 .technology-mocap__list {
@@ -426,7 +435,11 @@
 }
 
 .technology-stack--v2 .technology-section-title {
-  max-width: 11ch;
+  max-width: 31ch;
+}
+
+.technology-stack--v2 .technology-stack__heading .technology-copy {
+  max-width: 59ch;
 }
 
 .technology-stack--v2 .technology-stack__grid {
@@ -451,6 +464,29 @@
   font-size: 12px;
   font-weight: 500;
   letter-spacing: .08em;
+}
+
+.technology-stack--v2 .technology-stack__grid article .technology-stack__icon {
+  width: 5.75rem;
+  height: 5.75rem;
+  margin: 0 0 28px;
+  overflow: hidden;
+  border-radius: 50%;
+  background-image: url("assets/benefit-icons-strip.png");
+  background-repeat: no-repeat;
+  background-size: 42.4206rem 5.75rem;
+}
+
+.technology-stack__icon--monitor {
+  background-position: 0 0;
+}
+
+.technology-stack__icon--interpret {
+  background-position: -18.3856rem -0.0431rem;
+}
+
+.technology-stack__icon--alert {
+  background-position: -37.0444rem -0.2731rem;
 }
 
 .technology-stack--v2 .technology-stack__grid h3 {
@@ -479,6 +515,77 @@
 
 .technology-roadmap--v2 .technology-section-title {
   max-width: 12ch;
+}
+
+.technology-roadmap__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.technology-roadmap__cta {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 52px;
+  padding: 10px 12px 10px 24px;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border: 1px solid #09acc1;
+  border-radius: 999px;
+  background: #09acc1;
+  box-shadow: 0 10px 24px rgba(9, 172, 193, .2);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.technology-roadmap__cta::after {
+  content: "→";
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .18);
+  color: #fff;
+  font-size: 17px;
+  line-height: 1;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.technology-roadmap__cta:hover {
+  border-color: #078fa1;
+  background: #078fa1;
+  box-shadow: 0 14px 30px rgba(7, 143, 161, .26);
+  transform: translateY(-2px);
+}
+
+.technology-roadmap__cta:hover::after {
+  background: rgba(255, 255, 255, .26);
+  transform: translateX(2px);
+}
+
+.technology-roadmap__cta:active {
+  box-shadow: 0 7px 16px rgba(7, 143, 161, .2);
+  transform: translateY(0);
+}
+
+.technology-roadmap__cta:focus-visible {
+  outline: 3px solid rgba(9, 172, 193, .28);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .technology-roadmap__cta,
+  .technology-roadmap__cta::after {
+    transition: none;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -574,7 +681,7 @@
   }
 
   .technology-hero--v2 .technology-title {
-    font-size: clamp(48px, 14vw, 72px);
+    font-size: 42px;
   }
 
   .technology-hero__signal {
