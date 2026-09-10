@@ -137,6 +137,7 @@ function translateDocumentMetadata() {
     "Wita": "Wita Care | Mentorage",
     "Prodotto | Portale Mentorage": "Product | Mentorage Portal",
     "Tecnologia | Portale Mentorage": "Technology | Mentorage Portal",
+    "Tecnologia AI | Mentorage": "AI Technology | Mentorage",
     "Azienda | Wita Care": "Company | Wita Care",
     "Contatti | Portale Mentorage": "Contact | Mentorage Portal",
     "Informativa sulla privacy | Wita S.r.l.": "Privacy Policy | Wita S.r.l."

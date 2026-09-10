@@ -1,88 +1,204 @@
 <!doctype html>
 <html lang="it">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Scopri come Wita Care allena e valida l'intelligenza artificiale: digital twin, simulatore, motion capture e analisi RGB, depth e segmentation map." />
   <link rel="icon" type="image/png" href="assets/favicon-wita-mark-32.png" />
-  <title>Tecnologia | Portale Mentorage</title>
+  <title>Tecnologia AI | Mentorage</title>
   <link rel="stylesheet" href="tecnologia.css" />
+  <link rel="stylesheet" href="tecnologia-evolution.css" />
   <link rel="stylesheet" href="components/shared-components.css" />
 </head>
-
 <body>
   <site-navbar></site-navbar>
 
   <main class="technology-main" id="main">
-    <div class="technology-shell">
-      <section class="technology-hero" aria-labelledby="technology-title">
-        <div class="technology-hero__content">
-          <div>
-            <p class="technology-eyebrow">Tecnologia Mentorage</p>
-            <h1 class="technology-title" id="technology-title">Come Mentorage capisce ciò che accade</h1>
-            <p class="technology-copy technology-hero__copy">Il sensore osserva l’ambiente, comprende la scena e
-              riconosce i movimenti. L’intelligenza artificiale trasforma ciò che accade nella stanza in informazioni
-              utili per chi assiste, senza registrare video.</p>
+    <div class="technology-shell technology-shell--v2">
+      <section class="technology-understanding" aria-labelledby="technology-understanding-title">
+        <div class="technology-understanding__content">
+          <div class="technology-understanding__intro">
+            <p class="technology-eyebrow">Tecnologia Mentorage™</p>
+            <h2 class="technology-section-title" id="technology-understanding-title">Come Mentorage™ capisce ciò che accade</h2>
+            <p class="technology-copy">Il sensore osserva l’ambiente, comprende la scena e riconosce i movimenti. L’intelligenza artificiale trasforma ciò che accade nella stanza in informazioni utili per chi assiste, rispettando la privacy delle persone.</p>
           </div>
 
           <div class="technology-layers" aria-label="Livelli di analisi Mentorage">
             <article class="technology-layer">
-              <button type="button" data-technology-detail aria-expanded="false">
-                <span>Osserva senza invadere</span><span class="technology-layer__symbol" aria-hidden="true"></span>
-              </button>
-              <p hidden>Mentorage rileva ciò che accade nella stanza senza trasformarla in un ambiente videosorvegliato.
-              </p>
+              <button type="button" data-technology-detail aria-expanded="false"><span>Osserva senza invadere</span><span class="technology-layer__symbol" aria-hidden="true"></span></button>
+              <p hidden>Mentorage rileva ciò che accade nella stanza senza trasformarla in un ambiente videosorvegliato.</p>
             </article>
             <article class="technology-layer">
-              <button type="button" data-technology-detail aria-expanded="false">
-                <span>Comprende lo spazio</span><span class="technology-layer__symbol" aria-hidden="true"></span>
-              </button>
-              <p hidden>Riconosce dove si trovano le persone e gli oggetti, misura le distanze e segue i movimenti
-                nell’ambiente.</p>
+              <button type="button" data-technology-detail aria-expanded="false"><span>Comprende lo spazio</span><span class="technology-layer__symbol" aria-hidden="true"></span></button>
+              <p hidden>Riconosce dove si trovano le persone e gli oggetti, misura le distanze e segue i movimenti nell’ambiente.</p>
             </article>
             <article class="technology-layer">
-              <button type="button" data-technology-detail aria-expanded="false">
-                <span>Riconosce le situazioni</span><span class="technology-layer__symbol" aria-hidden="true"></span>
-              </button>
-              <p hidden>Capisce quando una persona si alza, cade, esce dalla stanza o permane a lungo in un determinato
-                ambiente.</p>
+              <button type="button" data-technology-detail aria-expanded="false"><span>Riconosce le situazioni</span><span class="technology-layer__symbol" aria-hidden="true"></span></button>
+              <p hidden>Capisce quando una persona si alza, cade, esce dalla stanza o permane a lungo in un determinato ambiente.</p>
             </article>
           </div>
         </div>
 
-        <div class="technology-hero__media">
-
-          <video class="technology-video" controls playsinline muted loop preload="metadata"
-            aria-label="Elaborazione RGB, profondit&agrave; e segmentazione della scena">
-            <source src="assets/rgb-depth-segmentation-h264.mp4" type="video/mp4" />
+        <figure class="technology-understanding__media technology-media-frame">
+          <video class="technology-understanding__video" controls playsinline muted loop preload="metadata" aria-label="Elaborazione RGB, profondità e segmentazione della scena">
+            <source src="assets/technology-understanding-original.mp4" type="video/mp4" />
           </video>
+        </figure>
+      </section>
+
+      <section class="technology-storyline" aria-labelledby="technology-storyline-title">
+        <div class="technology-storyline__copy">
+          <p class="technology-eyebrow">Una filiera completa</p>
+          <h2 class="technology-section-title" id="technology-storyline-title">Dagli ambienti reali e sintetici ai dati per allenare l’AI.</h2>
+          <p class="technology-copy">Usiamo gli ambienti reali come scenari per il simulatore e costruiamo anche stanze completamente sintetiche. Così possiamo analizzare un numero molto ampio di ambienti, movimenti e dinamiche e generare i dati necessari per allenare e verificare i modelli.</p>
+        </div>
+        <ol class="technology-storyline__steps">
+          <li>
+            <span class="technology-storyline__index">01</span>
+            <div><h3>Produciamo dati.</h3><p>Da immagini, profondità, movimento e posizione ricaviamo dati che descrivono ambienti reali e sintetici.</p></div>
+          </li>
+          <li>
+            <span class="technology-storyline__index">02</span>
+            <div><h3>Ricreiamo gli ambienti.</h3><p>Usiamo gli ambienti reali come scenari per il simulatore e costruiamo anche stanze sintetiche, con oggetti e movimenti modificabili.</p></div>
+          </li>
+          <li>
+            <span class="technology-storyline__index">03</span>
+            <div><h3>Alleniamo e verifichiamo l’AI.</h3><p>Generiamo molti esempi e testiamo la risposta del modello in condizioni diverse.</p></div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="technology-perception" aria-labelledby="technology-perception-title">
+        <div class="technology-perception__heading">
+          <p class="technology-eyebrow">Dalla scena al dato</p>
+          <h2 class="technology-section-title" id="technology-perception-title">L'AI guarda la scena in tre modi.</h2>
+          <p class="technology-copy">Per capire davvero una stanza servono più informazioni: l'immagine, la distanza e il tipo di elemento che si trova nello spazio.</p>
+        </div>
+        <figure class="technology-perception__media technology-media-frame">
+          <img src="assets/rgb-depth-segmentation.png" alt="Confronto tra immagini RGB, mappe di profondità e segmentation map di due ambienti" loading="lazy" />
+          <figcaption class="technology-media-caption">
+            <span>RGB / depth / segmentation map</span>
+            <span>Più informazioni · stessa scena</span>
+          </figcaption>
+        </figure>
+        <div class="technology-perception__legend" aria-label="Livelli di lettura della scena">
+          <article><span>RGB</span><p>Colori, luce, forme e dettagli dell'immagine.</p></article>
+          <article><span>Depth</span><p>La distanza tra le persone e gli oggetti.</p></article>
+          <article><span>Segmentation map</span><p>Un modo per distinguere che cosa è ogni elemento.</p></article>
         </div>
       </section>
 
-      <section class="technology-spatial" aria-labelledby="technology-spatial-title">
-        <div class="technology-spatial__content">
-          <p class="technology-eyebrow">Una lettura pi&ugrave; completa</p>
-          <h2 class="technology-section-title" id="technology-spatial-title">Ogni ambiente diventa una fonte di
-            informazioni.</h2>
-          <p class="technology-copy">La combinazione di dati spaziali e intelligenza artificiale permette di leggere gli
-            ambienti nel tempo, riconoscendo presenze, movimenti e cambiamenti rilevanti.</p>
+      <section class="technology-mocap" aria-labelledby="technology-mocap-title">
+        <figure class="technology-mocap__media technology-media-frame">
+          <video class="technology-mocap__video" autoplay controls playsinline muted loop preload="metadata" poster="assets/mocap-demo-poster.jpg" aria-label="Video di motion capture con modello umano 3D e persona ricostruita in un ambiente domestico">
+            <source src="assets/mocap-demo.mp4" type="video/mp4" />
+          </video>
+          <figcaption class="technology-media-caption technology-media-caption--light">
+            <span>Motion capture</span>
+            <span>Movimento umano · modello 3D</span>
+          </figcaption>
+        </figure>
+        <div class="technology-mocap__content">
+          <p class="technology-eyebrow">Motion capture</p>
+          <h2 class="technology-section-title" id="technology-mocap-title">Per capire un movimento, prima lo osserviamo.</h2>
+          <p class="technology-copy">Il motion capture descrive come si muove il corpo e trasferisce il movimento in un modello 3D. Così possiamo ricreare pose, percorsi e interazioni nell’ambiente virtuale e usarli per generare dati utili al training AI.</p>
+          <ul class="technology-mocap__list">
+            <li><span>Pose 3D</span><span>come è posizionato il corpo</span></li>
+            <li><span>Traiettorie</span><span>come si muove nello spazio</span></li>
+            <li><span>Interazioni</span><span>come entra in relazione con gli oggetti</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="technology-intro-grid" aria-labelledby="technology-intro-title">
+        <div>
+          <p class="technology-eyebrow">Come alleniamo l'AI</p>
+          <h2 class="technology-section-title" id="technology-intro-title">Prima di lavorare sul campo, l'AI si allena.</h2>
+        </div>
+        <div class="technology-intro-grid__copy">
+          <p class="technology-copy">Il nostro ambiente virtuale ricrea ambienti reali e ne costruisce di completamente sintetici, con spazi, oggetti e persone in movimento. Possiamo cambiare una dinamica, ripeterla e generare nuovi dati senza aspettare che accada di nuovo nel mondo reale.</p>
+          <p class="technology-copy">Così l'AI impara in modo graduale e controllato, con esempi reali e sintetici, prima di essere verificata negli ambienti reali.</p>
+        </div>
+      </section>
+
+      <section class="technology-principles" aria-label="Elementi del training AI">
+        <article class="technology-principle">
+          <span class="technology-principle__index">01</span>
+          <p class="technology-principle__label">Digital twin</p>
+          <h2>Creiamo una copia digitale dell’ambiente.</h2>
+          <p>Ricostruiamo spazi, oggetti e distanze per avere un ambiente virtuale su cui lavorare.</p>
+        </article>
+        <article class="technology-principle">
+          <span class="technology-principle__index">02</span>
+          <p class="technology-principle__label">Training simulator</p>
+          <h2>Generiamo dati per molte situazioni.</h2>
+          <p>Nel simulatore cambiamo movimenti, percorsi e condizioni per creare esempi utili al training AI.</p>
+        </article>
+        <article class="technology-principle">
+          <span class="technology-principle__index">03</span>
+          <p class="technology-principle__label">Motion capture</p>
+          <h2>Descriviamo come ci si muove.</h2>
+          <p>Trasformiamo pose e movimenti in informazioni che il modello può usare per imparare.</p>
+        </article>
+      </section>
+
+      <section class="technology-hero technology-hero--v2 technology-training-feature" aria-labelledby="technology-training-title">
+        <div class="technology-hero__content">
+          <div class="technology-hero__intro">
+            <p class="technology-eyebrow">Training simulator</p>
+            <h2 class="technology-title" id="technology-training-title">Lo scenario è pronto. Ora mettiamo alla prova l'AI.</h2>
+            <p class="technology-copy technology-hero__copy">Il nostro ambiente virtuale è una macchina per generare dati di training. Usiamo ambienti reali ricreati nel simulatore e ne costruiamo anche di completamente sintetici: così possiamo cambiare movimenti e dinamiche, creare molti esempi e verificare la risposta del modello.</p>
+          </div>
+
+          <div class="technology-hero__signal" aria-label="Dal modello alla simulazione">
+            <span class="technology-hero__signal-index">04</span>
+            <span>Simulare / ripetere / validare</span>
+            <span class="technology-hero__signal-arrow" aria-hidden="true">↘</span>
+          </div>
         </div>
 
-        <div class="technology-spatial__visual"
-          aria-label="Rappresentazione di percorsi, presenza e permanenza negli ambienti">
-          <img class="technology-spatial__map-image" src="assets/technology-spatial-map.png"
-            alt="Planimetria tridimensionale di un ambiente con quattro percorsi rilevati" loading="lazy" />
-          <img class="technology-spatial__insights-image" src="assets/technology-spatial-insights.png"
-            alt="Legenda dei percorsi rilevati, della presenza nell'ambiente e della permanenza" loading="lazy" />
+        <figure class="technology-hero__media technology-media-frame">
+          <video class="technology-video" autoplay controls playsinline muted loop preload="metadata" poster="assets/digital-twin-simulator-poster.jpg" aria-label="Digital twin e simulatore per l'analisi dei movimenti negli ambienti">
+            <source src="assets/digital-twin-simulator.mp4" type="video/mp4" />
+          </video>
+          <figcaption class="technology-media-caption">
+            <span>Digital twin &amp; training simulator</span>
+            <span>Osservare · simulare · validare</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="technology-stack technology-stack--v2" aria-labelledby="technology-stack-title">
+        <div class="technology-stack__heading">
+          <p class="technology-eyebrow">Dal sensore all'alert</p>
+          <h2 class="technology-section-title" id="technology-stack-title">Dal dato a un messaggio chiaro.</h2>
+          <p class="technology-copy">Sensore, AI e software lavorano insieme per trasformare ciò che succede nell'ambiente in un'informazione utile al team.</p>
+        </div>
+        <div class="technology-stack__grid">
+          <article><span>01</span><h3>Il sensore osserva</h3><p>Raccoglie informazioni su presenza, posizione e movimento.</p></article>
+          <article><span>02</span><h3>L'AI interpreta</h3><p>Collega i segnali e riconosce i cambiamenti importanti.</p></article>
+          <article><span>03</span><h3>Il team riceve</h3><p>Mostra un alert chiaro, nel momento in cui può servire.</p></article>
+        </div>
+      </section>
+
+      <section class="technology-roadmap technology-roadmap--v2" aria-labelledby="technology-roadmap-title">
+        <div>
+          <p class="technology-eyebrow">Dalla ricerca al campo</p>
+          <h2 class="technology-section-title" id="technology-roadmap-title">La ricerca diventa un aiuto concreto.</h2>
+        </div>
+        <div class="technology-roadmap__body">
+          <p class="technology-copy">Ogni passaggio — ricreare, provare, osservare e verificare — aiuta Mentorage a capire meglio gli ambienti e a portare informazioni più utili a chi assiste.</p>
+          <div class="technology-roadmap__actions">
+            <a href="products.html">Scopri come funziona <span aria-hidden="true">→</span></a>
+            <a href="contatti.html">Parla con noi <span aria-hidden="true">→</span></a>
+          </div>
         </div>
       </section>
     </div>
   </main>
 
   <site-footer></site-footer>
-
   <script type="module" src="components/shared-components.js"></script>
   <script src="tecnologia.js"></script>
 </body>
-
 </html>

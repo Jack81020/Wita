@@ -2,8 +2,8 @@ import { getLanguage, onLanguageChange, setLanguage, translate } from "./site-i1
 
 const navigationItems = [
   { key: "product", label: "Prodotto", href: "products.html", page: "products.html" },
-  { key: "technology", label: "Tecnologia", href: "tecnologia.html", page: "tecnologia.html" },
-  { key: "company", label: "Azienda", href: "azienda.html", page: "azienda.html" }
+  { key: "technology", label: "Tecnologia AI", href: "tecnologia.html", page: "tecnologia.html" },
+  { key: "company", label: "Chi siamo", href: "azienda.html", page: "azienda.html" }
 ];
 
 function currentPage() {
@@ -31,8 +31,8 @@ function languageSwitcher(variant) {
 
 const labels = {
   product: "Prodotto",
-  technology: "Tecnologia",
-  company: "Azienda",
+  technology: "Tecnologia AI",
+  company: "Chi siamo",
   contact: "Contatti",
   main: "Contenuto principale",
   footer: "Piè di pagina"
@@ -49,40 +49,40 @@ export class SiteNavbar extends HTMLElement {
       '<a class="skip-main" data-nav-key="main" href="#main">' + translate(labels.main) + "</a>" +
       '<a class="skip-main" data-nav-key="footer" href="#footer">' + translate(labels.footer) + "</a>" +
       '<header class="site-header" tabindex="-1" id="header">' +
-        '<div class="site-header__shell">' +
-          '<div class="site-header__desktop">' +
-            '<nav class="site-header__nav site-header__nav--left" data-nav-label="desktop" aria-label="' +
-              translate("Navigazione principale desktop") + '">' +
-              '<a class="site-header__brand site-header__brand--desktop" href="./" aria-label="Wita Care home">' +
-                '<img class="site-header__brand-image" src="assets/wita-logo-mark.png" alt="" aria-hidden="true">' +
-              "</a>" +
-              navigationItems.map(navigationLink).join("") +
-            "</nav>" +
-            '<div class="site-header__nav site-header__nav--right">' +
-              '<a class="nav-link site-header__account-link' + (contactActive ? " is-active" : "") +
-                '" data-nav-key="contact" href="contatti.html"' +
-                (contactActive ? ' aria-current="page"' : "") + ">" + translate(labels.contact) + "</a>" +
-              languageSwitcher("desktop") +
-            "</div>" +
-          "</div>" +
-          '<div class="site-header__mobile">' +
-            '<button class="site-header__menu-toggle" type="button" aria-expanded="false" ' +
-              'aria-controls="mobile-navigation" aria-label="' + translate("Apri menu") + '">' +
-              '<span class="site-header__menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>' +
-            "</button>" +
-            '<a class="site-header__brand site-header__brand--mobile" href="./" aria-label="Wita Care home">' +
-              '<img class="site-header__brand-image" src="assets/wita-logo-mark.png" alt="" aria-hidden="true">' +
-            "</a>" +
-            languageSwitcher("mobile") +
-          "</div>" +
-          '<nav class="site-header__mobile-menu" id="mobile-navigation" data-nav-label="mobile" aria-label="' +
-            translate("Navigazione principale mobile") + '" hidden>' +
-            navigationItems.map(navigationLink).join("") +
-            '<a class="nav-link' + (contactActive ? " is-active" : "") +
-              '" data-nav-key="contact" href="contatti.html"' +
-              (contactActive ? ' aria-current="page"' : "") + ">" + translate(labels.contact) + "</a>" +
-          "</nav>" +
-        "</div>" +
+      '<div class="site-header__shell">' +
+      '<div class="site-header__desktop">' +
+      '<nav class="site-header__nav site-header__nav--left" data-nav-label="desktop" aria-label="' +
+      translate("Navigazione principale desktop") + '">' +
+      '<a class="site-header__brand site-header__brand--desktop" href="./" aria-label="Wita Care home">' +
+      '<img class="site-header__brand-image" src="assets/wita-logo-mark.png" alt="" aria-hidden="true">' +
+      "</a>" +
+      navigationItems.map(navigationLink).join("") +
+      "</nav>" +
+      '<div class="site-header__nav site-header__nav--right">' +
+      '<a class="nav-link site-header__account-link' + (contactActive ? " is-active" : "") +
+      '" data-nav-key="contact" href="contatti.html"' +
+      (contactActive ? ' aria-current="page"' : "") + ">" + translate(labels.contact) + "</a>" +
+      languageSwitcher("desktop") +
+      "</div>" +
+      "</div>" +
+      '<div class="site-header__mobile">' +
+      '<button class="site-header__menu-toggle" type="button" aria-expanded="false" ' +
+      'aria-controls="mobile-navigation" aria-label="' + translate("Apri menu") + '">' +
+      '<span class="site-header__menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>' +
+      "</button>" +
+      '<a class="site-header__brand site-header__brand--mobile" href="./" aria-label="Wita Care home">' +
+      '<img class="site-header__brand-image" src="assets/wita-logo-mark.png" alt="" aria-hidden="true">' +
+      "</a>" +
+      languageSwitcher("mobile") +
+      "</div>" +
+      '<nav class="site-header__mobile-menu" id="mobile-navigation" data-nav-label="mobile" aria-label="' +
+      translate("Navigazione principale mobile") + '" hidden>' +
+      navigationItems.map(navigationLink).join("") +
+      '<a class="nav-link' + (contactActive ? " is-active" : "") +
+      '" data-nav-key="contact" href="contatti.html"' +
+      (contactActive ? ' aria-current="page"' : "") + ">" + translate(labels.contact) + "</a>" +
+      "</nav>" +
+      "</div>" +
       "</header>";
 
     this.menuToggle = this.querySelector(".site-header__menu-toggle");
