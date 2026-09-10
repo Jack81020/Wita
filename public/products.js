@@ -22,6 +22,35 @@
     });
   });
 
+  const visionRoot = document.querySelector('[data-products-vision]');
+  const visionToggles = Array.from(
+    visionRoot?.querySelectorAll('[data-products-vision-toggle]') || []
+  );
+  const visionImages = Array.from(
+    visionRoot?.querySelectorAll('[data-products-vision-image]') || []
+  );
+
+  const setVisionView = (view) => {
+    visionToggles.forEach((toggle) => {
+      const isActive = toggle.getAttribute('data-products-vision-toggle') === view;
+      toggle.classList.toggle('is-active', isActive);
+      toggle.setAttribute('aria-pressed', String(isActive));
+    });
+
+    visionImages.forEach((image) => {
+      const isActive = image.getAttribute('data-products-vision-image') === view;
+      image.classList.toggle('is-active', isActive);
+      image.setAttribute('aria-hidden', String(!isActive));
+    });
+  };
+
+  visionToggles.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const view = toggle.getAttribute('data-products-vision-toggle');
+      if (view) setVisionView(view);
+    });
+  });
+
   const triggers = Array.from(document.querySelectorAll('[data-products-panel-trigger]'));
   const items = triggers.map((trigger) => trigger.closest('li'));
   const panels = Array.from(document.querySelectorAll('[data-products-panel]'));
@@ -322,7 +351,7 @@
   const counterSections = Array.from(
     document.querySelectorAll('[data-products-impact], [data-products-system-impact]')
   );
-  const counterAnimationDuration = 1200;
+  const counterAnimationDuration = 1500;
   const animatedCounterSections = new WeakSet();
   const groupedNumberFormatters = {
     it: new Intl.NumberFormat('it-IT'),

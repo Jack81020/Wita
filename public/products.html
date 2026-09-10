@@ -21,7 +21,7 @@
           <div>
             <h1 class="products-title">Ecosistema Mentorage</h1>
             <p class="products-subtitle">Mentorage&trade; &egrave; il sistema di monitoraggio ambientale intelligente
-              in grado di rilevare autonomamente eventi rilevanti e informare in tempo reale il personale dedicato</p>
+              in grado di rilevare autonomamente eventi rilevanti e informare in tempo reale il personale dedicato.</p>
           </div>
           <div class="products-hero__details" aria-label="Componenti dell'ecosistema Mentorage">
             <article class="products-hero__detail">
@@ -208,13 +208,6 @@
             <img src="assets/mentorage-tutela-assistenza.png"
               alt="Una persona presta assistenza a una persona distesa a terra, con un indicatore di potenziale pericolo"
               loading="lazy" />
-            <span class="products-protection__warning" aria-hidden="true">
-              <svg viewBox="0 0 64 58" focusable="false">
-                <path d="M32 4 60 54H4L32 4Z"></path>
-                <path class="products-protection__warning-mark" d="M32 20v17"></path>
-                <circle class="products-protection__warning-dot" cx="32" cy="44.5" r="2.2"></circle>
-              </svg>
-            </span>
           </figure>
 
           <div class="products-protection__content">
@@ -233,55 +226,55 @@
         </div>
       </section>
 
-      <section class="products-unified-view" aria-labelledby="products-unified-view-title">
-        <div class="products-unified-view__header">
-          <h2 class="products-title products-unified-view__title" id="products-unified-view-title">La visione giusta,
-            per ogni livello di complessit&agrave;</h2>
+      <section class="products-vision" aria-labelledby="products-unified-view-title" data-products-vision>
+        <div class="products-vision__card">
+          <div class="products-vision__content">
+            <h2 class="products-title products-vision__title" id="products-unified-view-title">La visione giusta, per
+              ogni livello di complessit&agrave;.</h2>
 
-          <div class="products-unified-view__intro">
-            <div>
+            <div class="products-vision__description">
               <p>Per contesti semplici, la <strong>vista multipla</strong> consente di monitorare efficacemente le
                 singole stanze.</p>
-              <p>La sfida inizia quando gli spazi da presidiare diventano numerosi e distribuiti su pi&ugrave;
-                unit&agrave; o piani.</p>
-            </div>
-            <div>
               <p>All&rsquo;aumentare della complessit&agrave; della struttura, Mentorage&trade; affianca una
-                <strong>vista 3D</strong>
-                degli spazi, offrendo una visione pi&ugrave; ampia e immediata del contesto.
+                <strong>vista
+                  3D</strong> degli spazi, offrendo una visione pi&ugrave; ampia e immediata di pi&ugrave; piani o
+                reparti.
               </p>
               <p>In questo modo gli operatori possono focalizzarsi pi&ugrave; facilmente sulle situazioni rilevanti e il
                 monitoraggio diventa efficace alla gestione quotidiana dell&rsquo;assistenza.</p>
             </div>
           </div>
-        </div>
 
-        <div class="products-unified-view__comparison">
-          <article class="products-unified-view__card products-unified-view__card--fragmented">
-            <div class="products-unified-view__card-header">
-              <div>
-                <h3>Vista multipla <span>(singole stanze)</span></h3>
-                <p>Pi&ugrave; schermate, meno contesto.</p>
-              </div>
+          <figure class="products-vision__media">
+            <div class="products-vision__switch" role="group" aria-label="Scegli la visualizzazione">
+              <button class="is-active" type="button" data-products-vision-toggle="multiple" aria-pressed="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <rect x="4" y="4" width="6" height="6" rx="1"></rect>
+                  <rect x="14" y="4" width="6" height="6" rx="1"></rect>
+                  <rect x="4" y="14" width="6" height="6" rx="1"></rect>
+                  <rect x="14" y="14" width="6" height="6" rx="1"></rect>
+                </svg>
+                <span>Vista multipla</span>
+              </button>
+              <button type="button" data-products-vision-toggle="overview" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M3.5 7.5 12 3l8.5 4.5L12 12 3.5 7.5Z"></path>
+                  <path d="m3.5 12 8.5 4.5 8.5-4.5"></path>
+                  <path d="m3.5 16.5 8.5 4.5 8.5-4.5"></path>
+                </svg>
+                <span>Vista 3D</span>
+              </button>
             </div>
-            <figure class="products-unified-view__media">
-              <img src="assets/care-coordination-rooms-events.png"
-                alt="Vista multipla di stanze monitorate separatamente" loading="lazy" />
-            </figure>
-          </article>
 
-          <article class="products-unified-view__card products-unified-view__card--integrated">
-            <div class="products-unified-view__card-header">
-              <div>
-                <h3>Vista d&rsquo;insieme <span>(mappa 3D)</span></h3>
-                <p>Tutti gli ambienti, in un&rsquo;unica visione.</p>
-              </div>
+            <div class="products-vision__images">
+              <img class="is-active" src="assets/mentorage-vista-multipla-switch.png"
+                alt="Vista multipla di stanze monitorate separatamente" data-products-vision-image="multiple"
+                aria-hidden="false" loading="lazy" />
+              <img src="assets/mentorage-vista-insieme-switch.png"
+                alt="Mappa tridimensionale integrata degli ambienti monitorati" data-products-vision-image="overview"
+                aria-hidden="true" loading="lazy" />
             </div>
-            <figure class="products-unified-view__media">
-              <img src="assets/technology-spatial-map.png"
-                alt="Mappa tridimensionale integrata degli ambienti monitorati" loading="lazy" />
-            </figure>
-          </article>
+          </figure>
         </div>
       </section>
 
@@ -304,28 +297,32 @@
 
           <article class="products-impact__stat" aria-label="Meno di 3 secondi dall'evento reale all'alert del sistema">
             <span class="products-impact__value" aria-hidden="true" data-products-system-counter data-count-end="3"
-              data-count-prefix="&lt; " data-count-suffix=" secondi" data-count-suffix-en=" seconds">&lt; 0 secondi</span>
+              data-count-prefix="&lt; " data-count-suffix=" secondi" data-count-suffix-en=" seconds">&lt; 0
+              secondi</span>
             <p>Dall&rsquo;evento reale all&rsquo;alert del sistema</p>
           </article>
 
           <article class="products-impact__stat"
             aria-label="Oltre un milione e cinquecentomila ore di monitoraggio reale">
             <span class="products-impact__value" aria-hidden="true" data-products-system-counter
-              data-count-end="1500000" data-count-prefix="+ " data-count-suffix=" ore" data-count-suffix-en=" hours" data-count-grouped="true">+ 0
+              data-count-end="1500000" data-count-prefix="+ " data-count-suffix=" ore" data-count-suffix-en=" hours"
+              data-count-grouped="true">+ 0
               ore</span>
             <p>Monitoraggio reale</p>
           </article>
 
           <article class="products-impact__stat" aria-label="Oltre seicentocinquantamila eventi analizzati dal sistema">
             <span class="products-impact__value" aria-hidden="true" data-products-system-counter data-count-end="650000"
-              data-count-prefix="+ " data-count-suffix=" eventi" data-count-suffix-en=" events" data-count-grouped="true">+ 0 eventi</span>
+              data-count-prefix="+ " data-count-suffix=" eventi" data-count-suffix-en=" events"
+              data-count-grouped="true">+ 0 eventi</span>
             <p>Analizzati dal sistema</p>
           </article>
 
           <article class="products-impact__stat"
             aria-label="Fino a 30 metri quadrati di copertura con un singolo sensore">
             <span class="products-impact__value" aria-hidden="true" data-products-system-counter data-count-end="30"
-              data-count-prefix="Fino a " data-count-prefix-en="Up to " data-count-suffix=" m&sup2;">Fino a 0 m&sup2;</span>
+              data-count-prefix="Fino a " data-count-prefix-en="Up to " data-count-suffix=" m&sup2;">Fino a 0
+              m&sup2;</span>
             <p>Copertura di un singolo sensore</p>
           </article>
 
@@ -338,45 +335,68 @@
         </div>
       </section>
 
-      <section class="products-study" aria-labelledby="products-study-title">
-        <div class="products-study__header">
-          <h2 class="products-title products-study__title" id="products-study-title">Studio CERGAS Universit&agrave; L.
-            Bocconi su Mentorage&trade;</h2>
+      <section class="products-ecosystem products-ecosystem--study" aria-labelledby="products-study-title">
+        <div class="products-ecosystem__panel">
+          <figure class="products-ecosystem__media">
+            <picture>
+              <source media="(max-width: 1023px)" srcset="assets/mentorage-ecosistema-connesso-verticale.png" />
+              <img src="assets/mentorage-ecosistema-connesso.png"
+                alt="Il sensore Mentorage collegato a smartphone, smartwatch e altri dispositivi connessi"
+                loading="lazy" />
+            </picture>
+          </figure>
+
+          <div class="products-ecosystem__content">
+            <h2 class="products-title products-ecosystem__title" id="products-study-title">Studio CERGAS
+              Universit&agrave;
+              L. Bocconi su Mentorage&trade;</h2>
+            <p class="products-ecosystem__intro products-ecosystem__intro--study">Lo studio condotto dall'osservatorio
+              <strong>CERGAS Universit&agrave; L. Bocconi</strong> ha analizzato l&rsquo;impatto organizzativo
+              dell&rsquo;ecosistema Mentorage&trade; sulle attivit&agrave; assistenziali. I risultati evidenziano
+              benefici
+              in termini di <strong>capacit&agrave; operativa, collaborazione tra gli operatori e organizzazione del
+                lavoro</strong>.
+            </p>
+
+            <div class="products-ecosystem__points">
+              <article class="products-ecosystem__point">
+                <span class="products-ecosystem__point-index" aria-hidden="true">01</span>
+                <div>
+                  <h3>&asymp; 2 <abbr title="Full-Time Equivalent">FTE</abbr><a class="products-footnote-link"
+                      href="#products-study-fte-note" aria-label="Vai al significato di FTE">*</a> di capacità
+                    operativa riallocabile</h3>
+                  <p>Il monitoraggio continuo supporta il personale durante il turno notturno, riducendo il carico delle
+                    attività di sorveglianza e liberando tempo da dedicare direttamente agli ospiti.</p>
+                </div>
+              </article>
+
+              <article class="products-ecosystem__point">
+                <span class="products-ecosystem__point-index" aria-hidden="true">02</span>
+                <div>
+                  <h3>Pi&ugrave; collaborazione e sicurezza tra gli operatori</h3>
+                  <p>&Egrave; emerso un maggiore ricorso agli interventi effettuati in coppia, con benefici per la
+                    sicurezza sia degli assistiti sia dei professionisti.</p>
+                </div>
+              </article>
+
+              <article class="products-ecosystem__point">
+                <span class="products-ecosystem__point-index" aria-hidden="true">03</span>
+                <div>
+                  <h3>Migliore organizzazione e benessere del personale</h3>
+                  <p>Una gestione pi&ugrave; efficace di turni, permessi e ferie, insieme al coinvolgimento diretto
+                    degli
+                    operatori nell&rsquo;introduzione della tecnologia, ha contribuito a rendere il cambiamento
+                    pi&ugrave;
+                    sostenibile per il team.</p>
+                </div>
+              </article>
+            </div>
+
+            <p class="products-study__note" id="products-study-fte-note">
+              <span aria-hidden="true">*</span> FTE: Full-Time Equivalent.
+            </p>
+          </div>
         </div>
-
-        <div class="products-study__grid">
-          <article class="products-study__item">
-            <span class="products-study__index" aria-hidden="true">01</span>
-            <div>
-              <h3>&asymp; 2 <abbr title="Full-Time Equivalent">FTE</abbr><a class="products-footnote-link"
-                  href="#products-study-fte-note" aria-label="Vai al significato di FTE">*</a> di capacità operativa
-                riallocabile</h3>
-              <p>Il monitoraggio continuo supporta il personale durante il turno notturno, riducendo il carico delle
-                attività di sorveglianza e liberando tempo da dedicare direttamente agli ospiti.</p>
-            </div>
-          </article>
-
-          <article class="products-study__item">
-            <span class="products-study__index" aria-hidden="true">02</span>
-            <div>
-              <h3>Pi&ugrave; collaborazione e sicurezza tra gli operatori</h3>
-              <p>&Egrave; emerso un maggiore ricorso agli interventi effettuati in coppia, con benefici per la sicurezza
-                sia degli assistiti sia dei professionisti.</p>
-            </div>
-          </article>
-
-          <article class="products-study__item">
-            <span class="products-study__index" aria-hidden="true">03</span>
-            <div>
-              <h3>Migliore organizzazione e benessere del personale</h3>
-              <p>Una gestione pi&ugrave; efficace di turni, permessi e ferie, insieme al coinvolgimento diretto degli
-                operatori nell&rsquo;introduzione della tecnologia, ha contribuito a rendere il cambiamento pi&ugrave;
-                sostenibile per il team.</p>
-            </div>
-          </article>
-        </div>
-        <p class="products-study__note" id="products-study-fte-note"><span aria-hidden="true">*</span> FTE:
-          Full-Time Equivalent.</p>
       </section>
 
       <section class="products-analytics-story" id="product-overview" aria-labelledby="products-analytics-title">
