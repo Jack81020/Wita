@@ -234,7 +234,6 @@ export class App implements AfterViewInit, OnDestroy {
     if (!drawer || buttons.length === 0) return;
 
     const image = drawer.querySelector<HTMLImageElement>('[data-product-image]');
-    const eyebrow = drawer.querySelector<HTMLElement>('[data-product-eyebrow]');
     const title = drawer.querySelector<HTMLElement>('[data-product-title]');
     const description = drawer.querySelector<HTMLElement>('[data-product-description]');
     const closeTriggers = Array.from(drawer.querySelectorAll<HTMLElement>('[data-product-drawer-close]'));
@@ -244,23 +243,20 @@ export class App implements AfterViewInit, OnDestroy {
       .map((button) => button.dataset['product'])
       .filter((productId): productId is string => Boolean(productId));
 
-    const products: Record<string, { eyebrow: string; title: string; description: string; image: string }> = {
+    const products: Record<string, { title: string; description: string; image: string }> = {
       hub: {
-        eyebrow: 'Hardware',
         title: 'Sensore Intelligente',
         description:
           "Rileva l'attività nella stanza in tempo reale, in modo anonimo, continuo e non invasivo.<br>Installato a parete o a soffitto, osserva l'ambiente senza richiedere dispositivi indossabili, ricariche o interventi da parte dell'ospite, trasformando ciò che accade nella stanza in informazioni utili per l'assistenza.",
         image: 'assets/mentorage.png',
       },
       'pillow-cover': {
-        eyebrow: 'Computer',
         title: 'Portale Desktop',
         description:
           "Offre una vista completa della struttura per monitorare stanze, eventi e priorità operative con immediatezza. <br> Permette di consultare statistiche sull’andamento degli ospiti e della struttura, aiutando coordinatori e responsabili a valorizzare meglio i dati, individuare trend ricorrenti e supportare decisioni organizzative più consapevoli.",
         image: 'assets/pc.png',
       },
       blanket: {
-        eyebrow: 'Smartphone',
         title: 'App Mobile',
         description:
           'Rende notifiche e informazioni sempre accessibili, così il personale può restare aggiornato anche in movimento.<br>Gli operatori possono ricevere alert, controllare lo stato delle stanze e intervenire con maggiore tempestività, direttamente dal proprio smartphone, senza dover tornare ogni volta a una postazione fissa.',
@@ -307,7 +303,6 @@ export class App implements AfterViewInit, OnDestroy {
         button.setAttribute('aria-expanded', String(isActive));
       });
 
-      if (eyebrow) eyebrow.textContent = product.eyebrow;
       if (title) title.textContent = product.title;
       if (description) description.innerHTML = product.description;
       if (image) {

@@ -324,13 +324,19 @@
   );
   const counterAnimationDuration = 1200;
   const animatedCounterSections = new WeakSet();
-  const groupedNumberFormatter = new Intl.NumberFormat(document.documentElement.lang || 'it-IT');
+  const groupedNumberFormatters = {
+    it: new Intl.NumberFormat('it-IT'),
+    en: new Intl.NumberFormat('en-US'),
+  };
 
   const renderCounter = (counter, value) => {
-    const prefix = counter.getAttribute('data-count-prefix') || '';
-    const suffix = counter.getAttribute('data-count-suffix') || '';
+    const language = document.documentElement.lang === 'en' ? 'en' : 'it';
+    const localizedPrefix = language === 'en' ? counter.getAttribute('data-count-prefix-en') : null;
+    const localizedSuffix = language === 'en' ? counter.getAttribute('data-count-suffix-en') : null;
+    const prefix = localizedPrefix ?? counter.getAttribute('data-count-prefix') ?? '';
+    const suffix = localizedSuffix ?? counter.getAttribute('data-count-suffix') ?? '';
     const formattedValue = counter.getAttribute('data-count-grouped') === 'true'
-      ? groupedNumberFormatter.format(value)
+      ? groupedNumberFormatters[language].format(value)
       : String(value);
     counter.textContent = `${prefix}${formattedValue}${suffix}`;
   };
@@ -386,5 +392,14 @@
     );
 
     counterObserver.observe(section);
+  });
+
+  window.addEventListener('wita:languagechange', () => {
+    counterSections.forEach((section) => {
+      const counters = Array.from(
+        section.querySelectorAll('[data-products-impact-counter], [data-products-system-counter]')
+      );
+      showFinalCounterValues(counters);
+    });
   });
 })();

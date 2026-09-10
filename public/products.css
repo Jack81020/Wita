@@ -728,7 +728,7 @@ img {
 .products-impact__value {
   display: block;
   color: #15171b;
-  font-size: clamp(36px, 4.5vw, 40px);
+  font-size: clamp(50px, 5.8vw, 64px);
   font-weight: 400;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.055em;
@@ -771,6 +771,13 @@ img {
   line-height: 1.5;
 }
 
+.products-impact__source {
+  margin-top: clamp(68px, 8vw, 96px);
+  margin-bottom: clamp(-64px, -5vw, -40px);
+  font-size: 12px;
+  font-style: italic;
+}
+
 .products-impact__stat p {
   max-width: 44ch;
   margin: 18px 0 0;
@@ -797,7 +804,7 @@ img {
 }
 
 .products-study__title {
-  max-width: 18ch;
+  max-width: 55ch;
 }
 
 .products-study__title::after {
@@ -930,7 +937,7 @@ img {
 }
 
 .products-protection__title {
-  max-width: 13ch;
+  max-width: 17ch;
 }
 
 .products-protection__title::after {

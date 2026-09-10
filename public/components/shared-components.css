@@ -210,8 +210,8 @@ site-navbar {
 .products-footer__tag {
   margin: 24px 0 0;
   max-width: 320px;
-  font-size: 19px;
-  font-weight: 700;
+  font-size: 21px;
+  font-weight: 400;
 }
 
 .products-footer__content {
@@ -420,8 +420,8 @@ site-navbar {
   .products-footer__tag {
     max-width: 340px;
     margin-top: 16px;
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 400;
   }
 
   .products-footer__content {
