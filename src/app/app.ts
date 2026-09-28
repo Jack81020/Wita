@@ -24,6 +24,7 @@ export class App implements AfterViewInit, OnDestroy {
   private readonly cleanupFns: Array<() => void> = [];
 
   ngAfterViewInit(): void {
+    this.setupHeroMediaPlacement();
     this.setupHeroVideo();
     this.setupPriorityCarousel();
     this.setupMemberStoryVideos();
@@ -34,6 +35,32 @@ export class App implements AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.cleanupFns.forEach((cleanup) => cleanup());
     document.body.classList.remove('wita-product-drawer-open');
+  }
+
+  private setupHeroMediaPlacement(): void {
+    const root: HTMLElement = this.host.nativeElement;
+    const hero = root.querySelector<HTMLElement>('.Pod5Hero_container__NsAaG');
+    const mediaCard = hero?.querySelector<HTMLElement>('.wita-hero-media-card');
+    const copy = hero?.querySelector<HTMLElement>('.wita-hero-copy');
+    const headline = copy?.querySelector<HTMLElement>('h1');
+
+    if (!hero || !mediaCard || !copy || !headline) return;
+
+    const mobileQuery = window.matchMedia('(max-width: 760px)');
+    const updateMediaPlacement = () => {
+      if (mobileQuery.matches) {
+        headline.insertAdjacentElement('afterend', mediaCard);
+      } else {
+        hero.insertBefore(mediaCard, copy);
+      }
+    };
+
+    mobileQuery.addEventListener('change', updateMediaPlacement);
+    updateMediaPlacement();
+
+    this.cleanupFns.push(() => {
+      mobileQuery.removeEventListener('change', updateMediaPlacement);
+    });
   }
 
   private setupPriorityCarousel(): void {

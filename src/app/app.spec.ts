@@ -30,9 +30,10 @@ describe('App', () => {
     const heroParagraphs = Array.from(hero?.querySelectorAll('.wita-hero-copy__body p') ?? []);
 
     expect(hero?.querySelector('h1')?.textContent).toContain('Capire prima');
+    expect(hero?.querySelector('.wita-hero-copy__eyebrow')?.textContent).toContain('Mentorage™');
     expect(hero?.querySelectorAll('.wita-hero-steps li')).toHaveLength(3);
-    expect(heroParagraphs).toHaveLength(3);
-    expect(heroParagraphs[0]?.textContent).toContain('Sapere quando una persona ha bisogno di assistenza');
+    expect(heroParagraphs).toHaveLength(2);
+    expect(hero?.textContent).not.toContain('Sapere quando una persona ha bisogno di assistenza');
     expect(hero?.textContent).not.toContain('(sottotitolo)');
     expect(callToAction?.getAttribute('href')).toBe('#come-funziona');
     expect(callToAction?.querySelector('.wita-hero-copy__cta-mobile')?.textContent).toContain('SCOPRI MENTORAGE');

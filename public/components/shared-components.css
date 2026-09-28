@@ -18,6 +18,14 @@ site-footer {
   display: block;
 }
 
+video::-webkit-media-controls,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 site-navbar {
   position: sticky;
   top: 0;
@@ -119,8 +127,9 @@ site-navbar {
 
 .site-header__brand-image {
   display: block;
-  height: 34px;
+  height: 68px;
   width: auto;
+  margin-block: -17px;
 }
 
 .products-footer__brand-image {
@@ -309,7 +318,8 @@ site-navbar {
   }
 
   .site-header__brand-image {
-    height: 32px;
+    height: 64px;
+    margin-block: -16px;
   }
 
   .site-header__menu-toggle,
