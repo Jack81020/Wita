@@ -53,8 +53,8 @@ export class SiteNavbar extends HTMLElement {
       '<div class="site-header__desktop">' +
       '<nav class="site-header__nav site-header__nav--left" data-nav-label="desktop" aria-label="' +
       translate("Navigazione principale desktop") + '">' +
-      '<a class="site-header__brand site-header__brand--desktop" href="./" aria-label="Mentorage home">' +
-      '<img class="site-header__brand-image" src="assets/mentorage-mark.png" alt="" aria-hidden="true">' +
+      '<a class="site-header__brand site-header__brand--desktop" href="./" aria-label="Wita Care home">' +
+      '<img class="site-header__brand-image" src="assets/wita-logo-mark.png" alt="" aria-hidden="true">' +
       "</a>" +
       navigationItems.map(navigationLink).join("") +
       "</nav>" +
@@ -70,8 +70,8 @@ export class SiteNavbar extends HTMLElement {
       'aria-controls="mobile-navigation" aria-label="' + translate("Apri menu") + '">' +
       '<span class="site-header__menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>' +
       "</button>" +
-      '<a class="site-header__brand site-header__brand--mobile" href="./" aria-label="Mentorage home">' +
-      '<img class="site-header__brand-image" src="assets/mentorage-mark.png" alt="" aria-hidden="true">' +
+      '<a class="site-header__brand site-header__brand--mobile" href="./" aria-label="Wita Care home">' +
+      '<img class="site-header__brand-image" src="assets/wita-logo-mark.png" alt="" aria-hidden="true">' +
       "</a>" +
       languageSwitcher("mobile") +
       "</div>" +

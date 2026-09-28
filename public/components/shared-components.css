@@ -144,9 +144,8 @@ site-navbar {
 
 .site-header__brand-image {
   display: block;
-  height: 68px;
+  height: 34px;
   width: auto;
-  margin-block: -17px;
 }
 
 .products-footer__brand-image {
@@ -335,8 +334,7 @@ site-navbar {
   }
 
   .site-header__brand-image {
-    height: 64px;
-    margin-block: -16px;
+    height: 32px;
   }
 
   .site-header__menu-toggle,
