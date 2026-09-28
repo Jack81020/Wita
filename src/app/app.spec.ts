@@ -29,13 +29,15 @@ describe('App', () => {
     const callToAction = hero?.querySelector<HTMLAnchorElement>('.wita-hero-copy__cta');
     const heroParagraphs = Array.from(hero?.querySelectorAll('.wita-hero-copy__body p') ?? []);
 
-    expect(hero?.querySelector('h1')?.textContent).toContain('Capire prima');
-    expect(hero?.querySelector('.wita-hero-copy__eyebrow')?.textContent).toContain('Mentorage™');
+    expect(hero?.querySelector('h1')?.textContent).toBe('MentorageTM');
+    expect(hero?.querySelector('.wita-hero-copy__brand sup')?.textContent).toBe('TM');
+    expect(hero?.querySelector('.wita-hero-copy__payoff')?.textContent).toContain('Capire prima, assistere meglio.');
     expect(hero?.querySelectorAll('.wita-hero-steps li')).toHaveLength(3);
     expect(heroParagraphs).toHaveLength(2);
     expect(hero?.textContent).not.toContain('Sapere quando una persona ha bisogno di assistenza');
     expect(hero?.textContent).not.toContain('(sottotitolo)');
     expect(callToAction?.getAttribute('href')).toBe('#come-funziona');
+    expect(callToAction?.querySelector('.wita-hero-copy__cta-desktop')?.textContent).toContain('SCOPRI MENTORAGE');
     expect(callToAction?.querySelector('.wita-hero-copy__cta-mobile')?.textContent).toContain('SCOPRI MENTORAGE');
     expect(mainChildren[0]?.classList.contains('Pod5Hero_container__NsAaG')).toBe(true);
     expect(mainChildren[1]?.classList.contains('PodDoesNotReplaceBed_section__wTT6w')).toBe(true);
@@ -44,8 +46,13 @@ describe('App', () => {
     expect(compiled.querySelector('.PodDoesNotReplaceBed_media_container__RRGMx img')?.getAttribute('src'))
       .toBe('assets/interactiveimage-villa-armonia-bathroom.png');
     const benefits = compiled.querySelector('#mentorage-in-breve');
+    const homePrivacy = compiled.querySelector('.wita-home-privacy');
     const benefitTitles = Array.from(benefits?.querySelectorAll('h4') ?? []).map((title) => title.textContent?.trim());
-    expect(benefits?.querySelector('h2')?.textContent?.trim()).toBe('Cosa fa MentorageTM');
+    expect(benefits?.querySelector('h2')?.textContent?.trim()).toBe('Come funziona?');
+    expect(homePrivacy?.querySelector('h2')?.textContent?.trim()).toBe('La tutela della privacy come standard tecnologico');
+    expect(benefits?.nextElementSibling).toBe(homePrivacy);
+    expect(homePrivacy?.nextElementSibling?.textContent).toContain('Ogni struttura ha le sue priorità');
+    expect(compiled.querySelector('[data-mentorage-title="Ogni struttura ha le sue priorità. Mentorage aiuta a gestirle"]')).toBeTruthy();
     expect(benefits?.querySelector('.wita-benefits-heading__eyebrow')).toBeNull();
     expect(benefitTitles).toEqual(['Monitora', 'Interpreta', 'Avvisa']);
 

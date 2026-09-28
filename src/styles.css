@@ -1084,6 +1084,91 @@ body.wita-product-drawer-open {
 	}
 }
 
+/* Home privacy section */
+.wita-home-privacy {
+	width: min(calc(100% - 8rem), 1400px);
+	margin: 0 auto 7rem;
+	padding: clamp(64px, 8vw, 96px);
+	border: 1px solid rgba(17, 24, 39, 0.08);
+	background: linear-gradient(135deg, #f3fafb 0%, #ffffff 72%);
+	box-shadow: 0 18px 44px rgba(15, 23, 42, 0.05);
+	color: #111827;
+}
+
+.wita-home-privacy__content {
+	display: grid;
+	grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+	gap: clamp(56px, 8vw, 120px);
+	align-items: start;
+}
+
+.wita-home-privacy__title {
+	max-width: 14ch;
+	margin: 0;
+	color: #0f172a;
+	font-size: clamp(2.375rem, 6vw, 2.625rem);
+	font-weight: 500;
+	letter-spacing: -0.02em;
+	line-height: 0.96;
+}
+
+.wita-home-privacy__title::after {
+	content: "";
+	display: block;
+	width: 48px;
+	height: 3px;
+	margin-top: 24px;
+	background: #09acc1;
+}
+
+.wita-home-privacy__copy {
+	max-width: 62ch;
+	color: #5f6978;
+	font-size: 1.125rem;
+	line-height: 1.65;
+}
+
+.wita-home-privacy__copy p {
+	margin: 0;
+}
+
+.wita-home-privacy__copy p + p {
+	margin-top: 22px;
+}
+
+@media (max-width: 1023px) {
+	.wita-home-privacy {
+		width: calc(100% - 2.5rem);
+		margin-bottom: 4rem;
+	}
+
+	.wita-home-privacy__content {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+
+	.wita-home-privacy__title {
+		max-width: 18ch;
+	}
+}
+
+@media (max-width: 599px) {
+	.wita-home-privacy {
+		padding: 52px 24px;
+	}
+
+	.wita-home-privacy__title {
+		max-width: none;
+		font-size: 2.25rem;
+		line-height: 1.02;
+	}
+
+	.wita-home-privacy__copy {
+		font-size: 1rem;
+		line-height: 1.6;
+	}
+}
+
 /* Priority cards carousel */
 [data-priority-carousel] {
 	scroll-behavior: smooth;
@@ -1174,21 +1259,33 @@ html {
 	color: #ffffff;
 }
 
-.wita-hero-copy__eyebrow {
-	margin: 0 0 18px;
-	font-size: 0.8125rem;
+.wita-hero-copy__brand {
+	margin: 0;
+	color: #41c7d6;
+	font-size: clamp(3.75rem, 4.45vw, 5.2rem);
 	font-weight: 500;
-	letter-spacing: 0.035em;
-	line-height: 1.2;
-	text-transform: none;
+	letter-spacing: -0.05em;
+	line-height: 0.94;
 }
 
-.wita-hero-copy h1 {
-	margin: 0;
-	font-size: clamp(3.9rem, 5.25vw, 6rem);
+.wita-hero-copy__brand sup {
+	position: relative;
+	top: 0.14em;
+	display: inline-block;
+	margin-left: 0.08em;
+	font-size: 0.3em;
+	font-weight: 600;
+	letter-spacing: 0;
+	line-height: 1;
+	vertical-align: top;
+}
+
+.wita-hero-copy__payoff {
+	margin: 14px 0 0;
+	font-size: clamp(1.75rem, 2.15vw, 2.5rem);
 	font-weight: 400;
-	letter-spacing: -0.055em;
-	line-height: 0.98;
+	letter-spacing: -0.04em;
+	line-height: 1.08;
 }
 
 .wita-hero-copy__body {
@@ -1376,15 +1473,16 @@ html {
 		color: #102030;
 	}
 
-	.wita-hero-copy__eyebrow {
-		margin-bottom: 16px;
+	.wita-hero-copy__brand {
 		color: #277380;
-		font-size: 0.75rem;
+		font-size: clamp(2.75rem, 13vw, 3.4rem);
+		line-height: 0.96;
 	}
 
-	.wita-hero-copy h1 {
-		font-size: clamp(2.6rem, 12.4vw, 3.35rem);
-		line-height: 0.98;
+	.wita-hero-copy__payoff {
+		margin-top: 10px;
+		font-size: clamp(1.65rem, 7.4vw, 2rem);
+		line-height: 1.06;
 	}
 
 	.wita-hero-copy__body {

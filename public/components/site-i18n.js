@@ -100,6 +100,43 @@ function translateElementAttributes(element) {
   });
 }
 
+function renderMentorageTitle(element) {
+  const source = element.getAttribute("data-mentorage-title");
+  if (!source) return;
+
+  const localized = currentLanguage === "en" ? translate(source, "en") : source;
+  const match = /Mentorage(?:™|TM)?/i.exec(localized);
+  if (!match) {
+    element.textContent = localized;
+    return;
+  }
+
+  const brand = document.createElement("span");
+  brand.className = "mentorage-title-mark";
+  brand.setAttribute("data-i18n-ignore", "");
+  brand.append(document.createTextNode("Mentorage"));
+
+  const trademark = document.createElement("sup");
+  trademark.textContent = "TM";
+  brand.append(trademark);
+
+  element.replaceChildren(
+    document.createTextNode(localized.slice(0, match.index)),
+    brand,
+    document.createTextNode(localized.slice(match.index + match[0].length))
+  );
+}
+
+function renderMentorageTitles(root) {
+  if (root instanceof Element && root.matches("[data-mentorage-title]")) {
+    renderMentorageTitle(root);
+  }
+
+  if ("querySelectorAll" in root) {
+    root.querySelectorAll("[data-mentorage-title]").forEach(renderMentorageTitle);
+  }
+}
+
 function translateTree(root) {
   if (root.nodeType === Node.TEXT_NODE) {
     translateTextNode(root);
@@ -126,6 +163,8 @@ function translateTree(root) {
     const selector = TRANSLATABLE_ATTRIBUTES.map((attribute) => "[" + attribute + "]").join(",");
     root.querySelectorAll(selector).forEach(translateElementAttributes);
   }
+
+  renderMentorageTitles(root);
 }
 
 function translateDocumentMetadata() {

@@ -42,14 +42,14 @@ export class App implements AfterViewInit, OnDestroy {
     const hero = root.querySelector<HTMLElement>('.Pod5Hero_container__NsAaG');
     const mediaCard = hero?.querySelector<HTMLElement>('.wita-hero-media-card');
     const copy = hero?.querySelector<HTMLElement>('.wita-hero-copy');
-    const headline = copy?.querySelector<HTMLElement>('h1');
+    const mediaAnchor = copy?.querySelector<HTMLElement>('.wita-hero-copy__payoff');
 
-    if (!hero || !mediaCard || !copy || !headline) return;
+    if (!hero || !mediaCard || !copy || !mediaAnchor) return;
 
     const mobileQuery = window.matchMedia('(max-width: 760px)');
     const updateMediaPlacement = () => {
       if (mobileQuery.matches) {
-        headline.insertAdjacentElement('afterend', mediaCard);
+        mediaAnchor.insertAdjacentElement('afterend', mediaCard);
       } else {
         hero.insertBefore(mediaCard, copy);
       }

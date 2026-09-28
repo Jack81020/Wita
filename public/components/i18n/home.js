@@ -28,7 +28,7 @@ export default [
   ["Una visione chiara dell'attività nelle stanze, degli eventi ricorrenti e dei bisogni assistenziali. I dati aiutano la struttura a migliorare organizzazione, continuità del servizio e qualità dell'assistenza.", "A clear view of room activity, recurring events and care needs. Data helps facilities improve organization, continuity of service and quality of care."],
   ["Un ecosistema di prodotti e servizi in grado di capire cosa accade e intervenire dove e quando serve.", "An ecosystem of products and services able to understand what is happening and intervene where and when needed."],
   ["Mentorage™ è composto dal sensore intelligente, il portale desktop e l’app mobile.", "Mentorage™ is composed of the smart sensor, the desktop portal and the mobile app."],
-  ["Cosa fa", "What does"],
+  ["Come funziona?", "How does it work?"],
   ["Mentorage è il sistema di monitoraggio ambientale intelligente in grado di rilevare automaticamente situazioni di rischio e informare in tempo reale il personale dedicato.", "Mentorage is the intelligent environmental monitoring system that automatically detects risk situations and informs dedicated care staff in real time."],
   ["Monitora", "Monitors"],
   ["Capisce", "Understands"],

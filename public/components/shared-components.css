@@ -18,6 +18,23 @@ site-footer {
   display: block;
 }
 
+.mentorage-title-mark {
+  color: #41c7d6;
+}
+
+.mentorage-title-mark sup {
+  position: relative;
+  top: -0.15em;
+  display: inline-block;
+  margin-left: 0.08em;
+  color: inherit;
+  font-size: 0.32em;
+  font-weight: inherit;
+  letter-spacing: 0;
+  line-height: 0;
+  vertical-align: super;
+}
+
 video::-webkit-media-controls,
 video::-webkit-media-controls-enclosure,
 video::-webkit-media-controls-panel,
