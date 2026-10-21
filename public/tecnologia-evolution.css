@@ -621,10 +621,21 @@
 
   .technology-understanding {
     gap: 0;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .technology-understanding__media {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    justify-self: stretch;
     aspect-ratio: 16 / 9;
+  }
+
+  .technology-understanding__video {
+    width: 100%;
+    max-width: none;
+    object-position: center center;
   }
 
   .technology-storyline {
